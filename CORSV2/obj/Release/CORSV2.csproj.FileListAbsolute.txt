@@ -1,0 +1,12 @@
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\CORSV2.dll.config
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\CORSV2.dll
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\CORSV2.pdb
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\DAL.dll
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\DBUtility.dll
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\Model.dll
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\DAL.pdb
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\DBUtility.pdb
+D:\代码集合\CORS新平台\CORSV2\CORSV2\bin\Model.pdb
+D:\代码集合\CORS新平台\CORSV2\CORSV2\obj\Release\CORSV2.csprojResolveAssemblyReference.cache
+D:\代码集合\CORS新平台\CORSV2\CORSV2\obj\Release\CORSV2.dll
+D:\代码集合\CORS新平台\CORSV2\CORSV2\obj\Release\CORSV2.pdb

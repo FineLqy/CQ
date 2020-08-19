@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\xcbd\Desktop\aaa</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="about.aspx">
+      <publishTime>08/01/2019 16:24:02</publishTime>
+    </File>
+    <File Include="bin/DAL.dll">
+      <publishTime>08/06/2019 16:36:24</publishTime>
+    </File>
+    <File Include="bin/DBUtility.dll">
+      <publishTime>08/01/2019 16:13:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Model.dll">
+      <publishTime>08/01/2019 16:13:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/WebGNSS.dll">
+      <publishTime>08/06/2019 16:36:27</publishTime>
+    </File>
+    <File Include="contact.aspx">
+      <publishTime>08/01/2019 16:24:02</publishTime>
+    </File>
+    <File Include="css/animation.css">
+      <publishTime>07/15/2019 14:35:25</publishTime>
+    </File>
+    <File Include="css/goodteacher.css">
+      <publishTime>07/24/2019 10:00:20</publishTime>
+    </File>
+    <File Include="css/reset.css">
+      <publishTime>07/15/2019 14:35:10</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>08/05/2019 10:59:39</publishTime>
+    </File>
+    <File Include="css/styleNews.css">
+      <publishTime>07/25/2019 15:32:52</publishTime>
+    </File>
+    <File Include="css/swiper.css">
+      <publishTime>07/15/2019 14:35:16</publishTime>
+    </File>
+    <File Include="images/1.png">
+      <publishTime>07/24/2019 10:47:47</publishTime>
+    </File>
+    <File Include="images/20190725173506.png">
+      <publishTime>07/25/2019 17:35:25</publishTime>
+    </File>
+    <File Include="images/3.png">
+      <publishTime>07/24/2019 10:47:47</publishTime>
+    </File>
+    <File Include="images/6.png">
+      <publishTime>07/24/2019 10:47:47</publishTime>
+    </File>
+    <File Include="images/7.png">
+      <publishTime>07/24/2019 10:47:47</publishTime>
+    </File>
+    <File Include="images/8.png">
+      <publishTime>07/24/2019 10:47:47</publishTime>
+    </File>
+    <File Include="images/arrowhead.png">
+      <publishTime>07/24/2019 09:54:09</publishTime>
+    </File>
+    <File Include="images/btn_l.png">
+      <publishTime>07/15/2019 14:53:29</publishTime>
+    </File>
+    <File Include="images/btn_r.png">
+      <publishTime>07/15/2019 14:54:07</publishTime>
+    </File>
+    <File Include="images/ico-hd.png">
+      <publishTime>07/15/2019 14:54:24</publishTime>
+    </File>
+    <File Include="images/ico1.png">
+      <publishTime>07/15/2019 14:54:37</publishTime>
+    </File>
+    <File Include="images/icons.png">
+      <publishTime>07/15/2019 14:54:47</publishTime>
+    </File>
+    <File Include="images/ico_img.gif">
+      <publishTime>07/25/2019 17:34:04</publishTime>
+    </File>
+    <File Include="images/line.jpg">
+      <publishTime>07/15/2019 14:54:58</publishTime>
+    </File>
+    <File Include="images/map.png">
+      <publishTime>07/15/2019 14:55:14</publishTime>
+    </File>
+    <File Include="images/mobile.png">
+      <publishTime>07/15/2019 14:55:24</publishTime>
+    </File>
+    <File Include="images/poster.jpg">
+      <publishTime>07/15/2019 14:55:39</publishTime>
+    </File>
+    <File Include="images/product-bg.jpg">
+      <publishTime>07/15/2019 14:55:49</publishTime>
+    </File>
+    <File Include="images/qrcode.png">
+      <publishTime>07/23/2019 11:06:56</publishTime>
+    </File>
+    <File Include="images/text.png">
+      <publishTime>07/15/2019 14:55:58</publishTime>
+    </File>
+    <File Include="Index.aspx">
+      <publishTime>08/05/2019 11:53:16</publishTime>
+    </File>
+    <File Include="js/index-banner.js">
+      <publishTime>07/15/2019 14:41:13</publishTime>
+    </File>
+    <File Include="js/index.js">
+      <publishTime>07/15/2019 14:41:06</publishTime>
+    </File>
+    <File Include="js/index2.js">
+      <publishTime>07/15/2019 14:41:17</publishTime>
+    </File>
+    <File Include="js/jquery.carousel.js">
+      <publishTime>07/15/2019 14:40:36</publishTime>
+    </File>
+    <File Include="js/jquery.min.js">
+      <publishTime>07/15/2019 14:40:22</publishTime>
+    </File>
+    <File Include="js/jwplayer.js">
+      <publishTime>07/15/2019 14:40:36</publishTime>
+    </File>
+    <File Include="js/jwpsrv.js">
+      <publishTime>07/15/2019 14:40:46</publishTime>
+    </File>
+    <File Include="js/mySingleScroll.js">
+      <publishTime>07/24/2019 10:31:08</publishTime>
+    </File>
+    <File Include="js/swiper.js">
+      <publishTime>07/15/2019 14:40:32</publishTime>
+    </File>
+    <File Include="news.aspx">
+      <publishTime>08/05/2019 14:47:59</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/12/2019 17:27:29</publishTime>
+    </File>
+    <File Include="picture/00159.jpg">
+      <publishTime>07/15/2019 16:42:09</publishTime>
+    </File>
+    <File Include="picture/20190716112802.png">
+      <publishTime>07/29/2019 15:46:40</publishTime>
+    </File>
+    <File Include="picture/apic9115.jpg">
+      <publishTime>07/15/2019 16:43:34</publishTime>
+    </File>
+    <File Include="picture/banner.jpg">
+      <publishTime>07/15/2019 10:02:59</publishTime>
+    </File>
+    <File Include="picture/erweima.jpg">
+      <publishTime>07/15/2019 14:39:33</publishTime>
+    </File>
+    <File Include="picture/ft-logo.png">
+      <publishTime>07/15/2019 14:39:27</publishTime>
+    </File>
+    <File Include="picture/iabout.jpg">
+      <publishTime>07/15/2019 14:38:09</publishTime>
+    </File>
+    <File Include="picture/logo.jpg">
+      <publishTime>07/16/2019 11:21:09</publishTime>
+    </File>
+    <File Include="picture/p1.png">
+      <publishTime>07/16/2019 12:18:18</publishTime>
+    </File>
+    <File Include="picture/product1.jpg">
+      <publishTime>07/15/2019 14:39:00</publishTime>
+    </File>
+    <File Include="picture/product2.jpg">
+      <publishTime>07/15/2019 14:39:04</publishTime>
+    </File>
+    <File Include="picture/product3.jpg">
+      <publishTime>07/15/2019 14:59:31</publishTime>
+    </File>
+    <File Include="picture/RT.png">
+      <publishTime>07/22/2019 10:56:30</publishTime>
+    </File>
+    <File Include="picture/sico1.png">
+      <publishTime>07/15/2019 14:38:18</publishTime>
+    </File>
+    <File Include="picture/sico2.png">
+      <publishTime>07/15/2019 14:38:24</publishTime>
+    </File>
+    <File Include="picture/sico3.png">
+      <publishTime>07/15/2019 14:38:29</publishTime>
+    </File>
+    <File Include="picture/sico4.png">
+      <publishTime>07/15/2019 14:38:33</publishTime>
+    </File>
+    <File Include="picture/solution-bg.png">
+      <publishTime>07/15/2019 14:38:38</publishTime>
+    </File>
+    <File Include="picture/solution.jpg">
+      <publishTime>07/15/2019 14:38:46</publishTime>
+    </File>
+    <File Include="picture/strategy1.jpg">
+      <publishTime>07/15/2019 14:37:56</publishTime>
+    </File>
+    <File Include="picture/t1.jpg">
+      <publishTime>07/16/2019 09:16:34</publishTime>
+    </File>
+    <File Include="picture/t2.jpg">
+      <publishTime>07/16/2019 09:16:34</publishTime>
+    </File>
+    <File Include="picture/t3.jpg">
+      <publishTime>07/16/2019 09:16:34</publishTime>
+    </File>
+    <File Include="picture/t4.jpg">
+      <publishTime>07/16/2019 09:16:34</publishTime>
+    </File>
+    <File Include="picture/t5.jpg">
+      <publishTime>07/16/2019 09:16:34</publishTime>
+    </File>
+    <File Include="picture/t6.png">
+      <publishTime>07/16/2019 09:19:15</publishTime>
+    </File>
+    <File Include="picture/timg.jpg">
+      <publishTime>07/23/2019 17:30:44</publishTime>
+    </File>
+    <File Include="picture/zz.jpg">
+      <publishTime>07/16/2019 12:25:08</publishTime>
+    </File>
+    <File Include="picture/北斗2.jfif">
+      <publishTime>07/15/2019 16:35:34</publishTime>
+    </File>
+    <File Include="picture/卫星1.jpeg">
+      <publishTime>07/15/2019 16:51:35</publishTime>
+    </File>
+    <File Include="picture/图片1.png">
+      <publishTime>07/15/2019 15:14:21</publishTime>
+    </File>
+    <File Include="picture/图片2.png">
+      <publishTime>07/15/2019 15:14:41</publishTime>
+    </File>
+    <File Include="picture/图片3.png">
+      <publishTime>07/15/2019 15:14:54</publishTime>
+    </File>
+    <File Include="product.aspx">
+      <publishTime>08/01/2019 16:24:02</publishTime>
+    </File>
+    <File Include="solution.aspx">
+      <publishTime>07/25/2019 17:40:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>08/06/2019 16:36:27</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>08/05/2019 11:58:12</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

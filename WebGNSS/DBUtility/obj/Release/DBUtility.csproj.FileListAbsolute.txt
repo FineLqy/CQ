@@ -1,0 +1,7 @@
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Release\DBUtility.dll
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Release\DBUtility.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Release\Model.dll
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Release\Model.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\obj\Release\DBUtility.csprojResolveAssemblyReference.cache
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\obj\Release\DBUtility.dll
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\obj\Release\DBUtility.pdb

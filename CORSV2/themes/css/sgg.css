@@ -1,0 +1,450 @@
+﻿.navbar{
+	/*background-color: #2d363f;*/
+	font-family: "微软雅黑",'Microsoft Yahei','Hiragino Sans GB',tahoma,arial,"宋体";
+	font-size:1.5em;
+	min-height:70px; /*navbar height*/
+}
+#navbar > ul > li
+{
+	height: 70px;/*navbar height*/
+}
+.navbar-brand
+{
+	height:70px ;/*navbar height*/
+	font-size: 25px;
+}
+.top-navigation .nav > li.active
+{
+	background: #333;
+}
+.top-navigation .nav > li > a {
+	color:#fff;
+    padding: 15px 20px;
+    height:100%;
+    font-size:25px;
+    padding:20px 30px;
+}
+.nav > li > a {
+    font-weight: 100;
+}
+.nav > li a:focus {
+    background: #2d363f !important;
+
+}
+.top-navigation .nav > li a:hover, .top-navigation .nav > li a:hover {
+    background: #333;
+    color: #1ab394;
+}
+
+.right
+{
+	float: right;
+}
+
+.navbar-header {
+    width: 30%;
+}
+
+.top-navigation .nav > li .active {
+	background: #282f36;
+
+}
+#page-wrapper {
+    padding: 0 0px;
+    position: inherit;
+    margin: 0 0 0 220px;
+}
+
+.dropd:hover ul
+{
+	display:block;
+	/*
+	transition: height 1s;
+	-moz-transition: height 1s;	
+	-webkit-transition: height 1s；
+	-o-transition: height 1s;*/
+}
+.nav li ul
+{
+	display: none;
+	width:100%;
+	padding-left:20px;
+	overflow: hidden;
+	background-color: #333;
+	position:absolute;
+	top: 69px;/*navbar height*/
+	z-index:9999999;
+}
+.nav li ul li
+{
+	list-style: none;
+	float:none;
+}
+.nav li ul li a 
+{
+	text-decoration: none;
+	color:white;
+	font-weight: 100;
+	font-size:20px;
+	margin:5px;
+}
+ #mapDiv
+    {
+        width: 100%;
+        height:100%;
+        margin: 0;
+        font-family: "微软雅黑";
+        background-color: #fff;
+        color: #101010;
+    }
+
+.main-map
+{
+	width:80%;
+	float: right;
+    padding-left: 2px;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+
+}
+ /*
+#piechart {
+background-color:transparent;
+    width:200px;
+    height:200px;
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    z-index: 999;
+}*/
+.slide
+{
+	width:600px;
+	height:500px;
+	margin:0 auto;
+	overflow: hidden;
+}
+
+.img-responsive
+{
+	width:400px;
+	height:300px !important;
+	margin:0px auto;
+}
+.carousel-caption-sgg
+{
+	position:relative;
+	margin:10px auto;
+	left:35%;
+}
+/*
+.basicinfo
+{
+	position: absolute;
+	width:250px;
+	height:30px;
+	left:10px;
+	bottom:100px;
+	overflow: hidden;
+	z-index:999;
+	background-color: #ffc;
+	box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+    -webkit-transition: -webkit-transform 0.15s linear;
+    transition: height 1s;
+	-moz-transition: height 1s;	
+	-webkit-transition: height 1s;	
+	-o-transition: height 1s;
+}
+.basicinfo:hover
+{
+	height:300px;
+	transition: height 1s;
+	-moz-transition: height 1s;	
+	-webkit-transition: height 1s;	
+	-o-transition: height 1s;
+}*/
+.basicinfo
+{
+	position: absolute;
+	width:250px;
+	height:auto;
+	left:10px;
+	bottom:100px;
+	overflow: hidden;
+	z-index:999;
+	background-color: #ffc;
+	box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+    -webkit-transition: -webkit-transform 0.15s linear;
+}
+.bottomfooter
+{
+	width:100%;
+	height:60px;
+	overflow: hidden;
+	background-color: rgb(245, 245, 245);
+    border-top: 1px solid rgb(133, 149, 166);
+	text-align: center;
+	padding-top: 15px;
+}
+.body
+{
+	overflow-y:hidden;
+}
+div .panel-heading
+{
+	text-align: left;
+
+}
+div.panel-body
+{
+	padding-top: 0px;
+}
+#platform img
+{
+	z-index: 9;
+}
+#platform
+{
+	position: relative !important;
+}
+.search-station
+{
+    position: absolute;
+    right: 1%;
+    top: 150px;
+    padding-top: 20px;
+    z-index: 999;
+}
+#t_overlaysDiv > div:nth-child(12) > div:nth-child(2)
+{
+	-moz-border-radius: 8px; 
+    -webkit-border-radius: 8px;
+}
+
+.infoheader
+{
+	text-align: center;
+}
+.main-map
+{
+	display: none;
+}
+.before-map {
+width:80%;
+float:right;
+}
+/*地图加载前显示的加载动画*/
+.before-map .progress-bar-default
+{
+	width:40%;
+	position:absolute;
+	left:40%;
+	top:50%;
+}
+#loading
+{
+	width:40%;
+	position:absolute;
+	left:40%;
+	top:40%;
+	text-align: center;
+}
+
+/*页脚小二维码图片*/
+#qrsmall
+{
+	padding-top:0px;
+	margin-left:15px;
+}
+
+/*lay层 江苏省CORS群弹出框样式*/
+.layui-layer-title
+{
+	background-color: #1c84c6 !important;
+	color:white !important;
+}
+.layui-layer-rim
+{
+	top:15% !important;
+	left:40% !important;
+}
+.slide-bar
+{
+    
+	width:20%;
+	/*background:url(../images/slide-bg.jpg) #3a4134 0 0 no-repeat; */
+    background-color: rgb(245, 245, 245);
+    background-size:100%;
+    overflow:scroll;
+	height:auto;
+	float: left;
+    box-shadow: 2px 2px 3px #aaaaaa;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+	
+}
+
+.sidebar-toggle-btn
+{
+background-attachment:scroll;
+background-clip:border-box;
+background-color:rgba(0, 0, 0, 0);
+background-image:url("../images/slide-btn.png");
+background-origin:padding-box;
+background-position:0px 0px;
+background-size:auto;
+box-sizing:border-box;
+color:rgb(51, 51, 51);
+cursor:auto;
+display:block;
+font-family:STHeiti, "Microsoft YaHei", "Helvetica Neue", Helvetica, SimSun, STSong, Arial, sans-serif;
+font-size:12px;
+font-style:normal;
+font-weight:normal;
+height:76px;
+line-height:18px;
+outline-color:rgb(51, 51, 51);
+outline-style:none;
+outline-width:0px;
+padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+padding-top:0px;
+position:absolute;
+left:20%;
+z-index:999;
+text-decoration:none;
+top:406.818px;
+transition-delay:0s, 0s, 0s, 0s;
+transition-duration:0.2s, 0.2s, 0.2s, 0.2s;
+transition-property:color, background-color, border-color, opacity;
+transition-timing-function:ease-out, ease-out, ease-out, ease-out;
+vertical-align:baseline;
+width:21px;
+transition: left 0.5s;
+	-moz-transition: left 0.5s;	/* Firefox 4 */
+	-webkit-transition: left 0.5s;	/* Safari 和 Chrome */
+	-o-transition: left 0.5s;
+}
+
+.sidebar-toggle-btn:hover
+{
+	/*background-position: -179px 0; */
+}
+.slide-get-in
+{
+	background-position: -149px 0 !important;
+	left: 0%;
+	transition: left 0.5s;
+	-moz-transition: left 0.5s;	/* Firefox 4 */
+	-webkit-transition: left 0.5s;	/* Safari 和 Chrome */
+	-o-transition: left 0.5s;
+}
+.slide-bar-in
+{
+	width:0%;
+    background-size:auto;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+}
+.main-map-big
+{
+	width:100%;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+}
+.slide-panel
+{
+	width:80%;
+	margin-left:10%;
+    height:25%;
+	
+}
+
+.searchBtn
+{
+	z-index:55564;
+	float:left;
+}
+#initial_location
+{
+	width:64.5px;
+	height: 64.5px;
+	background-image:url("../images/location_init.png");
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+#info_in_the_map
+{
+	width:400px;
+	height:auto;
+    top:200px;
+}
+
+#mapDiv > div:nth-child(5)
+{
+	width:220px;
+}
+.dropdown{
+    text-align:center;
+}
+.nav-header {
+    background-size: 100%;
+}
+.panel{
+    margin-bottom:10px;
+}
+.news {
+    margin-top:15px;
+    padding-left:3px;
+}
+.news li {
+list-style:none;
+background: url(../images/li.png) 0px 4px no-repeat;
+padding-left:20px;
+width:100%;
+font-size:13px;
+display:block;
+line-height:2em;
+/*white-space: nowrap;
+    text-overflow: ellipsis;
+    */
+}
+.news a{
+    display: block;
+    color: #000000;
+    text-overflow: ellipsis;
+    width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.news .date {
+        color: #aaa;
+        float:right;
+    }
+a{
+    cursor:pointer;
+}
+.panel-heading a{
+    color: #999c9e;
+}
+
+.panel-heading a:hover{
+    
+}
+.panel-heading{
+    font-weight:500;
+}
+.plustool
+{
+    float:right;
+}

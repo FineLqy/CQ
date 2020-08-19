@@ -1,0 +1,9 @@
+C:\Users\xcbd\Desktop\WebGNSS\DAL\bin\Release\DAL.dll
+C:\Users\xcbd\Desktop\WebGNSS\DAL\bin\Release\DAL.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DAL\bin\Release\DBUtility.dll
+C:\Users\xcbd\Desktop\WebGNSS\DAL\bin\Release\Model.dll
+C:\Users\xcbd\Desktop\WebGNSS\DAL\bin\Release\DBUtility.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DAL\bin\Release\Model.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\xcbd\Desktop\WebGNSS\DAL\obj\Release\DAL.dll
+C:\Users\xcbd\Desktop\WebGNSS\DAL\obj\Release\DAL.pdb

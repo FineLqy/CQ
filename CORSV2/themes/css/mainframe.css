@@ -1,0 +1,176 @@
+﻿iframe {
+border-width:0px;
+}
+
+.top {
+    width:100%;
+}
+.right {
+    float:left;
+    width:84%;
+}
+.slide-bar
+{
+    
+	width:16%;
+	/*background:url(../images/slide-bg.jpg) #3a4134 0 0 no-repeat; */
+    background-color: rgb(245, 245, 245);
+    background-size:100%;
+    overflow:hidden;
+	height:auto;
+	float: left;
+    box-shadow: 2px 2px 3px #aaaaaa;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+	
+}
+
+
+
+.sidebar-toggle-btn
+{
+background-attachment:scroll;
+background-clip:border-box;
+background-color:rgba(0, 0, 0, 0);
+background-image:url("../images/slide-btn.png");
+background-origin:padding-box;
+background-position:0px 0px;
+background-size:auto;
+box-sizing:border-box;
+color:rgb(51, 51, 51);
+cursor:auto;
+display:block;
+font-family:STHeiti, "Microsoft YaHei", "Helvetica Neue", Helvetica, SimSun, STSong, Arial, sans-serif;
+font-size:12px;
+font-style:normal;
+font-weight:normal;
+height:76px;
+line-height:18px;
+outline-color:rgb(51, 51, 51);
+outline-style:none;
+outline-width:0px;
+padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+padding-top:0px;
+position:absolute;
+left:16%;
+z-index:999;
+text-decoration:none;
+top:406.818px;
+transition-delay:0s, 0s, 0s, 0s;
+transition-duration:0.2s, 0.2s, 0.2s, 0.2s;
+transition-property:color, background-color, border-color, opacity;
+transition-timing-function:ease-out, ease-out, ease-out, ease-out;
+vertical-align:baseline;
+width:17px;
+transition: left 0.5s;
+	-moz-transition: left 0.5s;	/* Firefox 4 */
+	-webkit-transition: left 0.5s;	/* Safari 和 Chrome */
+	-o-transition: left 0.5s;
+}
+
+
+.slide-get-in
+{
+	background-position: -149px 0 !important;
+	left: 0%;
+    
+	transition: left 0.5s;
+	-moz-transition: left 0.5s;	/* Firefox 4 */
+	-webkit-transition: left 0.5s;	/* Safari 和 Chrome */
+	-o-transition: left 0.5s;
+}
+
+
+
+.slide-bar-in
+{
+	width:0%;
+    background-size:auto;
+	transition: width 0.5s !important;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+}
+
+
+.right {
+    width:84% !important;
+	float: right;
+    padding-left: 2px;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+}
+
+.right-big {
+	width:100% !important;
+	transition: width 0.5s;
+	-moz-transition: width 0.5s;	/* Firefox 4 */
+	-webkit-transition: width 0.5s;	/* Safari 和 Chrome */
+	-o-transition: width 0.5s;
+}
+
+.panel .panel-heading  a span{
+    float:right;
+}
+.slide-body {
+padding-top:0% !important;
+}
+.panel-body ul {
+padding-left:0px;
+margin-bottom:0px;
+}
+.panel-body ul li {
+    list-style:none;
+    border-bottom:1px solid #eee;
+}
+    .panel-body ul li:hover {
+    background-color:#eee;
+    cursor:pointer;
+    }
+.panel-body ul li a {
+    color:black;
+    display:block;
+     padding-top: 7px;
+    padding-bottom:10px;
+    padding-left: 35px;
+}
+.panel-body {
+padding:0px;
+}
+a {
+color:#090909;
+}
+
+.fancybox {
+    display: block;
+    height: 400px;
+    float: left;
+    margin: 50px;
+    width: 400px;
+    text-align:center;
+}
+.fancybox img{
+    height:95%;
+    width:90%;
+}
+.productImg{
+    margin-left:100px;
+}
+
+.slide-body .panel-title{
+    font-size:16px;
+    color:#252222;
+    font-weight:500;
+     font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu
+}
+.slide-body .panel-title .glyphicon{
+    color:rgb(153,156,158) !important;
+}
+.img-thumbnail{display:inline-block;max-width:100%;height:auto;padding:4px;line-height:1.42857143;
+                  background-color:#FFF;border:1px solid #DDD;border-radius:4px;transition:all 0.2s ease-in-out;}

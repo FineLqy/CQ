@@ -1,0 +1,14 @@
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Debug\DBUtility.dll
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Debug\DBUtility.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Debug\Model.dll
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\bin\Debug\Model.pdb
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\obj\Debug\DBUtility.dll
+C:\Users\xcbd\Desktop\WebGNSS\DBUtility\obj\Debug\DBUtility.pdb
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\bin\Debug\DBUtility.dll
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\bin\Debug\DBUtility.pdb
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\bin\Debug\Model.dll
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\bin\Debug\Model.pdb
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\obj\Debug\DBUtility.dll
+D:\代码集合\重庆\CORSV2\WebGNSS\DBUtility\obj\Debug\DBUtility.pdb
