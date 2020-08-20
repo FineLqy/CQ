@@ -467,9 +467,10 @@
                                         </div>
                                     </li>
                                 </ul>
-                                </div>
-                                <div style="width:50%;float:left;margin-top:30px">
-                                   <input id="InputText1" npropertychange="check()" oninput="check()" required="required"   />
+                                </div >
+                                <div id="showDiv" style="width:50%;float:left;margin-top:30px">
+
+                                   <input id="InputText1" npropertychange="check(1)" oninput="check(1)" required="required"  placeholder="请输入用户名"   /><span id="msg1" style="color:red"></span>
                                 </div>
                             </div>
                            
@@ -639,25 +640,7 @@
 
 
 
-    <script>
-                //检查输入信息是否合法
-        function check() {
-            var user = document.getElementById("username");
-            var username = user.value.trim();
-            $.get("?action=check&&data=" + username.trim(), function (result) {
-                if (result == "1") {
-                    var cm = document.getElementById("ts");
-                    cm.innerText = ""
-                }
-                else {
-                    var cm = document.getElementById("ts");
-                    cm.innerText = "用户名不可用"
-                    user.focus();
-                    return;
-                }
-            })
-        }
-    </script>
+
     
     <script>
         function change() {
@@ -719,6 +702,12 @@
                 time1 = $(".b-item1").attr("data-value");
                 var tempPrice1 = apply_num1 * time1/12 * 1000;
                 $('#price1').val(tempPrice1);
+                var id = ('inputText') + apply_num1;
+                console.log(id)
+                $('#showDiv').append('<div id=\"d' + apply_num1 + '"><input id=\"inputText' + apply_num1 + '" placeholder="\请输入用户名\"  npropertychange=\"check('+apply_num1+')\" oninput=\"check('+apply_num1+')\" /><span id="\msg' + apply_num1 + '" style=\"color:red"></span></div>')
+               
+                   var username = $('#inputText1').val();
+            console.log(username)
             }
 
         })
@@ -729,6 +718,7 @@
                 time1 = $(".b-item1").attr("data-value");
                 var tempPrice1 = apply_num1 * time1/12 * 1000;
                 $('#price1').val(tempPrice1);
+                $("#d" + Number(apply_num1 + 1)).remove();
             }
         })
 
@@ -776,7 +766,24 @@
 
 
 
-
+        <script>
+                //检查输入信息是否合法
+            function check(index) {
+                console.log(index)
+                var username = $('#inputText') + index.val();
+               
+            console.log(username)
+            $.get("?action=check&&data=" + username.trim(), function (result) {
+                if (result == "1") {
+                   
+                }
+                else {
+                   
+                    return;
+                }
+            })
+        }
+    </script>
 
 
 

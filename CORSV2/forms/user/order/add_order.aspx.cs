@@ -25,7 +25,7 @@ namespace CORSV2.forms.user.order
                
 
             }
-            if (Request["action"].ToString() == "check")
+            if (Request["action"] == "check")
             {
                 string username = Request["data"].ToString();
                 DAL.RegisterUser du = new DAL.RegisterUser();

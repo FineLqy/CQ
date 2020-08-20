@@ -216,3 +216,15 @@ D:\项目\重庆\CQCORSV2\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\项目\重庆\CQCORSV2\Model\obj\Debug\Model.csproj.CopyComplete
 D:\项目\重庆\CQCORSV2\Model\obj\Debug\Model.dll
 D:\项目\重庆\CQCORSV2\Model\obj\Debug\Model.pdb
+D:\项目\重庆\CQ\Model\bin\Debug\Model.dll
+D:\项目\重庆\CQ\Model\bin\Debug\Model.pdb
+D:\项目\重庆\CQ\Model\bin\Debug\DBUtility.dll
+D:\项目\重庆\CQ\Model\bin\Debug\Newtonsoft.Json.dll
+D:\项目\重庆\CQ\Model\bin\Debug\qcloudsms_csharp.dll
+D:\项目\重庆\CQ\Model\bin\Debug\DBUtility.pdb
+D:\项目\重庆\CQ\Model\bin\Debug\Newtonsoft.Json.xml
+D:\项目\重庆\CQ\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\项目\重庆\CQ\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\项目\重庆\CQ\Model\obj\Debug\Model.csproj.CopyComplete
+D:\项目\重庆\CQ\Model\obj\Debug\Model.dll
+D:\项目\重庆\CQ\Model\obj\Debug\Model.pdb
