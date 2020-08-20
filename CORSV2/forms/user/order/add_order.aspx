@@ -741,16 +741,38 @@
                 var usernames = [];
                 console.info(apply_num1);
                 for (var i = 1; i < apply_num1 + 1; i++) {
-                    usernames[i-1] = $('#inputText' + i).val();
+               
+                         usernames[i - 1] = $('#inputText' + i).val();
+                    
+                  
+                   
+
                   
                 }
+                 usernames.sort();  //数组排序
+                var reNum = 0;  //返回结果
+                for (var i = 0; i < usernames.length; i++) {
+                    if (i + 1 == usernames.length)
+                    {
+                    continue;
+                    }                            
+                     //判断相邻的元素是否相同
+                    if (usernames[i] == usernames[i + 1])
+                    {
+                        reNum += 1;
+                        if (reNum > 0) {
+                            alert('不能输入重复的用户名！')
+
+                        }
+                    }      
+                }
                  
+
                
-                 console.log(usernames);
       
                  $.ajax({
                     type: 'POST',
-                    url: "?action=order",
+                    url: "?action=order1",
                     data: {
                         time1: time1,
                         servertype1: servertype1,

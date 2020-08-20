@@ -66,6 +66,7 @@
     <Compile Include="CoorTransRec.cs" />
     <Compile Include="CORSStationInfo.cs" />
     <Compile Include="DataCenter.cs" />
+    <Compile Include="DeUserInfo.cs" />
     <Compile Include="EquipmentInfo.cs" />
     <Compile Include="EquipReviceRecord.cs" />
     <Compile Include="ErrorRTKRecord.cs" />

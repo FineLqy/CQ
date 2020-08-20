@@ -143,7 +143,7 @@ namespace CORSV2.forms.user.order
                 Model.RegisterUser RegisterUser = DAL.RegisterUser.GetModel(Session["UserName"].ToString());
                 Model.CompanyInfo companyInfo = DAL.CompanyInfo.GetModel(Convert.ToInt32(RegisterUser.CertifiationIndex));
                 orderlist.company = companyInfo.Company;
-                orderlist.OrdeType = 0;
+                orderlist.OrdeType = 3;
 
                 orderlist.Price = Request["price1"].ToString();
                 if (Select3.Value == "是")
@@ -173,7 +173,7 @@ namespace CORSV2.forms.user.order
 
 
 
-                string[] otherserver = Request["otherserver"].ToString().Split(',');
+                string[] otherserver = Request["otherserver1"].ToString().Split(',');
                 if (Array.IndexOf(otherserver, "CoorTransEnable") != -1)
                 {
                     orderlist.CoorSystemEnable = 1;
@@ -191,16 +191,21 @@ namespace CORSV2.forms.user.order
                     orderlist.ObsQualityEnable = 1;
                 }
 
-                string[] sys = Request["username"].ToString().Split(',');
+                string[] sys = Request["username1"].ToString().Split(',');
                
-                foreach (string s in sys)
-                {
-                    string ss = s;
-                }
+            
 
 
                 if (DAL.OrderList.Add(orderlist))
                 {
+                    foreach (string s in sys)
+                    {
+                        Model.DeUserInfo deUserInfo = new Model.DeUserInfo();
+                        deUserInfo.UserNme = s;
+                        deUserInfo.UserPwd = AES_Key.AESEncrypt(s, s.PadLeft(16, '0'));
+                        deUserInfo.OrderNumber = orderlist.OrderNumber;
+                        DAL.DeUserInfo.Add(deUserInfo);
+                    }
                     Response.Write(orderlist.OrderNumber);
 
                     //Model.SysLog syslog = new Model.SysLog();
