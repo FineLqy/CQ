@@ -470,7 +470,7 @@
                                 </div >
                                 <div id="showDiv" style="width:50%;float:left;margin-top:30px">
 
-                                   <input id="InputText1" npropertychange="check(1)" oninput="check(1)" required="required"  placeholder="请输入用户名"   /><span id="msg1" style="color:red"></span>
+                                   <input id="inputText1" npropertychange="check(1)" oninput="check(1)" required="required"  placeholder="请输入用户名"   /><span id="msg1" style="color:red"></span>
                                 </div>
                             </div>
                            
@@ -605,7 +605,7 @@
                         otherserver.push($(this).attr("data-value"));      //如果是其他标签 用 html();
                     }
                 });
-                $('#order_form').ajaxSubmit({
+               $.ajax({
                     type: 'POST',
                     url: "?action=order",
                     data: {
@@ -702,12 +702,11 @@
                 time1 = $(".b-item1").attr("data-value");
                 var tempPrice1 = apply_num1 * time1/12 * 1000;
                 $('#price1').val(tempPrice1);
-                var id = ('inputText') + apply_num1;
-                console.log(id)
+                
+                
                 $('#showDiv').append('<div id=\"d' + apply_num1 + '"><input id=\"inputText' + apply_num1 + '" placeholder="\请输入用户名\"  npropertychange=\"check('+apply_num1+')\" oninput=\"check('+apply_num1+')\" /><span id="\msg' + apply_num1 + '" style=\"color:red"></span></div>')
                
-                   var username = $('#inputText1').val();
-            console.log(username)
+  
             }
 
         })
@@ -725,8 +724,8 @@
     </script>
     <script>
         $('#liteBuySubmit1').click(function () {
-            
-            if ($(".b-item1").val()==1||time==1) {
+
+            if ($(".b-item1").val()==1||time1==1) {
                 alert("请选择购买时长！");
             }
             else {
@@ -737,7 +736,19 @@
                         otherserver.push($(this).attr("data-value"));      //如果是其他标签 用 html();
                     }
                 });
-                $('#order_form').ajaxSubmit({
+                var username1 = "";
+                console.info($('#inputText1').val());
+                var usernames = [];
+                console.info(apply_num1);
+                for (var i = 1; i < apply_num1 + 1; i++) {
+                    usernames[i-1] = $('#inputText' + i).val();
+                  
+                }
+                 
+               
+                 console.log(usernames);
+      
+                 $.ajax({
                     type: 'POST',
                     url: "?action=order",
                     data: {
@@ -745,7 +756,8 @@
                         servertype1: servertype1,
                         applynum1: apply_num1,
                         price1: price1,
-                        otherserver1: otherserver1.join(',')//转换成字符串
+                        otherserver1: otherserver1.join(','),//转换成字符串
+                        username1:usernames.join(',')
                     },
                     traditional: true,//防止深度序列化
                     success: function (data) {
@@ -770,15 +782,22 @@
                 //检查输入信息是否合法
             function check(index) {
                 console.log(index)
-                var username = $('#inputText') + index.val();
+                console.log($('#msg' + index))
+                console.log(('#inputText' + index))
+             
+                var username = $('#inputText' + index).val();
                
             console.log(username)
             $.get("?action=check&&data=" + username.trim(), function (result) {
                 if (result == "1") {
-                   
+                    $('#msg' + index).text('');
+
+                    
                 }
                 else {
-                   
+
+                    $('#msg' + index).text('用户名不可用');
+                    console.log($('#msg' + index))
                     return;
                 }
             })
