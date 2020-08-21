@@ -79,7 +79,7 @@ namespace CORSV2.forms.administrator.order
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                
-                if (dr["Type"].ToString().Trim() == "0")
+                if (dr["Type"].ToString().Trim() == "0"|| dr["OrdeType"].ToString() == "3")
                 {
                     dr["deType"] = "申请";
                 }

@@ -223,7 +223,7 @@ namespace CORSV2.forms.user.order
             
 ;            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                if (dr["OrdeType"].ToString()=="0")
+                if (dr["OrdeType"].ToString()=="0"|| dr["OrdeType"].ToString() == "3")
                 {
                     dr["deOrderType"] = "账号申请";
                 }

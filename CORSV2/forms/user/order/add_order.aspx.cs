@@ -30,7 +30,7 @@ namespace CORSV2.forms.user.order
             {
                 string username = Request["data"].ToString();
                 DAL.RegisterUser du = new DAL.RegisterUser();
-                if (DAL.RTKUserInfo.GetModel(username) == null && DAL.RegisterUser.GetModel(username) == null)
+                if (DAL.RTKUserInfo.GetModel(username) == null && DAL.RegisterUser.GetModel(username) == null&& DAL.DeUserInfo.GetModel(username) == null)
                 {
                     Response.Clear();
                     Response.Write("1");
@@ -144,7 +144,7 @@ namespace CORSV2.forms.user.order
                 Model.CompanyInfo companyInfo = DAL.CompanyInfo.GetModel(Convert.ToInt32(RegisterUser.CertifiationIndex));
                 orderlist.company = companyInfo.Company;
                 orderlist.OrdeType = 3;
-
+               
                 orderlist.Price = Request["price1"].ToString();
                 if (Select3.Value == "是")
                 {
@@ -200,11 +200,19 @@ namespace CORSV2.forms.user.order
                 {
                     foreach (string s in sys)
                     {
-                        Model.DeUserInfo deUserInfo = new Model.DeUserInfo();
-                        deUserInfo.UserNme = s;
-                        deUserInfo.UserPwd = AES_Key.AESEncrypt(s, s.PadLeft(16, '0'));
-                        deUserInfo.OrderNumber = orderlist.OrderNumber;
-                        DAL.DeUserInfo.Add(deUserInfo);
+                        if (s!=null||s!="")
+                        {
+                            Model.DeUserInfo deUserInfo = new Model.DeUserInfo();
+                            deUserInfo.UserName = s;
+                            deUserInfo.UserPwd = AES_Key.AESEncrypt(s, s.PadLeft(16, '0'));
+                            deUserInfo.OrderNumber = orderlist.OrderNumber;
+                            DAL.DeUserInfo.Add(deUserInfo);
+                        }
+                        else
+                        {
+                            Response.Write("<script >alert('用户名不能为空！');</script>");
+                        }
+                      
                     }
                     Response.Write(orderlist.OrderNumber);
 

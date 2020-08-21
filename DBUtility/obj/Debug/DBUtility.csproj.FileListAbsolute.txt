@@ -240,8 +240,8 @@ D:\项目\重庆\CQ\DBUtility\bin\Debug\System.Net.Http.WebRequest.dll
 D:\项目\重庆\CQ\DBUtility\bin\Debug\Newtonsoft.Json.xml
 D:\项目\重庆\CQ\DBUtility\bin\Debug\System.Net.Http.xml
 D:\项目\重庆\CQ\DBUtility\bin\Debug\System.Net.Http.WebRequest.xml
-D:\项目\重庆\CQ\DBUtility\obj\Debug\DBUtility.csprojAssemblyReference.cache
 D:\项目\重庆\CQ\DBUtility\obj\Debug\DBUtility.csproj.CoreCompileInputs.cache
 D:\项目\重庆\CQ\DBUtility\obj\Debug\DBUtility.csproj.CopyComplete
 D:\项目\重庆\CQ\DBUtility\obj\Debug\DBUtility.dll
 D:\项目\重庆\CQ\DBUtility\obj\Debug\DBUtility.pdb
+D:\项目\重庆\CQ\DBUtility\obj\Debug\DBUtility.csprojAssemblyReference.cache

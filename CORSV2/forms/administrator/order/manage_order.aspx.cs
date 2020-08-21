@@ -245,6 +245,107 @@ namespace CORSV2.forms.administrator.order
 
 
                     }
+                    if (orderlist.OrdeType == 3)//账号申请（自定义账号）
+                    {
+                        //订单审核通过后添加发票信息
+                        Model.InvoiceList invoicelist = new Model.InvoiceList();
+                        invoicelist.OrderDetail = orderlist.ID.ToString();
+                        invoicelist.OrderNumber = orderlist.OrderNumber;
+                        invoicelist.BelongArea = orderlist.WorkArea;
+                        invoicelist.PayTime = orderlist.PayTime;
+                        invoicelist.Price = orderlist.Price;
+                        invoicelist.Status = 1;
+                        invoicelist.ContractStatus = 1;
+                        invoicelist.UserName = orderlist.UserName;
+                        invoicelist.Type = 0;
+                        DAL.InvoiceList.Add(invoicelist);
+                        Model.RTKUserInfo rtkUserInfo = new Model.RTKUserInfo();
+                        
+
+                            Model.RegisterUser registerUser = DAL.RegisterUser.GetModel(orderlist.UserName);
+                        Model.CompanyInfo companyInfo = DAL.CompanyInfo.GetModel(Convert.ToInt32(registerUser.CertifiationIndex));
+
+                        DataSet ds= DAL.DeUserInfo.GetList(orderlist.OrderNumber);
+                            for (int i = 0; i <ds.Tables[0].Rows.Count; i++)
+                            {
+                                
+                                rtkUserInfo.RegisterUserName = orderlist.UserName;
+                            rtkUserInfo.UserName = ds.Tables[0].Rows[i]["UserName"].ToString();
+                                rtkUserInfo.Company = companyInfo.Company;
+                                rtkUserInfo.PassWord = AES_Key.AESEncrypt(rtkUserInfo.UserName, rtkUserInfo.UserName.PadLeft(16, '0'));
+                                rtkUserInfo.UserType = 0;
+                                rtkUserInfo.OrderNumber = orderlist.OrderNumber;
+                                rtkUserInfo.BelongArea = registerUser.BelongArea;
+                                rtkUserInfo.Contact = companyInfo.Contact;
+                                rtkUserInfo.ContactPhone = registerUser.Phone;
+                                rtkUserInfo.ContactEmail = registerUser.Email;
+
+                                rtkUserInfo.RegTime = DateTime.Now;
+
+                                if (!DAL.RTKUserInfo.Exists(rtkUserInfo.UserName))
+                                {
+                                    DAL.RTKUserInfo.Add(rtkUserInfo);
+                                }
+                                else
+                                {
+                                    //如何已经存在则重新循环一次
+                                    i = i - 1;
+                                    continue;
+                                }
+
+
+                                #region 权限信息部分
+
+                                Model.RTKUserPurview rtkUserPurview = new Model.RTKUserPurview();
+                                Model.RTKPostPurview rTKPostPurview = new Model.RTKPostPurview();
+                                string startTime = DateTime.Now.ToString();
+
+                                rtkUserPurview.UserName = rtkUserInfo.UserName;
+                                rtkUserPurview.StartTime = DateTime.Now;
+                                rtkUserPurview.EndTime = DateTime.Now.AddMonths(Convert.ToInt32(orderlist.ServiceDuration));
+                                rtkUserPurview.ServerType = orderlist.ServerType;
+
+                                string CoorSystem = "";
+                                string SourceTable = "";
+                                rtkUserPurview.VRSEnable = 1;
+                                rtkUserPurview.SourceTable = SourceTable;
+                                rtkUserPurview.CoorSystem = CoorSystem;
+                                if (orderlist.RoamID == "" || orderlist.RoamID == null)
+                                {
+                                    rtkUserPurview.RoamID = "";
+                                }
+                                else
+                                {
+                                    rtkUserPurview.RoamID = orderlist.RoamID;
+                                }
+
+                                if (orderlist.ElevationEnable == 1)
+                                {
+                                    rtkUserPurview.ElevationEnable = 1;
+                                }
+                                else
+                                {
+                                    rtkUserPurview.ElevationEnable = 0;
+                                }
+
+
+                                rTKPostPurview.UserName = rtkUserInfo.UserName;
+                                rTKPostPurview.StartTime = DateTime.Now;
+                                rTKPostPurview.EndTime = DateTime.Now.AddMonths(Convert.ToInt32(orderlist.ServiceDuration));
+                                DAL.RTKPostPurview.Add(rTKPostPurview);
+                                DAL.RTKUserPurview.Add(rtkUserPurview);
+
+                               
+                                #endregion
+                            }
+                        companyInfo.Balance = companyInfo.Balance - Convert.ToSingle(orderlist.Price);
+                        DAL.CompanyInfo.Update(companyInfo);
+
+
+
+
+
+                    }
                     if (orderlist.OrdeType == 1)//账号续费
                     {
                         Model.InvoiceList invoicelist = new Model.InvoiceList();
@@ -403,7 +504,7 @@ namespace CORSV2.forms.administrator.order
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
 
-                if (dr["OrdeType"].ToString() == "0")
+                if (dr["OrdeType"].ToString() == "0"|| dr["OrdeType"].ToString() == "3")
                 {
                     dr["deOrderType"] = "订单申请";
                 }

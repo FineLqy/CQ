@@ -166,11 +166,11 @@ namespace Model
         /// </summary>
         public string OrderContent { get; set; }
         /// <summary>
-        /// 订单类型  0:订单申请 1：账号续费 2：账号充值 
+        /// 订单类型  0:订单申请 1：账号续费 2：账号充值 3:订单申请（自定义账号）
         /// </summary>
         public int OrdeType { get; set; }
         /// <summary>
-        /// 是否自动续费 0:不续费 1：自动续费
+        /// 是否自动续费 0:不续费 1：自动续费 
         /// </summary>
         public string IsRenew { get; set; }
 

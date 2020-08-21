@@ -725,7 +725,7 @@
     <script>
         $('#liteBuySubmit1').click(function () {
 
-            if ($(".b-item1").val()==1||time1==1) {
+            if ($(".b-item1").val() == 1 || time1 == 1) {
                 alert("请选择购买时长！");
             }
             else {
@@ -741,58 +741,67 @@
                 var usernames = [];
                 console.info(apply_num1);
                 for (var i = 1; i < apply_num1 + 1; i++) {
-               
-                         usernames[i - 1] = $('#inputText' + i).val();
-                    
-                  
-                   
 
-                  
+                    usernames[i - 1] = $('#inputText' + i).val();
+
+
+
+
+
                 }
-                 usernames.sort();  //数组排序
+                usernames.sort();  //数组排序
                 var reNum = 0;  //返回结果
                 for (var i = 0; i < usernames.length; i++) {
-                    if (i + 1 == usernames.length)
-                    {
-                    continue;
-                    }                            
-                     //判断相邻的元素是否相同
-                    if (usernames[i] == usernames[i + 1])
-                    {
-                        reNum += 1;
-                        if (reNum > 0) {
-                            alert('不能输入重复的用户名！')
+                    if (i + 1 == usernames.length) {
+                        continue;
+                    }
+                    if (usernames[i] == null || usernames[i] == "") {
+                       
+                    }
+                    else {
 
+                         //判断相邻的元素是否相同
+                        if (usernames[i] == usernames[i + 1]) {
+                            reNum += 1;
+                            alert(reNum)
+                            if (reNum > 0) {
+                                alert('不能输入重复的用户名！')
+
+                            }
                         }
-                    }      
+                        else {
+                            $.ajax({
+                                type: 'POST',
+                                url: "?action=order1",
+                                data: {
+                                    time1: time1,
+                                    servertype1: servertype1,
+                                    applynum1: apply_num1,
+                                    price1: price1,
+                                    otherserver1: otherserver1.join(','),//转换成字符串
+                                    username1: usernames.join(',')
+                                },
+                                traditional: true,//防止深度序列化
+                                success: function (data) {
+                                    if (data.code == 200) {
+                                        return false;
+                                    }
+                                    if (data.length > 5) {
+                                        window.location.href = "check_order.aspx?order_number=" + data;
+                                    }
+                                },
+                            });
+                        }
+                    }
+
                 }
-                 
 
-               
-      
-                 $.ajax({
-                    type: 'POST',
-                    url: "?action=order1",
-                    data: {
-                        time1: time1,
-                        servertype1: servertype1,
-                        applynum1: apply_num1,
-                        price1: price1,
-                        otherserver1: otherserver1.join(','),//转换成字符串
-                        username1:usernames.join(',')
-                    },
-                    traditional: true,//防止深度序列化
-                    success: function (data) {
-                        if (data.code == 200) {
-                            return false;
-                        }
-                        if (data.length > 5) {
-                            window.location.href = "check_order.aspx?order_number1=" + data;
-                        }
-                    },
-                });
+
+
+
+
             }
-           
+
         });
     </script>
 

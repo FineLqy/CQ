@@ -233,7 +233,7 @@ namespace CORSV2.forms.administrator.users
                         try
                         {
 
-                            workarea += (DAL.RoamArea.GetModel(int.Parse(wo)).AreaName + ";");
+                            workarea += wo;
                         }
 
                         catch (Exception)
@@ -244,7 +244,7 @@ namespace CORSV2.forms.administrator.users
                     }
                     sskyqu1.Value = workarea;//mrtkpur.AreaID;//
                     sszyqyky1.SelectedIndex = 1;
-                    sszyqu1.Value = DAL.RoamArea.GetModel(int.Parse(workareas[0])).AreaName;//workareas[0];//
+                    sszyqu1.Value = workarea;//workareas[0];//
 
 
 
