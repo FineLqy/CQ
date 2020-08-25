@@ -112,7 +112,9 @@
     <Content Include="forms\administrator\information\DataCenterEquip.aspx" />
     <Content Include="forms\administrator\information\DataCenterManage.aspx" />
     <Content Include="forms\administrator\information\DataProcessLog.aspx" />
+    <Content Include="forms\administrator\information\DataQualityAnalysis.aspx" />
     <Content Include="forms\administrator\information\EquipSetInfo.aspx" />
+    <Content Include="forms\administrator\information\FaultStatistics.aspx" />
     <Content Include="forms\administrator\information\InternetEquipAdd.aspx" />
     <Content Include="forms\administrator\information\Internetequipset.aspx" />
     <Content Include="forms\administrator\information\InternetInfo.aspx" />
@@ -281,6 +283,7 @@
     <Content Include="forms\publicforms\mailbox\mail_manage.aspx" />
     <Content Include="forms\publicforms\map\Amap.aspx" />
     <Content Include="forms\publicforms\map\QueryTDT.aspx" />
+    <Content Include="forms\publicforms\map\setBar.js" />
     <Content Include="forms\publicforms\map\style.css" />
     <Content Include="forms\publicforms\map\style.js" />
     <Content Include="forms\publicforms\register\js\bootstrap.min.js" />
@@ -4408,12 +4411,26 @@
     <Compile Include="forms\administrator\information\DataProcessLog.aspx.designer.cs">
       <DependentUpon>DataProcessLog.aspx</DependentUpon>
     </Compile>
+    <Compile Include="forms\administrator\information\DataQualityAnalysis.aspx.cs">
+      <DependentUpon>DataQualityAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\administrator\information\DataQualityAnalysis.aspx.designer.cs">
+      <DependentUpon>DataQualityAnalysis.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms\administrator\information\EquipSetInfo.aspx.cs">
       <DependentUpon>EquipSetInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="forms\administrator\information\EquipSetInfo.aspx.designer.cs">
       <DependentUpon>EquipSetInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\administrator\information\FaultStatistics.aspx.cs">
+      <DependentUpon>FaultStatistics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\administrator\information\FaultStatistics.aspx.designer.cs">
+      <DependentUpon>FaultStatistics.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\administrator\information\InternetEquipAdd.aspx.cs">
       <DependentUpon>InternetEquipAdd.aspx</DependentUpon>

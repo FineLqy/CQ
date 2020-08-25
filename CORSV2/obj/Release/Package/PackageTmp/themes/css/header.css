@@ -1,0 +1,138 @@
+.uiSub-hidden {
+	display: none
+}
+
+.header-navbar {
+	width: 100%;
+	min-width: 1240px;
+	height: 100px;
+	line-height: 100px;
+	overflow: hidden
+}
+
+.header-navbar .logo {
+	width: 200px;
+	height: 100px;
+	display: inline-block;
+	background: url(../images/logo-big.png) center no-repeat!important;
+	/*vertical-align: middle*/
+}
+
+.header-navbar dl {
+	width: 100px;
+	display: inline-block;
+	margin-left: 10px
+}
+
+.header-navbar dl.on dd,.header-navbar dl:hover dd {
+	height: 180px;
+	padding: 30px 35px;
+	border-top: 1px solid #ccc
+}
+
+.header-navbar dl dt {
+	line-height: 80px;
+	text-align: center
+}
+
+.header-navbar dl dt a {
+	line-height: 30px;
+	display: inline-block;
+	font-size: 14px;
+	color: #000;
+	padding: 0 10px
+}
+
+.header-navbar dl dt a.on,.header-navbar dl dt a:hover {
+	color: #108cee;
+	border-bottom: 3px solid #108cee
+}
+
+.header-navbar dl dd {
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
+	background: #fff;
+	top: 100px;
+	left: 0;
+	z-index: 9;
+	border-bottom: 1px solid #ccc;
+	-moz-transition: .5s ease all;
+	-ms-transition: .5s ease all;
+	-webkit-transition: .5s ease all;
+	-o-transition: .5s ease all;
+	transition: .5s ease all
+}
+
+.header-navbar dl dd ul {
+	width: auto;
+	padding: 0 10px;
+	display: inline-block;
+	border-right: 1px solid #ccc;
+	margin-right: 20px;
+	vertical-align: top
+}
+
+.header-navbar dl dd ul.is-border-none {
+	border-right: 0
+}
+
+.header-navbar dl dd ul li {
+	line-height: 25px
+}
+
+.header-navbar dl dd ul li a {
+	color: #000;
+	font-size: 12px;
+	margin-bottom: 15px
+}
+
+.header-navbar dl dd ul li a:hover {
+	color: #108cee
+}
+
+.header-navbar .fr a {
+	font-size: 14px;
+	color: #555;
+	padding: 0 5px;
+	margin: 5px
+}
+
+.header-navbar .fr a.on,.header-navbar .fr a:hover {
+	color: #108cee;
+	border-bottom: 0
+}
+
+.header-navbar .fr a.trial {
+	width: 95px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #fff!important;
+	background: #108cee;
+	border-radius: 15px;
+	font-size: 14px;
+	display: inline-block
+}
+
+.header-navbar .fr a.trial:hover {
+	color: #fff!important
+}
+
+.header-navbar .fr span {
+	width: 1px;
+	height: 15px;
+	display: inline-block;
+	background: #ccc;
+	vertical-align: middle
+}
+.color-333{
+	color:#333333;
+}
+.color-000{
+	color:#000000!important;
+}
+.weight-600{
+	font-weight: 600;
+}

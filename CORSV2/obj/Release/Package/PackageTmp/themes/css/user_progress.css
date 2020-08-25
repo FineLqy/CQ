@@ -1,0 +1,45 @@
+.progress {
+    width: 100%;
+    line-height: 30px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #fff;
+    height:70px;
+}
+.progress span,
+.progress b {
+    display: inline-block;
+    vertical-align: middle;
+}
+.progress b {
+    width: 30%;
+    height: 5px;
+    background: #f3f3f3;
+    margin: 0 20px;
+}
+.progress b.on {
+    background: #847b70;
+}
+.progress span {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 15px!important;
+    background: #f3f3f3;
+    position: relative;
+}
+.progress span.on {
+    background: #28b779;
+    color: #ffffff;
+}
+.progress span:after {
+    content: attr(data-content);
+    width: 100px;
+    text-align: center;
+    color: #333333;
+    font-size: 14px;
+    position: absolute;
+    bottom: -35px;
+    left: -35px;
+}

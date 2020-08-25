@@ -55,6 +55,8 @@ namespace DAL
             SqlParameter OrderNumber = new SqlParameter("OrderNumber", SqlDbType.NVarChar); OrderNumber.Value = model.OrderNumber;
             SqlParameter BelongArea = new SqlParameter("BelongArea", SqlDbType.NVarChar); BelongArea.Value = model.BelongArea;
             SqlParameter RegisterUserName = new SqlParameter("RegisterUserName", SqlDbType.NVarChar); RegisterUserName.Value = model.RegisterUserName;
+
+            WebLogger.WriteErroLog(CORSCardNum.ToString());
             return DBHelperSQL.GetNums(strSql, new SqlParameter[] { UserName, PassWord, Contact, ContactPhone, ContactEmail, ContactQQ, CORSCardNum, ReceiverNum, Company, RegTime, UserType, OrderNumber, BelongArea, RegisterUserName }, connectionString) == 1 ? true : false;
         }
 

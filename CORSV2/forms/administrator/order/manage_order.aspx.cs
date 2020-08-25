@@ -177,6 +177,7 @@ namespace CORSV2.forms.administrator.order
                             rtkUserInfo.PassWord = AES_Key.AESEncrypt(rtkUserInfo.UserName, rtkUserInfo.UserName.PadLeft(16, '0'));
                             rtkUserInfo.UserType = 0;
                             rtkUserInfo.OrderNumber = orderlist.OrderNumber;
+                            rtkUserInfo.CORSCardNum = "";
                             rtkUserInfo.BelongArea = registerUser.BelongArea;
                             rtkUserInfo.Contact = companyInfo.Contact;
                             rtkUserInfo.ContactPhone = registerUser.Phone;
@@ -279,8 +280,8 @@ namespace CORSV2.forms.administrator.order
                                 rtkUserInfo.Contact = companyInfo.Contact;
                                 rtkUserInfo.ContactPhone = registerUser.Phone;
                                 rtkUserInfo.ContactEmail = registerUser.Email;
-
-                                rtkUserInfo.RegTime = DateTime.Now;
+                            rtkUserInfo.CORSCardNum = "";
+                            rtkUserInfo.RegTime = DateTime.Now;
 
                                 if (!DAL.RTKUserInfo.Exists(rtkUserInfo.UserName))
                                 {

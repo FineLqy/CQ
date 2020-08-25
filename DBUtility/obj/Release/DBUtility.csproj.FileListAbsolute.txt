@@ -147,3 +147,17 @@ D:\重庆\CQCORSV2\DBUtility\obj\Release\DBUtility.pdb
 D:\重庆\CQCORSV2\DBUtility\obj\Release\DBUtility.csprojAssemblyReference.cache
 D:\重庆\CQCORSV2\DBUtility\obj\Release\DBUtility.csproj.CoreCompileInputs.cache
 D:\重庆\CQCORSV2\DBUtility\obj\Release\DBUtility.csproj.CopyComplete
+D:\项目\重庆\CQ\DBUtility\bin\Release\DBUtility.dll
+D:\项目\重庆\CQ\DBUtility\bin\Release\DBUtility.pdb
+D:\项目\重庆\CQ\DBUtility\bin\Release\Newtonsoft.Json.dll
+D:\项目\重庆\CQ\DBUtility\bin\Release\qcloudsms_csharp.dll
+D:\项目\重庆\CQ\DBUtility\bin\Release\System.Net.Http.dll
+D:\项目\重庆\CQ\DBUtility\bin\Release\System.Net.Http.WebRequest.dll
+D:\项目\重庆\CQ\DBUtility\bin\Release\Newtonsoft.Json.xml
+D:\项目\重庆\CQ\DBUtility\bin\Release\System.Net.Http.xml
+D:\项目\重庆\CQ\DBUtility\bin\Release\System.Net.Http.WebRequest.xml
+D:\项目\重庆\CQ\DBUtility\obj\Release\DBUtility.csprojAssemblyReference.cache
+D:\项目\重庆\CQ\DBUtility\obj\Release\DBUtility.csproj.CoreCompileInputs.cache
+D:\项目\重庆\CQ\DBUtility\obj\Release\DBUtility.csproj.CopyComplete
+D:\项目\重庆\CQ\DBUtility\obj\Release\DBUtility.dll
+D:\项目\重庆\CQ\DBUtility\obj\Release\DBUtility.pdb

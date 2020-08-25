@@ -124,6 +124,7 @@ namespace CORSV2.forms.administrator.users
                         rtkUserInfo.ContactPhone = Phone;
                         rtkUserInfo.ContactEmail = Email;
                         rtkUserInfo.RegTime = DateTime.Now;
+                        rtkUserInfo.CORSCardNum = "";
                         if (DAL.RTKUserInfo.Add(rtkUserInfo))
                         {
 
@@ -316,6 +317,7 @@ namespace CORSV2.forms.administrator.users
                             rtkUserInfo.ContactPhone = Phone;
                             rtkUserInfo.ContactEmail = Email;
                             rtkUserInfo.RegTime = DateTime.Now;
+                            rtkUserInfo.CORSCardNum = "";
                             if (DAL.RTKUserInfo.Add(rtkUserInfo))
                             {
 

@@ -36,6 +36,13 @@ namespace DAL
             return DBHelperSQL.GetDataSet(strSql, connectionString);
         }
 
+        public static DataSet GetOnline1()
+        {
+            string strSql = "select * from RTKUserStatus where  IsOnline=1";
+          
+            return DBHelperSQL.GetDataSet(strSql, connectionString);
+        }
+
         public static bool Update(Model.RTKUserStatus model)
         {
             string strSql = "update RTKUserStatus set UserName=@UserName,Company=@Company,IsOnline=@IsOnline, StartTime=@StartTime,Lon=@Lon,Lat=@Lat,Remark=@Remark where ID=" + model.ID.ToString();
