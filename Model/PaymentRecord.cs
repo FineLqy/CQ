@@ -13,16 +13,21 @@ namespace Model
     {
         public PaymentRecord()
         {
+            UserName= "";
             ProductName = "";
             Company = "";
             Type =0;
-            Money = 0;
+            Money = "";
             RechargeTime = DateTime.Now;
         }
         /// <summary>
         /// 订单编号
         /// </summary>
         public int ID { get; set; }
+        /// <summary>
+        /// 操作用户
+        /// </summary>
+        public string UserName { get; set; }
         /// <summary>
         /// 产品名称
         /// </summary>
@@ -39,7 +44,7 @@ namespace Model
         /// <summary>
         /// 金额
         /// </summary>
-        public float Money { get; set; }
+        public string Money { get; set; }
         /// <summary>
         /// 充值时间
         /// </summary>

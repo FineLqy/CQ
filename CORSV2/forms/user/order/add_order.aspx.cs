@@ -14,8 +14,12 @@ namespace CORSV2.forms.user.order
         {
             if (!IsPostBack)
             {
-               
-                  
+                if (Session["UserName"] == null || Session["UserType"] == null )
+                {
+                    Response.Write("<script>alert(\"请登录\");parent.window.location.href = location.origin+\"/forms/publicforms/Login/Login.aspx\";</script>");
+                    Response.End();
+                }
+
                 DataSet dsRoamArea = DAL.RoamArea.GetList("1=1");
                 foreach (DataRow dr in dsRoamArea.Tables[0].Rows)
                 {

@@ -14,11 +14,12 @@ namespace CORSV2.forms.publicforms.login
         {
             if (Request["action"] != null&& Request["action"].ToString()== "getCode")
             {
+                string name = Request["name"].ToString();
                 string ff = Request["action"].ToString();
                 string phone = Request["phone1"].ToString();
                 code = Number(6, false);
                 string SMS = "http://39.108.107.73:8090/sysmonitor/services/monitor/sendmessage.json?key=is8ji3&phone=@phone&message=@message";
-                string message = "用户您好，您正在重置平台密码，验证码为：" + code;
+                string message = "尊敬的用户您好，您的账号"+ name + "正在重置平台密码，验证码为：" + code;
 
                 SMS = SMS.Replace("@message", message);
                 SMS = SMS.Replace("@phone", phone);
@@ -52,15 +53,16 @@ namespace CORSV2.forms.publicforms.login
 
             if (Request["action"]!=null&&Request["action"].ToString()=="resetPassword")
             {
+                string name = Request["UserName"].ToString();
                 string tempPassWord = Request["password"].ToString();
                 string phone = Request["phone1"].ToString();
-                Model.RegisterUser registerUser = DAL.RegisterUser.GetModelByPhone(phone);
+                Model.RegisterUser registerUser = DAL.RegisterUser.GetModel(name);
 
                 registerUser.PassWord = AES_Key.AESEncrypt(tempPassWord, registerUser.UserName.PadLeft(16, '0'));
                 DAL.RegisterUser.Update(registerUser);
 
                 string SMS = "http://39.108.107.73:8090/sysmonitor/services/monitor/sendmessage.json?key=is8ji3&phone=@phone&message=@message";
-                string message = "尊敬的用户您好：平台密码已经成功修改为：" + tempPassWord + "，请及时登录系统查看!";
+                string message = "尊敬的用户您好：您的平台账号"+name+"密码已经成功修改为：" + tempPassWord + "，请及时登录系统查看!";
                 SMS = SMS.Replace("@message", message);
                 SMS = SMS.Replace("@phone", phone);
 

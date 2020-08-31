@@ -50,13 +50,7 @@ namespace CORSV2.forms.user.order
             syslog.Remark = "申请的充值订单待处理";
             syslog.UserName = orderlist.UserName;
             DAL.SysLog.Add(syslog);
-            Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
-            paymentRecord.ProductName = "账号充值";
-            paymentRecord.Company = orderlist.company;
-            paymentRecord.Type = orderlist.OrdeType;
-            paymentRecord.Money = Convert.ToSingle(orderlist.Price);
-            paymentRecord.RechargeTime = DateTime.Now;
-            DAL.PaymentRecord.Add(paymentRecord);
+        
             try
             {
 

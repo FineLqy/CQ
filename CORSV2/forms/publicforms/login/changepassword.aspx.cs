@@ -19,15 +19,9 @@ namespace CORSV2.forms.publicforms.login
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["UserName"] = "hencors";
-            //Session["UserType"] = "1";
-            if (Session["UserName"] == null || Session["UserType"] == null || Convert.ToInt32(Session["UserType"]) < 0 || Convert.ToInt32(Session["UserType"]) > 5)
-            {
-                Response.Write("<script>alert(\"请登录\");location.href = location.origin+\"/forms/publicforms/Login/Login.aspx\";</script>");
-                Response.End();
-            }
-            userName = Session["UserName"].ToString();
 
+            userName = Session["UserName"].ToString();
+        
 
 
             if (Request["action"] != null && Request["action"].ToString() == "getCode")

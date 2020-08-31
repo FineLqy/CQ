@@ -42,5 +42,18 @@ namespace DAL
                 return null;
             }
         }
+
+        public static DataSet GetNum()
+        {
+
+            string sql = "Select top 5  StationOName ,Count(*) 'Num' From StationDownLog    Group By StationOName  Having Count(*) >= 1  ORDER BY Num asc";
+            return DBHelperSQL.GetDataSet(sql);
+        }
+        public static DataSet GetCount()
+        {
+
+            string sql = "Select top 5  year(DownTime) 'Datayear' ,Count(*) 'Num' From StationDownLog    Group By DownTime  Having Count(*) >= 1  ORDER BY Num asc";
+            return DBHelperSQL.GetDataSet(sql);
+        }
     }
 }

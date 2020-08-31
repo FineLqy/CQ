@@ -184,7 +184,6 @@
          window.location.href = "?action=downloadfile&&id="+row.deOrderNumber;
        
            
-           
         } 
     }
 

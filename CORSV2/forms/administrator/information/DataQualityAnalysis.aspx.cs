@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -21,11 +23,8 @@ namespace CORSV2.forms.administrator.information
             //    Response.Write("<script>alert(\"请登录\");location.href = location.origin+\"/Index.aspx\";</script>");
             //    Response.End();
             //}
-            if (!IsPostBack)
-            {
 
-            }
-        
+
 
             if (Request["action"] != null && Request["action"] == "GetData")
             {
@@ -35,7 +34,7 @@ namespace CORSV2.forms.administrator.information
 
                 }
             }
-         
+
         }
         private bool GetStas()
         {
@@ -64,7 +63,7 @@ namespace CORSV2.forms.administrator.information
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 //dr["button"] = "<a id='" + dr["ID"] + "' onclick= view(this.id) >查看</a>";
-               
+
                 if (dr["IsOK"].ToString() == "1")
                 {
                     dr["deIsOK"] = "正常";
@@ -93,7 +92,144 @@ namespace CORSV2.forms.administrator.information
                 return false;
             }
         }
-     
-       
+
+        /// <summary>
+        /// 显示故障总数
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [System.Web.Services.WebMethod()]
+        public static string lodaa3(string t)
+        {
+            HttpResponse resp = System.Web.HttpContext.Current.Response;
+            HttpRequest req = System.Web.HttpContext.Current.Request;
+            HttpServerUtility server = System.Web.HttpContext.Current.Server;
+
+
+
+            string url = server.MapPath("/ObsQuality");
+            System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(url);
+            FileInfo[] ff = di.GetFiles("*.result");//只取文本文du档
+            string CC = "";//存放内容
+            string EE = "";//存放内容
+            string GG = "";//存放内容
+            string RR = "";//存放内容
+            foreach (FileInfo temp in ff)
+            {
+
+
+
+                using (StreamReader sr = temp.OpenText())
+                {
+                    if (temp.ToString().Contains("C."))
+                    {
+                        List<string[]> list = new List<string[]>();
+
+                        CC += sr.ReadToEnd();//内容追加到zhiss中
+                        string[] arr = CC.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (arr.Length > 0)
+                        {
+                            list.Add(arr);
+                           
+                           
+                        }
+                        for (int i = 0; i < arr.Length; i++)
+                        {
+                            
+                        }
+
+
+
+                    }
+                    if (temp.ToString().Contains("E."))
+                    {
+                        // string[] Ename = temp.ToString().Replace("E.result", "");
+                        EE += sr.ReadToEnd();//内容追加到zhiss中
+                        string[] H_data2 = EE.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
+
+                    }
+                    if (temp.ToString().Contains("G."))
+                    {
+                        GG += sr.ReadToEnd();//内容追加到zhiss中
+                        string[] H_data2 = GG.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
+
+                    }
+                    if (temp.ToString().Contains("R."))
+                    {
+                        RR += sr.ReadToEnd();//内容追加到zhiss中
+                        string[] H_data2 = RR.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
+
+                    }
+
+
+
+
+                }
+            }
+
+            string strJson = string.Empty;
+
+            strJson = JsonConvert.SerializeObject(new { dt2 = CC });
+            var serializer = new JavaScriptSerializer();
+
+            serializer.MaxJsonLength = Int32.MaxValue;
+            serializer.Serialize(strJson);
+            return strJson;
+        }
+
+        public string GetData(DateTime st, DateTime et)
+        {
+            int days = (et - st).Days;
+            Dictionary<DateTime, Dictionary<string, data>> r = new Dictionary<DateTime, Dictionary<string, data>>();
+            for (int i = 0; i < days; i++)
+            {
+                Dictionary<string, data> d = new Dictionary<string, data>();
+                DateTime dateTime = st.AddDays(0);
+                string fileG = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
+                string fileC = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
+                string fileE = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
+                string fileR = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
+                if(!File.Exists(fileG))
+                {
+                    continue;
+                }
+                StreamReader streamReaderG = new StreamReader(fileG);
+
+                data data = new data();
+                data.Mp1 = 1;
+                d.Add("G", data);
+
+
+            data dataC = new data();
+            dataC.Mp1 = 0;
+                d.Add("C", dataC);
+
+                //d.ContainsKey();
+                
+                r.Add(dateTime, d);
+            }
+            return r.ToString();
+
+
+
+        }
+        
+
+
+    }
+    class data
+    {
+       public double Mp1{ set; get; }
+        public double Mp2 { get; set; }
+        public double Slps  { get; set; }
+        public double SN1 { get; set; }
+        public double SN2 { get; set; }
+        public double DIR { get; set; }
+                 
+        
+        
+           
+ 
+
     }
 }

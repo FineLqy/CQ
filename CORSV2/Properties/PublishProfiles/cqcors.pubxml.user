@@ -10,19 +10,19 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CORSV2.dll">
-      <publishTime>08/24/2020 18:51:57</publishTime>
+      <publishTime>08/25/2020 11:44:39</publishTime>
     </File>
     <File Include="bin/CORSV2.dll.config">
       <publishTime>08/20/2020 09:19:04</publishTime>
     </File>
     <File Include="bin/CORSV2.pdb">
-      <publishTime>08/24/2020 18:51:57</publishTime>
+      <publishTime>08/25/2020 11:44:39</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>08/24/2020 18:51:56</publishTime>
+      <publishTime>08/25/2020 11:44:38</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>08/24/2020 18:51:56</publishTime>
+      <publishTime>08/25/2020 11:44:38</publishTime>
     </File>
     <File Include="bin/DBUtility.dll">
       <publishTime>08/24/2020 18:51:55</publishTime>
@@ -226,7 +226,7 @@
       <publishTime>08/20/2020 09:19:05</publishTime>
     </File>
     <File Include="forms/administrator/system/RoamingAreaManagement.aspx">
-      <publishTime>08/20/2020 09:19:05</publishTime>
+      <publishTime>08/25/2020 11:44:25</publishTime>
     </File>
     <File Include="forms/administrator/system/RoamingAreaManagementgSet.aspx">
       <publishTime>08/20/2020 09:19:05</publishTime>
@@ -235,7 +235,7 @@
       <publishTime>08/20/2020 09:19:06</publishTime>
     </File>
     <File Include="forms/administrator/system/ServiceConfig.aspx">
-      <publishTime>08/20/2020 17:05:55</publishTime>
+      <publishTime>08/25/2020 11:42:11</publishTime>
     </File>
     <File Include="forms/administrator/system/WorkingAreaManage.aspx">
       <publishTime>08/20/2020 09:19:06</publishTime>
@@ -595,7 +595,7 @@
       <publishTime>08/20/2020 09:19:06</publishTime>
     </File>
     <File Include="forms/publicforms/login/Recharge.aspx">
-      <publishTime>08/24/2020 17:25:36</publishTime>
+      <publishTime>08/25/2020 10:51:30</publishTime>
     </File>
     <File Include="forms/publicforms/login/UpdateE_mail.aspx">
       <publishTime>08/20/2020 09:19:06</publishTime>
@@ -787,7 +787,7 @@
       <publishTime>08/20/2020 09:19:06</publishTime>
     </File>
     <File Include="forms/user/contract/apply_contract.aspx">
-      <publishTime>08/20/2020 09:19:06</publishTime>
+      <publishTime>08/25/2020 11:31:30</publishTime>
     </File>
     <File Include="forms/user/invoice/confirm_invoice.aspx">
       <publishTime>08/20/2020 09:19:06</publishTime>

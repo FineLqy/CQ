@@ -81,8 +81,13 @@
             }
           
                 apply_num = Number($('#apply_num').val());
-                price = Number($('#price').val());
-           
+            price = Number($('#price').val());
+     
+            if (Price.value==""||Price.value<=0) {
+                alert('请输入正确的金额');
+                 return false;
+            }
+         
                 $('#order_form').ajaxSubmit({
                     type: 'POST',
                     url: "?action=order",

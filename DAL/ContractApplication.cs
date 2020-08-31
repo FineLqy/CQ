@@ -138,7 +138,7 @@ namespace DAL
 
         public static int GetRecordCount(string search = "")
         {
-            string strSql = "select count(*) from ContractApplication where UserName like '%" + search + "%'";
+            string strSql = "select count(*) from ContractApplication where ID like '%" + search + "%'";
             return Convert.ToInt32(DBHelperSQL.GetResult(strSql, connectionString));
         }
         /// <summary>
@@ -150,7 +150,7 @@ namespace DAL
         public static DataSet GetBriefList(int offset, int limit, string search = "")
         {
             int endRecord = offset + limit;
-            string sql = "SELECT * FROM ContractApplication w1,( SELECT TOP " + limit + " w.ID FROM( SELECT TOP  " + endRecord + "* FROM ContractApplication where UserName like '%" + search + "%' ORDER BY ID ASC) w ORDER BY w.ID DESC) w2 WHERE w1.ID = w2.ID ORDER BY w1.ID ASC";
+            string sql = "SELECT * FROM ContractApplication w1,( SELECT TOP " + limit + " w.ID FROM( SELECT TOP  " + endRecord + "* FROM ContractApplication where ID like '%" + search + "%' ORDER BY ID ASC) w ORDER BY w.ID DESC) w2 WHERE w1.ID = w2.ID ORDER BY w1.ID ASC";
             return DBHelperSQL.GetDataSet(sql, connectionString);
         }
         /// <summary>

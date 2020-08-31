@@ -71,7 +71,7 @@ namespace CORSV2.forms.administrator.order
             }
             
             
-            DataSet ds = DAL.PaymentRecord.GetBriefList(offset, limit, search, strwhere, Company);
+            DataSet ds = DAL.PaymentRecord.GetBriefList(offset, limit, search, strwhere, Company, Session["UserName"].ToString());
 
             ds.Tables[0].Columns.Add("deRechargeTime", typeof(string));
 
@@ -82,6 +82,7 @@ namespace CORSV2.forms.administrator.order
                 if (dr["Type"].ToString().Trim() == "0"|| dr["Type"].ToString().Trim() == "3")
                 {
                     dr["deType"] = "申请";
+                 
                 }
                 if (dr["Type"].ToString().Trim() == "1")
                 {

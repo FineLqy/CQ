@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -92,5 +94,44 @@ namespace CORSV2.forms.administrator.information
                 return false;
             }
         }
+
+        /// <summary>
+        /// 显示故障次数
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [System.Web.Services.WebMethod()]
+        public static string lodaa1(string t)
+        {
+            string strJson = string.Empty;
+            DataSet ds1= DAL.StationDownLog.GetNum();
+            strJson = JsonConvert.SerializeObject(new { dt1 = ds1.Tables[0]});
+            var serializer = new JavaScriptSerializer();
+
+            serializer.MaxJsonLength = Int32.MaxValue;
+            serializer.Serialize(strJson);
+            return strJson;
+        }
+
+        /// <summary>
+        /// 显示故障总数
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        [System.Web.Services.WebMethod()]
+        public static string lodaa2(string t)
+        {
+            string strJson = string.Empty;
+            DataSet ds2 = DAL.StationDownLog.GetCount();
+            strJson = JsonConvert.SerializeObject(new { dt2 = ds2.Tables[0] });
+            var serializer = new JavaScriptSerializer();
+
+            serializer.MaxJsonLength = Int32.MaxValue;
+            serializer.Serialize(strJson);
+            return strJson;
+        }
+
+
+
     }
 }

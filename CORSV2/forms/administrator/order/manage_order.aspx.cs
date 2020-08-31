@@ -341,6 +341,14 @@ namespace CORSV2.forms.administrator.order
                             }
                         companyInfo.Balance = companyInfo.Balance - Convert.ToSingle(orderlist.Price);
                         DAL.CompanyInfo.Update(companyInfo);
+                        Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
+                        paymentRecord.ProductName = "账号申请";
+                        paymentRecord.Company = orderlist.company;
+                        paymentRecord.Type = orderlist.OrdeType;
+                        paymentRecord.Money = "-" + orderlist.Price;
+                        paymentRecord.RechargeTime = DateTime.Now;
+                        paymentRecord.UserName = orderlist.UserName;
+                        DAL.PaymentRecord.Add(paymentRecord);
 
 
 
@@ -391,6 +399,14 @@ namespace CORSV2.forms.administrator.order
                         Model.CompanyInfo companyInfo = DAL.CompanyInfo.GetModel(orderlist.company);
                         companyInfo.Balance = companyInfo.Balance- Convert.ToSingle(orderlist.Price);
                         DAL.CompanyInfo.Update(companyInfo);
+                        Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
+                        paymentRecord.ProductName = "账号续费";
+                        paymentRecord.Company = orderlist.company;
+                        paymentRecord.Type = orderlist.OrdeType;
+                        paymentRecord.Money = "-" + orderlist.Price;
+                        paymentRecord.RechargeTime = DateTime.Now;
+                        paymentRecord.UserName = orderlist.UserName;
+                        DAL.PaymentRecord.Add(paymentRecord);
 
 
 
@@ -413,6 +429,14 @@ namespace CORSV2.forms.administrator.order
                        Model.CompanyInfo companyInfo=  DAL.CompanyInfo.GetModel(orderlist.company);
                         companyInfo.Balance += Convert.ToSingle( orderlist.Price);
                         DAL.CompanyInfo.Update(companyInfo);
+                        Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
+                        paymentRecord.ProductName = "账号充值";
+                        paymentRecord.Company = orderlist.company;
+                        paymentRecord.Type = orderlist.OrdeType;
+                        paymentRecord.Money = orderlist.Price;
+                        paymentRecord.RechargeTime = DateTime.Now;
+                        paymentRecord.UserName = orderlist.UserName;
+                        DAL.PaymentRecord.Add(paymentRecord);
 
                     }
                    

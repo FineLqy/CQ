@@ -46,9 +46,7 @@
                                         <i class="fa fa-refresh"></i>刷新
                                     </button>
                                   
-                                    <button type="button" id="deletesta" class="btn btn-outline btn-default" data-toggle="tooltip" data-placement="top" title="删除">
-                                        <i class="fa fa-trash-o"></i>删除
-                                    </button>
+                            
                                     <form method="post" id="Form">
                                         <div class="modal inmodal" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -90,7 +88,7 @@
                             </div>
 
                              <table
-                                    id="table"
+                                    id="table" style="table-layout: fixed"
                                     data-toolbar="#toolbar"
                                     data-search="true"
                                     data-show-refresh="false"
@@ -213,13 +211,11 @@
         function initialTable() {
             table.bootstrapTable({
                 columns: [
-                    {
-                        field: 'state',
-                        checkbox: true,
-                    },
+                  
                     {
                         field: 'ServerName',
-                        title: '服务名称'
+                        title: '服务名称',
+                        
                     }, {
                         field: 'paymentMethod',
                         title: '付款方式',
@@ -238,23 +234,41 @@
                     },
                  {
                         field: 'Update',
-                        title: '操作'
+                     title: '操作',
+                            events: operatEvents,
+                     formatter: operatFrom,
+                         width:155
                     },],
             });
         }
-  
-        function viewDevice(ServerName) {
-           layer.open({
-                type: 2,
-                title: '产品配置信息设置',
-                shadeClose: true,
-                shade: false,
-                maxmin: true, //开启最大化最小化按钮
-                area: ['1150px', '650px'],
-                content: 'ServerConfigSet.aspx?ServerName=' + ServerName
 
-            });
-        }
+        
+        function operatFrom(value,row,index){
+        //return "<a href='javascript:;' onclick='editRow(event)'>编辑</a>&nbsp;&nbsp;<a href='javascript:;' onclick='deleteRow(event)'>删除</a>";
+        return [
+                '<a type="button"  id="edit"  class="btn btn-success" style="margin-right:15px;">编辑</button>',
+                '<a type="button" id="del" class="btn btn-danger" style="margin-right:15px;">删除</button>' ]
+                .join('');
+    }
+       window.operatEvents={
+        "click #edit": function (e, value, row, index) {
+            window.location.href = "ServerConfigSet.aspx?ServerName=" + row.ServerName; 
+            
+        },
+        "click #del": function (e, value, row, index) {
+                 layer.confirm('您确定要删除这个服务配置信息吗', function(index){
+       
+                     window.location.href = "?action=DeleteStas&&id=" + row.ServerName;
+                      layer.close(index);
+      });
+          
+        } 
+      
+       
+           
+        } 
+  
+      
         
         function getIdSelections() {
             return $.map(table.bootstrapTable('getSelections'), function (row) {
@@ -268,53 +282,7 @@
 
         });
 
-        $("#deletesta").click(function () {
-            var ids = getIdSelections();
-            if (ids.length == 0) {
-                parent.layer.msg('请先选择要删除的服务产品');
-                return false;
-            }
-            layer.alert('您确定要删除这个服务产品吗', {
-                skin: 'layui-layer-lan' //样式类名
-                , btn: ['确定', '取消'], title: '删除'
-            }, function () {
-
-
-               
-                $.ajax({
-                    url: "",
-                    type: "post",
-                    data: {
-                        action: "DeleteStas",
-                        id: ids,
-                    },
-                    success: function () {
-                        layer.alert('删除成功', {
-                            skin: 'layui-layer-lan' //样式类名
-                             , closeBtn: 0
-                        });
-                        table.bootstrapTable('remove', {
-                            field: 'ID',
-                            values: ids
-                        });
-                        $("#deletesta").blur();
-
-
-                        table.bootstrapTable('refresh');
-                    }, error: function () {
-                        layer.alert('删除失败', {
-                            skin: 'layui-layer-lan' //样式类名
-                             , closeBtn: 0
-                        });
-                        return false;
-                    }
-                });
-              
-            }, function () {
-
-                parent.layer.msg('删除已取消');
-            });
-        });
+   
         $(document).ready(function () {
             initialTable();
             $(".search input").attr("placeholder", "搜索服务名称");

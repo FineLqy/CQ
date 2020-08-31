@@ -237,8 +237,9 @@ namespace CORSV2.forms.administrator.users
                         paymentRecord.ProductName = "账号申请";
                         paymentRecord.Company = Company;
                         paymentRecord.Type =orderList.OrdeType ;
-                        paymentRecord.Money = Convert.ToSingle( orderList.Price);
+                        paymentRecord.Money = "-"+ orderList.Price;
                         paymentRecord.RechargeTime = DateTime.Now;
+                        paymentRecord.UserName = orderList.UserName;
                         DAL.PaymentRecord.Add(paymentRecord);
 
 
@@ -430,8 +431,9 @@ namespace CORSV2.forms.administrator.users
                             paymentRecord.ProductName = "账号申请";
                             paymentRecord.Company = Company;
                             paymentRecord.Type = orderList.OrdeType;
-                            paymentRecord.Money = Convert.ToSingle(orderList.Price);
+                            paymentRecord.Money = "-"+orderList.Price;
                             paymentRecord.RechargeTime = DateTime.Now;
+                            paymentRecord.UserName = orderList.UserName;
                             DAL.PaymentRecord.Add(paymentRecord);
 
 

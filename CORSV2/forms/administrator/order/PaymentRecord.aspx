@@ -12,6 +12,7 @@
     <link href="../../../themes/css/font-awesome.css?v=4.4.0" rel="stylesheet" />
     <link href="../../../themes/css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
     <link href="../../../themes/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="../../user/order/css/shopcart.css" rel="stylesheet" />
 </head>
 <body class="gray-bg">
     <div class="wrapper wrapper-content  animated fadeInRight" style="padding-top:0px;">
@@ -86,6 +87,10 @@
                    {
                         field: 'ID',
                         title: '订单编号'
+                    },
+                {
+                        field: 'UserName',
+                        title: '用户名'
                     },
                     {
                         field: 'ProductName',

@@ -89,8 +89,6 @@
             //修改data-value 以便于提交是判断是获取验证码而不是提交表单
             $("#getCode").attr("data-value", "1");
         });
-
-
         $("#getCode").click(function () {
             var phone1 = $("#phone1").val();
             $.ajax({
@@ -120,8 +118,53 @@
                 }
             });
         })
-        function edit_info() {
+            var count = 60; //间隔函数，1秒执行
+        var InterValObj1; //timer变量，控制时间
+        var curCount1;//当前剩余秒数
 
+   
+        $("#getCode").click(function () {
+            var phone1 = $("#phone1").val();
+            var name = $("#UserName").val();
+            $.ajax({
+                url: "?action=getCode",
+                data: {
+                    "phone1": phone1,
+                    "name":name
+                },
+                type: "get",
+                success: function (result) {
+                    if (result == "1") {
+                        //window.location.href = "../login/login.aspx";
+                        curCount1 = count;
+                        //设置button效果，开始计时
+                        $("#getCode").attr("disabled", "true");
+                        $("#getCode").val(+curCount1 + "秒再获取");
+                        InterValObj1 = window.setInterval(SetRemainTime1, 1000); //启动计时器，1秒执行一次
+                        layer.msg('验证码已经发送', { icon: 1 });
+
+                    }
+                  
+                },
+                error: function (result) {
+                    layer.msg('失败！', function () {
+                        //关闭后的操作
+                    })
+                }
+            });
+        })
+        function SetRemainTime1() {
+            if (curCount1 == 0) {
+                window.clearInterval(InterValObj1);//停止计时器
+                $("#getCode").removeAttr("disabled");//启用按钮
+                $("#getCode").val("重新发送");
+            }
+            else {
+                curCount1--;
+                $("#getCode").val(+curCount1 + "秒再获取");
+            }
+        }
+        function edit_info() {
             $.ajax({
                 url: "?action=resetPassword",
                 data: $('#signupForm').serialize(),
@@ -145,4 +188,3 @@
     </script>
 </body>
 </html>
-

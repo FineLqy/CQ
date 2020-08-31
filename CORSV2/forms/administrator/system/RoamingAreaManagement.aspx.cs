@@ -101,13 +101,6 @@ namespace CORSV2.forms.administrator.system
             try
             {
                 
-                   
-                  
-
-
-
-                 
-
                     bool result = DAL.RoamingAreaManagement.Delete(name);
                     try
                     {

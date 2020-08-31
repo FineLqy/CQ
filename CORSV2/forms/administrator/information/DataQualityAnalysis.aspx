@@ -200,6 +200,88 @@
             $(".search input").attr("placeholder", "搜索基站名或Rinex站名");
         });
     </script>
+
+      <script>
+        $(function () {
+            var v1 = [];
+            var Rname = '123';
+            $.ajax({
+                url: "DataQualityAnalysis.aspx/lodaa3",
+                contentType: "application/json; charset=utf-8",
+                data: "{t:'" + Rname + "'}",
+                type: "Post",
+                dataType: "json",
+                success: function (data) {
+                    var res = JSON.parse(data.d);
+                    console.log(data)
+                    console.log(res.dt1);
+                    var da=new Array();
+                      var Num = [];
+                    for (var i in res.dt1) {
+                        console.log( res.dt1[i].Num)
+                        da.push( res.dt1[i].StationOName)
+                          var op1 = echarts.init(document.getElementById('d1'));
+                        var datacolor = da;
+                        Num.push( res.dt1[i].Num)
+
+option = {
+    title: {
+        text: '站点故障频率排行',
+       
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'shadow'
+        }
+    },
+
+     grid: {
+      left: '15%',
+      
+    },
+    // visualMap: {
+    //     orient: 'horizontal',
+    //     left: 'center',
+    //     min: 10,
+    //     max: 200000,
+    //     text: ['High', 'Low'],
+    //     // Map the score column to color
+    //     dimension: 0,
+    //     inRange: {
+    //         color: ['#D7DA8B', '#E15457']
+    //     }
+    // },
+    xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+    },
+    yAxis: {
+        type: 'category',
+        data:datacolor
+    },
+    series: [
+        {
+           
+            type: 'bar',
+            data: Num
+        }
+    ]
+};
+
+                        op1.setOption(option);              
+
+                    }
+
+
+                  
+
+
+                }
+            })
+        });
+
+    </script>
 </body>
 
 </html>

@@ -94,43 +94,32 @@ namespace CORSV2.forms.administrator.system
         }
         private void DeleteStas()
         {
-            int[] ids;
-            string a = Request["id[]"];
-            string[] temp = a.Split(',');
-            ids = new int[temp.Length];
+
+            string name = Request["id"];
+
             try
             {
-                for (int m = 0; m < temp.Length; m++)
+
+                bool result = DAL.ServiceConfiguration.Delete(name);
+                try
                 {
-                    ids[m] = Convert.ToInt32(temp[m]);
-                    Model.ServiceConfiguration mc = DAL.ServiceConfiguration.GetModel(ids[m]);
-                   
 
-
-                    string name = mc.ServerName;
-                  
-                    bool result = DAL.ServiceConfiguration.Delete(name);
-                    try
-                    {
-
-                      
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-
-                    Model.SysLog mSysLog = new Model.SysLog();
-                    mSysLog.LogTime = DateTime.Now;
-                    mSysLog.LogType = 0;
-                    mSysLog.UserName = Session["UserName"].ToString();
-                    mSysLog.Remark = "管理员删除了产品配置：" + name;
-                    DAL.SysLog.Add(mSysLog);
 
                 }
-                Response.Clear();
-                Response.Write("1");
-                Response.End();
+                catch (Exception)
+                {
+
+                }
+
+                Model.SysLog mSysLog = new Model.SysLog();
+                mSysLog.LogTime = DateTime.Now;
+                mSysLog.LogType = 0;
+                mSysLog.UserName = Session["UserName"].ToString();
+                mSysLog.Remark = "管理员删除了产品配置：" + name;
+                DAL.SysLog.Add(mSysLog);
+
+
+
             }
             catch (Exception)
             {

@@ -54,13 +54,7 @@ namespace CORSV2.forms.user.order
 
             DAL.SysLog.Add(syslog);
 
-            Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
-            paymentRecord.ProductName = "账号申请";
-            paymentRecord.Company = orderlist.company;
-            paymentRecord.Type = orderlist.OrdeType;
-            paymentRecord.Money = Convert.ToSingle(orderlist.Price);
-            paymentRecord.RechargeTime = DateTime.Now;
-            DAL.PaymentRecord.Add(paymentRecord);
+ 
             try
             {
 

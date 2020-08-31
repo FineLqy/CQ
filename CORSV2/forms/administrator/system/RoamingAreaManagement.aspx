@@ -44,13 +44,7 @@
                                         <i class="fa fa-plus"></i>添加分组
                                     </button>
 
-                                    <button type="button" id="refreshsta" class="btn btn-outline btn-default" title="刷新">
-                                        <i class="fa fa-refresh"></i>刷新
-                                    </button>
-                                  
-                                    <button type="button" id="deletesta" class=" btn btn-danger"  data-toggle="tooltip" data-placement="top" title="删除">
-                                        <i class="fa fa-trash-o"></i>删除
-                                    </button>
+                             
                                     <form method="post" id="Form">
                                         <div class="modal inmodal" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -85,7 +79,7 @@
                             </div>
 
                              <table
-                                    id="table"
+                                    id="table" style="table-layout: fixed"
                                     data-toolbar="#toolbar"
                                     data-search="true"
                                     data-show-refresh="false"
@@ -232,7 +226,8 @@
                         field: 'Update',
                      title: '操作',
                          events: operatEvents,
-                        formatter : operatFrom,
+                     formatter: operatFrom,
+                         width:120
                     },],
             });
         }
@@ -240,23 +235,28 @@
         function operatFrom(value,row,index){
         //return "<a href='javascript:;' onclick='editRow(event)'>编辑</a>&nbsp;&nbsp;<a href='javascript:;' onclick='deleteRow(event)'>删除</a>";
         return [
-                '<a type="button"  id="edit"  class="btn btn-success" style="margin-right:15px;">编辑</button>',
-                '<a type="button" id="del" class="btn btn-danger" style="margin-right:15px;">删除</button>' ]
+                '<a type="button"  id="edit"  class="btn btn-xs btn-success" style="margin-right:15px;">编辑</button>',
+                '<a type="button" id="del" class="btn btn-xs btn-danger" style="margin-right:15px;">删除</button>' ]
                 .join('');
     }
-    window.operatEvents={
-        "click .edit": function (e, value, row, index) {
-            alert("编辑了caseId是：" + row.ID);
-            window.location.href = "?action=RoamingAreaManagementgSet.aspx&&GroupName=" + row.GroupName;
+       window.operatEvents={
+        "click #edit": function (e, value, row, index) {
+            window.location.href = "RoamingAreaManagementgSet.aspx?GroupName=" + row.GroupName; 
+        
         },
-        "click .del": function (e, value, row, index) {
-                         layer.confirm('您确定要删除这个合同信息吗', function(index){
+        "click #del": function (e, value, row, index) {
+                 layer.confirm('您确定要删除这个分组信息吗', function(index){
        
-                     window.location.href = "?action=DeleteCors&&id=" + row.GroupName;
+                     window.location.href = "?action=DeleteStas&&id=" + row.GroupName;
                       layer.close(index);
       });
-        }
-    }
+          
+        } 
+      
+       
+           
+        } 
+    
   
         function viewDevice(GroupName) {
            layer.open({
