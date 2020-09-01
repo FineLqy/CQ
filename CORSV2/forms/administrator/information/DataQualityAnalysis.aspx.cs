@@ -34,6 +34,11 @@ namespace CORSV2.forms.administrator.information
 
                 }
             }
+            if (Request["action"] != null && Request["action"] == "GetData1")
+            {
+                GetData1();
+            }
+
 
         }
         private bool GetStas()
@@ -93,122 +98,201 @@ namespace CORSV2.forms.administrator.information
             }
         }
 
-        /// <summary>
-        /// 显示故障总数
-        /// </summary>
-        /// <param name="t"></param>
-        /// <returns></returns>
-        [System.Web.Services.WebMethod()]
-        public static string lodaa3(string t)
+        ///// <summary>
+        ///// 显示故障总数
+        ///// </summary>
+        ///// <param name="t"></param>
+        ///// <returns></returns>
+        //[System.Web.Services.WebMethod()]
+        //public static string lodaa3(string t)
+        //{
+        //    HttpResponse resp = System.Web.HttpContext.Current.Response;
+        //    HttpRequest req = System.Web.HttpContext.Current.Request;
+         
+
+
+
+        //    System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(url);
+        //    FileInfo[] ff = di.GetFiles("*.result");//只取文本文du档
+        //    string CC = "";//存放内容
+        //    string EE = "";//存放内容
+        //    string GG = "";//存放内容
+        //    string RR = "";//存放内容
+        //    foreach (FileInfo temp in ff)
+        //    {
+
+
+
+        //        using (StreamReader sr = temp.OpenText())
+        //        {
+        //            if (temp.ToString().Contains("C."))
+        //            {
+        //                List<string[]> list = new List<string[]>();
+
+        //                CC += sr.ReadToEnd();//内容追加到zhiss中
+        //                string[] arr = CC.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+        //                if (arr.Length > 0)
+        //                {
+        //                    list.Add(arr);
+                           
+                           
+        //                }
+        //                for (int i = 0; i < arr.Length; i++)
+        //                {
+                            
+        //                }
+
+
+
+        //            }
+        //            if (temp.ToString().Contains("E."))
+        //            {
+        //                // string[] Ename = temp.ToString().Replace("E.result", "");
+        //                EE += sr.ReadToEnd();//内容追加到zhiss中
+        //                string[] H_data2 = EE.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
+
+        //            }
+        //            if (temp.ToString().Contains("G."))
+        //            {
+        //                GG += sr.ReadToEnd();//内容追加到zhiss中
+        //                string[] H_data2 = GG.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
+
+        //            }
+        //            if (temp.ToString().Contains("R."))
+        //            {
+        //                RR += sr.ReadToEnd();//内容追加到zhiss中
+        //                string[] H_data2 = RR.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
+
+        //            }
+
+
+
+
+        //        }
+        //    }
+
+        //    string strJson = string.Empty;
+
+        //    strJson = JsonConvert.SerializeObject(new { dt2 = CC });
+        //    var serializer = new JavaScriptSerializer();
+
+        //    serializer.MaxJsonLength = Int32.MaxValue;
+        //    serializer.Serialize(strJson);
+        //    return strJson;
+        //}
+
+        public string GetData1()
         {
-            HttpResponse resp = System.Web.HttpContext.Current.Response;
-            HttpRequest req = System.Web.HttpContext.Current.Request;
+            DateTime st =Convert.ToDateTime( Request["data1"].ToString());
+            DateTime et = DateTime.Now;
+            int days = (et - st).Days;
+
+            Dictionary<DateTime, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> r = new Dictionary<DateTime, Dictionary<string, Dictionary<string, Dictionary<string, string>>>>();
             HttpServerUtility server = System.Web.HttpContext.Current.Server;
-
-
-
-            string url = server.MapPath("/ObsQuality");
+            string url = server.MapPath("/ObsQuality/");
             System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(url);
             FileInfo[] ff = di.GetFiles("*.result");//只取文本文du档
-            string CC = "";//存放内容
-            string EE = "";//存放内容
-            string GG = "";//存放内容
-            string RR = "";//存放内容
-            foreach (FileInfo temp in ff)
+            for (int i = 0; i < days; i++)
             {
+                Dictionary<string, Dictionary<string, Dictionary<string, string>>> d = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+                DateTime dateTime = st.AddDays(i);
 
-
-
-                using (StreamReader sr = temp.OpenText())
+                string fileG = server.MapPath("/ObsQuality/" + dateTime.Year + "/"+ dateTime.DayOfYear + "/");
+                DirectoryInfo folder = new DirectoryInfo(fileG);
+                
+                // List<object> s = new List<object>();
+                foreach (FileInfo file in folder.GetFiles("*.result"))
                 {
-                    if (temp.ToString().Contains("C."))
+                    string fullName = file.FullName;
+                    // Console.WriteLine(file.FullName);
+                    string abc = Path.GetFileNameWithoutExtension(fullName);
+                    
+                    string sname = abc.Substring(0,abc.Length-4);
+                    Dictionary<string, Dictionary<string, string>> sn = new Dictionary<string, Dictionary<string, string>>();
+                    if (d.ContainsKey(sname))
                     {
-                        List<string[]> list = new List<string[]>();
+                        d.TryGetValue(sname, out sn);
+                        d.Remove(sname);
+                    }
+                
+                    string dayName = abc.Substring(sname.Length, 3);
+                    string cegrNmae = abc.Substring(abc.Length-1, 1);
 
-                        CC += sr.ReadToEnd();//内容追加到zhiss中
-                        string[] arr = CC.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (arr.Length > 0)
+                    if (!File.Exists(fullName))
+                    {
+                        continue;
+                    }
+                    // string dddddd  = file.ToString();
+                    
+                    StreamReader fillds = new StreamReader(fullName);
+                    string ddddddddd =  fillds.ReadToEnd();
+                    string[] arr = ddddddddd.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] temp = new string[] { "First epoch", "Last epoch", "Interval", "Mp1", "Mp2", "O/Slps", "SN1", "SN2", "ObsCount", "DIR" };
+                    int[] temp2 = new int[] { 2, 2, 1, 1, 1, 1, 1, 1, 1, 1 };
+                    Dictionary<string, string> hashMap = new Dictionary<string, string>();
+                    for (int index = 0; index < arr.Length; index++)
+                    {
+                        for (int tempIndex = 0; tempIndex < temp.Length; tempIndex++)
                         {
-                            list.Add(arr);
-                           
-                           
+                            if (arr[index].Contains(temp[tempIndex])) {
+                                string[] arr222 = arr[index].Split(new string[] { temp[tempIndex] },  StringSplitOptions.RemoveEmptyEntries);
+                                string[] arr223 = arr222[0].Split(new char[] {' ', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                                string res = "";
+                                int flag = 0;
+                                for (int xa = temp2[index]; xa > 0; xa --) {
+
+                                    if (flag == 0)
+                                    {
+                                        res += arr223[arr223.Length - xa];
+                                    }
+                                    else {
+                                        res += " " + arr223[arr223.Length - xa];
+                                    }
+                                    flag++;
+                                    
+                                }
+                                hashMap.Add(temp[index], res);
+                                
+                            }
                         }
-                        for (int i = 0; i < arr.Length; i++)
-                        {
-                            
-                        }
-
-
-
                     }
-                    if (temp.ToString().Contains("E."))
-                    {
-                        // string[] Ename = temp.ToString().Replace("E.result", "");
-                        EE += sr.ReadToEnd();//内容追加到zhiss中
-                        string[] H_data2 = EE.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
-
-                    }
-                    if (temp.ToString().Contains("G."))
-                    {
-                        GG += sr.ReadToEnd();//内容追加到zhiss中
-                        string[] H_data2 = GG.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
-
-                    }
-                    if (temp.ToString().Contains("R."))
-                    {
-                        RR += sr.ReadToEnd();//内容追加到zhiss中
-                        string[] H_data2 = RR.Split(new char[] { '\n', '\r' });//这样就可以把每行放到数组中的一项里
-
-                    }
-
-
-
-
+                    sn.Add(cegrNmae, hashMap);
+                    d.Add(sname, sn);
                 }
+                r.Add(dateTime, d);
+
+                //string fileGz = di + "/"+ dateTime.Year + "/" + dateTime.DayOfYear + "/" + "*C.result";
+                //string fileC = di + "/" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + "E.result";
+                //string fileE = di + "/" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + "G.result";
+                //string fileR = di + "/" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + "R.result";
+                //if(!File.Exists(fileG))
+                //{
+                //    continue;
+                //}
+                //StreamReader streamReaderG = new StreamReader(fileG);
+
+                //data data = new data();
+                //data.Mp1 = 1;
+                //d.Add("G", data);
+
+
+                //data dataC = new data();
+                //dataC.Mp1 = 0;
+                //d.Add("C", dataC);
+
+                ////d.ContainsKey();
+                
+                //r.Add(dateTime, d);
             }
 
             string strJson = string.Empty;
 
-            strJson = JsonConvert.SerializeObject(new { dt2 = CC });
+            strJson = JsonConvert.SerializeObject(new { dt2 = r });
             var serializer = new JavaScriptSerializer();
 
             serializer.MaxJsonLength = Int32.MaxValue;
             serializer.Serialize(strJson);
             return strJson;
-        }
-
-        public string GetData(DateTime st, DateTime et)
-        {
-            int days = (et - st).Days;
-            Dictionary<DateTime, Dictionary<string, data>> r = new Dictionary<DateTime, Dictionary<string, data>>();
-            for (int i = 0; i < days; i++)
-            {
-                Dictionary<string, data> d = new Dictionary<string, data>();
-                DateTime dateTime = st.AddDays(0);
-                string fileG = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
-                string fileC = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
-                string fileE = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
-                string fileR = "" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + ".result";
-                if(!File.Exists(fileG))
-                {
-                    continue;
-                }
-                StreamReader streamReaderG = new StreamReader(fileG);
-
-                data data = new data();
-                data.Mp1 = 1;
-                d.Add("G", data);
-
-
-            data dataC = new data();
-            dataC.Mp1 = 0;
-                d.Add("C", dataC);
-
-                //d.ContainsKey();
-                
-                r.Add(dateTime, d);
-            }
-            return r.ToString();
 
 
 
