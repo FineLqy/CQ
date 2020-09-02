@@ -32,6 +32,12 @@ namespace CORSV2.forms.administrator.system
 
             }
 
+            if (Request["action"] != null&& Request["action"]== "save")
+            {
+                save();
+            }
+
+            
 
         }
         public void save()
@@ -42,17 +48,8 @@ namespace CORSV2.forms.administrator.system
             management.GroupName = GroupName.Value;
             management.Remark = Remark.Value;
             management.GroupRange = GroupRange.Value;
-          
-
-
-
-
 
             DAL.RoamingAreaManagement.Update(management);
-
-
-
-
 
             Response.Clear();
             Response.Write("1");

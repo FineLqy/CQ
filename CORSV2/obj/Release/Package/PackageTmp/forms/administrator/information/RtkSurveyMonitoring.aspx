@@ -115,7 +115,7 @@
                             data-page-list="[10, 25, 50, 100]"
                             data-show-footer="false"
                             data-side-pagination="server"
-                            data-url="yhzyjc.aspx?action=GetData"
+                            data-url="RtkSurveyMonitoring.aspx?action=GetData"
                             data-smart-display="false">
                             <thead>
                                 <tr>

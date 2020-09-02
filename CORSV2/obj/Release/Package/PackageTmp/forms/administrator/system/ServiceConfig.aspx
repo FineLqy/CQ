@@ -237,7 +237,7 @@
                      title: '操作',
                             events: operatEvents,
                      formatter: operatFrom,
-                         width:155
+                         width:120
                     },],
             });
         }
@@ -246,8 +246,8 @@
         function operatFrom(value,row,index){
         //return "<a href='javascript:;' onclick='editRow(event)'>编辑</a>&nbsp;&nbsp;<a href='javascript:;' onclick='deleteRow(event)'>删除</a>";
         return [
-                '<a type="button"  id="edit"  class="btn btn-success" style="margin-right:15px;">编辑</button>',
-                '<a type="button" id="del" class="btn btn-danger" style="margin-right:15px;">删除</button>' ]
+                '<a type="button"  id="edit"  class="btn btn-xs btn-success" style="margin-right:15px;">编辑</button>',
+                '<a type="button" id="del" class="btn btn-xs btn-danger" style="margin-right:15px;">删除</button>' ]
                 .join('');
     }
        window.operatEvents={

@@ -199,6 +199,7 @@ namespace CORSV2.forms.user.company
             companyinfo.SurveyingFile = map_qualification_path;
             companyinfo.SurveyingNumber = Request.Form["map_qualification_sn"];
             companyinfo.ServiceAgreementFile = secrecy_agreement_path;
+            
             cs.WebLogger.WriteErroLog(companyinfo.ServiceAgreementFile);
             try
             {
@@ -226,6 +227,7 @@ namespace CORSV2.forms.user.company
             }
             else
             {
+                companyinfo.Balance = 0;
                 DAL.CompanyInfo.Add(companyinfo);
                 Model.CompanyInfo temp_companyinfo = DAL.CompanyInfo.GetModel();
                 Model.RegisterUser registeruser = DAL.RegisterUser.GetModel(Session["UserName"].ToString());

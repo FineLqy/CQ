@@ -136,7 +136,7 @@
                         title: '操作',
                         events: operatEvents,
                         formatter: operatFrom,
-                         width:260
+                         width:195
 
                     }],
             });
@@ -154,14 +154,14 @@
                    //return "<a href='javascript:;' onclick='editRow(event)'>编辑</a>&nbsp;&nbsp;<a href='javascript:;' onclick='deleteRow(event)'>删除</a>";
                    if (row.recontractStatus=='正式') {
  return [
-            '<a type="button" id="download" class="btn btn-primary " style="margin-right:15px;">下载</button>'
+            '<a type="button" id="download" class="btn btn btn-xs btn-primary " style="margin-right:15px;">下载</button>'
         ].join('');
                    }
                    else {
                         return [
-                '<a type="button" id="edit" class="btn btn-success"  style="margin-right:15px;">转为正式</button>',
-            '<a type="button" id="del" class="btn btn-danger" style="margin-right:15px;">作废</button>',
-            '<a type="button" id="download" class="btn btn-primary " style="margin-right:15px;">下载</button>'
+                '<a type="button" id="edit" class="btn btn-xs  btn-success"  style="margin-right:15px;">转为正式</button>',
+            '<a type="button" id="del" class="btn btn-xs  btn-danger" style="margin-right:15px;">作废</button>',
+            '<a type="button" id="download" class="btn btn-xs  btn-primary " style="margin-right:15px;">下载</button>'
         ].join('');
                    }
        

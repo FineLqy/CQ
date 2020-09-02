@@ -96,6 +96,12 @@
 				setSrollBar()
 			})
 		</script>
+    
+    <style>
+        #ul1 li {
+            border-bottom:1px solid #e0dede;
+        }
+    </style>
 </head>
 <body>
     <div style="width:16%;height:100%;float:left" >
@@ -125,7 +131,7 @@
   </ul>
   <div class="layui-tab-content">
     <div id="on-line" class="layui-tab-item layui-show">
-         <ul id="ul1">
+         <ul id="ul1" >
           
          </ul>
     </div>
@@ -154,7 +160,8 @@ $('li').click(function(){
  
     if ($(this).text()=='渝中区') {
         var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.55), 10);
+         map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.557117,29.570086), 17);
         map.enableScrollWheelZoom();
         $(function () {
         var v1 = [];
@@ -203,8 +210,9 @@ $('li').click(function(){
 
     }
         if ($(this).text()=='江北区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.60), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.580158,29.612137), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -252,8 +260,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='南岸区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.52), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.65098,29.507155), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -301,8 +310,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='九龙坡区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.50), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.517209,29.507962), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -350,8 +360,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='沙坪坝区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.53), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.463369,29.54724), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -399,8 +410,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='大渡口区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.48), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.488922,29.490543), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -448,8 +460,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='北碚区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.80), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.402055,29.810925), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -497,8 +510,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='渝北区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.72), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.637632,29.723744), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -547,8 +561,9 @@ $('li').click(function(){
     })
     }
         if ($(this).text()=='巴南区') {
-        var map = new BMap.Map("allmap");
-	map.centerAndZoom(new BMap.Point(106.57,29.38), 10);
+            var map = new BMap.Map("allmap");
+             map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
+	map.centerAndZoom(new BMap.Point(106.546952,29.407837), 17);
             map.enableScrollWheelZoom();
             $(function () {
         var v1 = [];
@@ -600,7 +615,8 @@ $('li').click(function(){
 </script>
 <script type="text/javascript">
 	// 百度地图API功能
-	var map = new BMap.Map("allmap");
+    var map = new BMap.Map("allmap");
+     map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_SATELLITE_MAP, BMAP_HYBRID_MAP]}));
 	map.centerAndZoom(new BMap.Point(106.55774,29.566473), 10);
     map.enableScrollWheelZoom();
     $(function () {
@@ -666,4 +682,11 @@ layui.use('element', function(){
 
   
 });
+</script>
+
+<script>
+    $("#btnSelect").click(function () {
+
+
+    });
 </script>

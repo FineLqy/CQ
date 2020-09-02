@@ -193,7 +193,7 @@
         }
 
 
-
+  
         $("#refreshsta").click(function () {
             table.bootstrapTable('refresh');
 
@@ -205,101 +205,47 @@
         });
     </script>
 
-    <script>
-        $(function () {
-            var v1 = [];
-            var Rname = '123';
-            $.ajax({
-                url: "DataQualityAnalysis.aspx/lodaa3",
-                contentType: "application/json; charset=utf-8",
-                data: "{t:'" + Rname + "'}",
-                type: "Post",
-                dataType: "json",
-                success: function (data) {
-                    var res = JSON.parse(data.d);
-                    console.log(data)
-                    console.log(res.dt1);
-                    var da = new Array();
-                    var Num = [];
-                    for (var i in res.dt1) {
-                        console.log(res.dt1[i].Num)
-                        da.push(res.dt1[i].StationOName)
-                        var op1 = echarts.init(document.getElementById('d1'));
-                        var datacolor = da;
-                        Num.push(res.dt1[i].Num)
-
-                        option = {
-                            title: {
-                                text: '站点故障频率排行',
-
-                            },
-                            tooltip: {
-                                trigger: 'axis',
-                                axisPointer: {
-                                    type: 'shadow'
-                                }
-                            },
-
-                            grid: {
-                                left: '15%',
-
-                            },
-                            // visualMap: {
-                            //     orient: 'horizontal',
-                            //     left: 'center',
-                            //     min: 10,
-                            //     max: 200000,
-                            //     text: ['High', 'Low'],
-                            //     // Map the score column to color
-                            //     dimension: 0,
-                            //     inRange: {
-                            //         color: ['#D7DA8B', '#E15457']
-                            //     }
-                            // },
-                            xAxis: {
-                                type: 'value',
-                                boundaryGap: [0, 0.01]
-                            },
-                            yAxis: {
-                                type: 'category',
-                                data: datacolor
-                            },
-                            series: [
-                                {
-
-                                    type: 'bar',
-                                    data: Num
-                                }
-                            ]
-                        };
-
-                        op1.setOption(option);
-
-                    }
-
-                }
-            })
-        });
-
-    </script>
+  
 
     <script>
      //查询本周数据
         $("#week").click(function () {
-            alert(getStartDayOfWeek());
-               alert(getEndDayOfWeek());
-
+            
             var data1 = getStartDayOfWeek();
             var data2 = getEndDayOfWeek();
             $.ajax({
-                url: "?action=GetData1",
+                url: "DataQualityAnalysis.aspx?action=GetData1",
+                  
+                dataType: "json",
                 data: {
                     data1: data1,
                     data2: data2,
 
                 },
                 type: "POST",
-                success: function (result) {
+                success: function (data) {
+                    console.log(data);
+                    var XData=new Array();
+                          $('#table').on('click-row.bs.table', function (e, row, $element) {
+                              console.log(row.StationOName);
+
+                              for (var i in data) {
+                                  for (var j in data[i]) {
+                                     
+                                      var num= j.substring(0,10);
+                                      
+                                      XData.push(num);
+                                      for (var k in data[i][k]) {
+                                          console(k)
+                                      }
+                                  }
+                                  console.log(XData);
+                                  
+                              }
+
+                              
+ 
+            });
 
                 }
             });
@@ -315,14 +261,14 @@
                var dataM2 = getEndDayOfMonth();
 
                   $.ajax({
-                url: "?action=GetData1",
+                url: "DataQualityAnalysis.aspx/GetData1",
                 data: {
                     data1: data1,
                     dataM2: dataM2,
 
                 },
                 type: "POST",
-                success: function (result) {
+                success: function (data) {
 
                 }
             });

@@ -113,6 +113,7 @@ namespace CORSV2.forms.administrator.information
             return strJson;
         }
 
+
         /// <summary>
         /// 显示故障总数
         /// </summary>
@@ -130,6 +131,7 @@ namespace CORSV2.forms.administrator.information
             serializer.Serialize(strJson);
             return strJson;
         }
+
 
 
 

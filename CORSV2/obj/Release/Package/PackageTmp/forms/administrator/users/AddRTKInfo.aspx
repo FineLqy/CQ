@@ -487,11 +487,11 @@ layui.use('element', function(){
                             layer.alert('添加成功', {
                                 skin: 'layui-layer-lan', //样式类名,
                             });
-                           
+                                                    
                             break;
                         }
                         case "0": {
-                            layer.alert('上传失败', {
+                            layer.alert('添加失败', {
                                 skin: 'layui-layer-lan', //样式类名,
                             });
                             break;
@@ -665,7 +665,7 @@ layui.use('element', function(){
                             layer.alert('添加成功', {
                                 skin: 'layui-layer-lan', //样式类名,
                             });
-                          
+                           
                             break;
                         }
                         case "0": {

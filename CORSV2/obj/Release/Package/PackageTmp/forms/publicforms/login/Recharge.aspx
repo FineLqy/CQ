@@ -33,8 +33,16 @@
                                 <ul class="shop-list">
                        
                                     <li class="list" style="height:10px">
-                                        <label class="shop-list-tit">
-                                            <span>在线充值</span>
+                                        <label class="shop-list-tit" style="width:1100px">
+                                            <div>
+                                                  <span>在线充值</span>
+                                                  <a style="float:right" href="../../administrator/order/PaymentRecord.aspx">充值记录</a>
+                                            </div>
+                                            <div style="float:right">
+                                               
+                                            </div>
+                                          
+                                           
                                         </label>
                                        
                                     </li>
@@ -44,15 +52,21 @@
                                 
                                   
                                     <div class="shop-submit">
-                                          <li class="clearfix" style="width:300px">
-                                 <label class="labelLeft"><span class="required"></span>充值账号：</label>
-                                 <label class="labelLeft"><span class="required" id="company" runat="server"></span></label><br /><br /><br />
-                                    <label class="labelLeft"><span class="required"></span>余额：</label>
+                                          <li class="clearfix" style="width:500px">
+                                 <label class="labelLeft"><span class="required" style="color:#888888">充值账号：</span></label>
+
+                                 <label class="labelLeft"><span class="required" id="company" runat="server"></span></label><br /><br />
+                                    <label class="labelLeft"><span class="required" style="color:#888888">余额：</span></label>
                                       <label class="labelLeft"><span class="required" id="Balance" runat="server"></span>元</label><br /><br />
-                                                          <label class="labelLeft"><span class="required"></span>充值金额：</label>
-                                        <input type="text" name="Price" autocomplete="off"   style="height:30px" value="" id="Price" class="form-control width-300 "  runat="server"/>元
-                                        
-                                    
+                                                          <label class="labelLeft"><span class="required" style="color:#888888">充值金额：</span></label>
+                                        <input type="text" name="Price" autocomplete="off"   value="" id="Price"  class="b-item"   runat="server"/>元<br /><br />
+                         <span class="required" style="width:60px;height:20px;text-align:center;background-color:#FFF4E3; color:#987B4D">充值说明</span>
+                                                                      
+                                
+                                     <span style="color:#888888"  >在线充值不能抵扣垫付未回款，如需抵扣请使用对公汇款；</span><br />
+                     <span style="color:#888888"  >原国际信用卡支付渠道已下线，请使用微信支付代替，详情查看 微信国际卡支付指引。</span>
+
+                                                          
 
                                 </li>
                                         <br />

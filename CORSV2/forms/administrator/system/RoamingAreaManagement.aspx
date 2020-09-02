@@ -202,10 +202,7 @@
         function initialTable() {
             table.bootstrapTable({
                 columns: [
-                  {
-                        field: 'state',
-                        checkbox: true,
-                    },
+                  
                     {
                         field: 'ID',
                       title: '编号'

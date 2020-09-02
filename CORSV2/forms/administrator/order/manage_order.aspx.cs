@@ -239,7 +239,7 @@ namespace CORSV2.forms.administrator.order
                             DAL.RTKUserPurview.Add(rtkUserPurview);
                    
                             companyInfo.Balance = companyInfo.Balance - Convert.ToSingle(orderlist.Price);
-                            DAL.CompanyInfo.Update(companyInfo);
+                            DAL.CompanyInfo.Update2(companyInfo);
                             #endregion
                         }
 
@@ -340,7 +340,7 @@ namespace CORSV2.forms.administrator.order
                                 #endregion
                             }
                         companyInfo.Balance = companyInfo.Balance - Convert.ToSingle(orderlist.Price);
-                        DAL.CompanyInfo.Update(companyInfo);
+                        DAL.CompanyInfo.Update2(companyInfo);
                         Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
                         paymentRecord.ProductName = "账号申请";
                         paymentRecord.Company = orderlist.company;
@@ -398,7 +398,7 @@ namespace CORSV2.forms.administrator.order
                         }
                         Model.CompanyInfo companyInfo = DAL.CompanyInfo.GetModel(orderlist.company);
                         companyInfo.Balance = companyInfo.Balance- Convert.ToSingle(orderlist.Price);
-                        DAL.CompanyInfo.Update(companyInfo);
+                        DAL.CompanyInfo.Update2(companyInfo);
                         Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
                         paymentRecord.ProductName = "账号续费";
                         paymentRecord.Company = orderlist.company;
@@ -428,7 +428,7 @@ namespace CORSV2.forms.administrator.order
 
                        Model.CompanyInfo companyInfo=  DAL.CompanyInfo.GetModel(orderlist.company);
                         companyInfo.Balance += Convert.ToSingle( orderlist.Price);
-                        DAL.CompanyInfo.Update(companyInfo);
+                        DAL.CompanyInfo.Update2(companyInfo);
                         Model.PaymentRecord paymentRecord = new Model.PaymentRecord();
                         paymentRecord.ProductName = "账号充值";
                         paymentRecord.Company = orderlist.company;

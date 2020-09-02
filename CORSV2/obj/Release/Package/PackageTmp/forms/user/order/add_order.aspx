@@ -152,6 +152,8 @@
                                             </div>
                                             <p class="shop-tip-word err-style" id="liteGoodsNumTip" style="display: none"></p>
                                         </div>
+
+                                       
                                     </li>
                                     <li class="list">
                                         <label class="shop-list-tit">
@@ -179,6 +181,7 @@
                                             </span>
 
                                         </div>
+                                        
                                     </li>
                                   
 
@@ -190,13 +193,13 @@
                                         <div class="shop-list-con">
                                             <div class="shop-ui-block" >
                                                 <div class="shop-ui-block ui-block-70" >
-                                                     
-                                                        <select id="Select1" runat="server"  onchange="change()" style="width:100px;height:30px;font-size:16px">
+                                                      
+                                                        <select id="Select1" runat="server" class="b-item1"  onchange="change1()" style="width:100px;height:30px;font-size:16px">
                                 <option value="是">是</option>
                                 <option value="否">否</option>
 
                             </select> &nbsp;&nbsp;
-                            <select id="Select2" runat="server" style="width:100px;height:30px; font-size:16px">
+                            <select id="Select2" runat="server" class="b-item1" style="width:100px;height:30px; font-size:16px">
                                 
 
                             </select>    <br />
@@ -380,6 +383,28 @@
                                             </div>
                                             <p class="shop-tip-word err-style" id="liteGoodsNumTip1" style="display: none"></p>
                                         </div>
+                                        
+                                    </li>
+                                      <li class="list">
+                                        <label class="shop-list-tit">
+                                            <span>自定义用户名</span>
+                                        </label>
+                                        <div class="shop-list-con">
+                                            <div class="shop-ui-block" id="liteGoodsNum11">
+                                                <div class="shop-input-num " >
+                                                    <div id="showDiv" style="float:left;">
+                                                        <div style="height:40px">
+                                                            
+                                   <input id="inputText1" npropertychange="check(1)" class="b-item1" autocomplete="off" oninput="check(1)" required="required"  placeholder="请输入用户名"   /><span id="msg1" style="color:red"></span>
+                                                        </div>
+
+                                </div>
+                                               
+                                                </div>
+                                            </div>
+                                            <p class="shop-tip-word err-style" id="liteGoodsNumTip1" style="display: none"></p>
+                                        </div>
+                                       
                                     </li>
                                     <li class="list">
                                         <label class="shop-list-tit">
@@ -419,12 +444,12 @@
                                             <div class="shop-ui-block" >
                                                 <div class="shop-ui-block ui-block-70" >
                                                      
-                                                        <select id="Select3" runat="server"  onchange="change()" style="width:100px;height:30px;font-size:16px">
+                                                        <select id="Select3" runat="server" class="b-item1" onchange="change()" style="width:100px;height:30px;font-size:16px">
                                 <option value="是">是</option>
                                 <option value="否">否</option>
 
                             </select> &nbsp;&nbsp;
-                            <select id="Select4" runat="server" style="width:100px;height:30px; font-size:16px">
+                            <select id="Select4" runat="server" class="b-item1" style="width:100px;height:30px; font-size:16px">
                                 
 
                             </select>    <br />
@@ -468,10 +493,7 @@
                                     </li>
                                 </ul>
                                 </div >
-                                <div id="showDiv" style="width:50%;float:left;margin-top:30px">
-
-                                   <input id="inputText1" npropertychange="check(1)" oninput="check(1)" required="required"  placeholder="请输入用户名"   /><span id="msg1" style="color:red"></span>
-                                </div>
+                               
                             </div>
                            
 
@@ -518,7 +540,7 @@
   
 
     <script>
-        function change() {
+        function change1() {
 
             if ($("#Select1").val() == "是") {
                 document.getElementById("Select2").style.display = "block";
@@ -704,7 +726,7 @@
                 $('#price1').val(tempPrice1);
                 
                 
-                $('#showDiv').append('<div id=\"d' + apply_num1 + '"><input id=\"inputText' + apply_num1 + '" placeholder="\请输入用户名\"  npropertychange=\"check('+apply_num1+')\" oninput=\"check('+apply_num1+')\" /><span id="\msg' + apply_num1 + '" style=\"color:red"></span></div>')
+                $('#showDiv').append('<div id=\"d' + apply_num1 + '" style="height:40px" ><input id=\"inputText' + apply_num1 + '" class="b-item1" autocomplete="off"   placeholder="\请输入用户名\"  npropertychange=\"check('+apply_num1+')\" oninput=\"check('+apply_num1+')\" /><span id="\msg' + apply_num1 + '" style=\"color:red"></span></div>')
                
   
             }

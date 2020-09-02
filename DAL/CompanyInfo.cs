@@ -41,7 +41,7 @@ namespace DAL
         /// <returns></returns>
         public static bool Add(Model.CompanyInfo model)
         {
-            string strSql = "insert into CompanyInfo(Company,Address,CompanyTel,Industry,OrganizationCode,BusinessLicense,SurveyingQualification,SurveyingNumber,SurveyingFile,LegalPerson,LegalIDCardNumber,LegalIDCardFile,PowerOfAttorney,Contact,ContactIDCardNumer,ContactIDCardFile,CertificationTime,BelongArea,ServiceAgreementFile) values(@Company,@Address,@CompanyTel,@Industry,@OrganizationCode,@BusinessLicense,@SurveyingQualification,@SurveyingNumber,@SurveyingFile,@LegalPerson,@LegalIDCardNumber,@LegalIDCardFile,@PowerOfAttorney,@Contact,@ContactIDCardNumer,@ContactIDCardFile,@CertificationTime,@BelongArea,@ServiceAgreementFile,@Balance)";
+            string strSql = "insert into CompanyInfo(Company,Address,CompanyTel,Industry,OrganizationCode,BusinessLicense,SurveyingQualification,SurveyingNumber,SurveyingFile,LegalPerson,LegalIDCardNumber,LegalIDCardFile,PowerOfAttorney,Contact,ContactIDCardNumer,ContactIDCardFile,CertificationTime,BelongArea,ServiceAgreementFile,Balance) values(@Company,@Address,@CompanyTel,@Industry,@OrganizationCode,@BusinessLicense,@SurveyingQualification,@SurveyingNumber,@SurveyingFile,@LegalPerson,@LegalIDCardNumber,@LegalIDCardFile,@PowerOfAttorney,@Contact,@ContactIDCardNumer,@ContactIDCardFile,@CertificationTime,@BelongArea,@ServiceAgreementFile,@Balance)";
             SqlParameter Company = new SqlParameter("Company", SqlDbType.NVarChar); Company.Value = model.Company;
             SqlParameter Address = new SqlParameter("Address", SqlDbType.NVarChar); Address.Value = model.Address;
             SqlParameter CompanyTel = new SqlParameter("CompanyTel", SqlDbType.NVarChar); CompanyTel.Value = model.CompanyTel;
@@ -73,7 +73,7 @@ namespace DAL
         public static bool Update(Model.CompanyInfo model)
         {
 
-            string strSql = "update CompanyInfo set Company=@Company, Address=@Address, CompanyTel=@CompanyTel, Industry=@Industry, OrganizationCode=@OrganizationCode, BusinessLicense=@BusinessLicense, SurveyingQualification=@SurveyingQualification, SurveyingNumber=@SurveyingNumber, SurveyingFile=@SurveyingFile, LegalPerson=@LegalPerson, LegalIDCardNumber=@LegalIDCardNumber, LegalIDCardFile=@LegalIDCardFile,ServiceAgreementFile=@ServiceAgreementFile,  PowerOfAttorney=@PowerOfAttorney, Contact=@Contact, ContactIDCardNumer=@ContactIDCardNumer, ContactIDCardFile=@ContactIDCardFile, CertificationTime=@CertificationTime, BelongArea=@BelongArea,Balance=@Balance  where ID = " + model.ID.ToString();
+            string strSql = "update CompanyInfo set Company=@Company, Address=@Address, CompanyTel=@CompanyTel, Industry=@Industry, OrganizationCode=@OrganizationCode, BusinessLicense=@BusinessLicense, SurveyingQualification=@SurveyingQualification, SurveyingNumber=@SurveyingNumber, SurveyingFile=@SurveyingFile, LegalPerson=@LegalPerson, LegalIDCardNumber=@LegalIDCardNumber, LegalIDCardFile=@LegalIDCardFile,ServiceAgreementFile=@ServiceAgreementFile,  PowerOfAttorney=@PowerOfAttorney, Contact=@Contact, ContactIDCardNumer=@ContactIDCardNumer, ContactIDCardFile=@ContactIDCardFile, CertificationTime=@CertificationTime, BelongArea=@BelongArea where ID = " + model.ID.ToString();
             SqlParameter Company = new SqlParameter("Company", SqlDbType.NVarChar); Company.Value = model.Company;
             SqlParameter Address = new SqlParameter("Address", SqlDbType.NVarChar); Address.Value = model.Address;
             SqlParameter CompanyTel = new SqlParameter("CompanyTel", SqlDbType.NVarChar); CompanyTel.Value = model.CompanyTel;
@@ -94,11 +94,46 @@ namespace DAL
             SqlParameter ContactIDCardFile = new SqlParameter("ContactIDCardFile", SqlDbType.NVarChar); ContactIDCardFile.Value = model.ContactIDCardFile;
             SqlParameter CertificationTime = new SqlParameter("CertificationTime", SqlDbType.DateTime); CertificationTime.Value = model.CertificationTime;
             SqlParameter BelongArea = new SqlParameter("BelongArea", SqlDbType.NVarChar); BelongArea.Value = model.BelongArea;
-            SqlParameter Balance = new SqlParameter("Balance", SqlDbType.NVarChar); Balance.Value = model.Balance;
+           // SqlParameter Balance = new SqlParameter("Balance", SqlDbType.NVarChar); Balance.Value = model.Balance;
             
             //WebLogger.WriteErroLog(strSql);
-            return DBHelperSQL.GetNums(strSql, new SqlParameter[] { Company, Address, CompanyTel, Industry, OrganizationCode, BusinessLicense, SurveyingQualification, SurveyingNumber, SurveyingFile, LegalPerson, LegalIDCardNumber, LegalIDCardFile, ServiceAgreementFile, PowerOfAttorney, Contact, ContactIDCardNumer, ContactIDCardFile, CertificationTime, BelongArea, Balance }, connectionString) == 1 ? true : false;
+            return DBHelperSQL.GetNums(strSql, new SqlParameter[] { Company, Address, CompanyTel, Industry, OrganizationCode, BusinessLicense, SurveyingQualification, SurveyingNumber, SurveyingFile, LegalPerson, LegalIDCardNumber, LegalIDCardFile, ServiceAgreementFile, PowerOfAttorney, Contact, ContactIDCardNumer, ContactIDCardFile, CertificationTime, BelongArea }, connectionString) == 1 ? true : false;
             
+        }
+        /// <summary>
+        /// 更新一条数据,根据ID
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public static bool Update2(Model.CompanyInfo model)
+        {
+
+            string strSql = "update CompanyInfo set Company=@Company, Address=@Address, CompanyTel=@CompanyTel, Industry=@Industry, OrganizationCode=@OrganizationCode, BusinessLicense=@BusinessLicense, SurveyingQualification=@SurveyingQualification, SurveyingNumber=@SurveyingNumber, SurveyingFile=@SurveyingFile, LegalPerson=@LegalPerson, LegalIDCardNumber=@LegalIDCardNumber, LegalIDCardFile=@LegalIDCardFile,ServiceAgreementFile=@ServiceAgreementFile,  PowerOfAttorney=@PowerOfAttorney, Contact=@Contact, ContactIDCardNumer=@ContactIDCardNumer, ContactIDCardFile=@ContactIDCardFile, CertificationTime=@CertificationTime, BelongArea=@BelongArea,Balance=@Balance where ID = " + model.ID.ToString();
+            SqlParameter Company = new SqlParameter("Company", SqlDbType.NVarChar); Company.Value = model.Company;
+            SqlParameter Address = new SqlParameter("Address", SqlDbType.NVarChar); Address.Value = model.Address;
+            SqlParameter CompanyTel = new SqlParameter("CompanyTel", SqlDbType.NVarChar); CompanyTel.Value = model.CompanyTel;
+            SqlParameter Industry = new SqlParameter("Industry", SqlDbType.NVarChar); Industry.Value = model.Industry;
+            SqlParameter OrganizationCode = new SqlParameter("OrganizationCode", SqlDbType.NVarChar); OrganizationCode.Value = model.OrganizationCode;
+            SqlParameter BusinessLicense = new SqlParameter("BusinessLicense", SqlDbType.NVarChar); BusinessLicense.Value = model.BusinessLicense;
+            SqlParameter SurveyingQualification = new SqlParameter("SurveyingQualification", SqlDbType.NVarChar); SurveyingQualification.Value = model.SurveyingQualification;
+            SqlParameter SurveyingNumber = new SqlParameter("SurveyingNumber", SqlDbType.NVarChar); SurveyingNumber.Value = model.SurveyingNumber;
+            SqlParameter SurveyingFile = new SqlParameter("SurveyingFile", SqlDbType.NVarChar); SurveyingFile.Value = model.SurveyingFile;
+            SqlParameter LegalPerson = new SqlParameter("LegalPerson", SqlDbType.NVarChar); LegalPerson.Value = model.LegalPerson;
+            SqlParameter LegalIDCardNumber = new SqlParameter("LegalIDCardNumber", SqlDbType.NVarChar); LegalIDCardNumber.Value = model.LegalIDCardNumber;
+            SqlParameter LegalIDCardFile = new SqlParameter("LegalIDCardFile", SqlDbType.NVarChar); LegalIDCardFile.Value = model.LegalIDCardFile;
+            SqlParameter ServiceAgreementFile = new SqlParameter("ServiceAgreementFile", SqlDbType.NVarChar); ServiceAgreementFile.Value = model.ServiceAgreementFile;
+
+            SqlParameter PowerOfAttorney = new SqlParameter("PowerOfAttorney", SqlDbType.NVarChar); PowerOfAttorney.Value = model.PowerOfAttorney;
+            SqlParameter Contact = new SqlParameter("Contact", SqlDbType.NVarChar); Contact.Value = model.Contact;
+            SqlParameter ContactIDCardNumer = new SqlParameter("ContactIDCardNumer", SqlDbType.NVarChar); ContactIDCardNumer.Value = model.ContactIDCardNumer;
+            SqlParameter ContactIDCardFile = new SqlParameter("ContactIDCardFile", SqlDbType.NVarChar); ContactIDCardFile.Value = model.ContactIDCardFile;
+            SqlParameter CertificationTime = new SqlParameter("CertificationTime", SqlDbType.DateTime); CertificationTime.Value = model.CertificationTime;
+            SqlParameter BelongArea = new SqlParameter("BelongArea", SqlDbType.NVarChar); BelongArea.Value = model.BelongArea;
+            SqlParameter Balance = new SqlParameter("Balance", SqlDbType.NVarChar); Balance.Value = model.Balance;
+
+            //WebLogger.WriteErroLog(strSql);
+            return DBHelperSQL.GetNums(strSql, new SqlParameter[] { Company, Address, CompanyTel, Industry, OrganizationCode, BusinessLicense, SurveyingQualification, SurveyingNumber, SurveyingFile, LegalPerson, LegalIDCardNumber, LegalIDCardFile, ServiceAgreementFile, PowerOfAttorney, Contact, ContactIDCardNumer, ContactIDCardFile, CertificationTime, BelongArea, Balance }, connectionString) == 1 ? true : false;
+
         }
 
         public static bool Update1(Model.CompanyInfo model)

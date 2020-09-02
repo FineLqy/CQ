@@ -109,15 +109,19 @@
  
    
     <div style="width:24%;height:500px;float:left;margin-top:20px">
-           <span>统计信息:</span> <button type="button" id="week" class="btn btn-outline btn-default" title="本周">
-                                        <i ></i>本周
-                                    </button>
-    <button type="button" id="month" class="btn btn-outline btn-default" title="本月">
-                                        <i ></i>本月
-                                    </button>
-    <button type="button" id="SinceOperation" class="btn btn-outline btn-default" title="运行以来">
-                                        <i ></i>运行以来
-                                    </button>
+           <span>统计信息:</span> 
+        <button type="button" id="week" class="btn btn-outline btn-default" title="本周">
+            <i></i>本周
+        </button>
+        <button type="button" id="month" class="btn btn-outline btn-default" title="本月">
+            <i></i>本月
+        </button>
+            <button type="button" id="year" class="btn btn-outline btn-default" title="今年">
+            <i></i>今年
+        </button>
+        <button type="button" id="SinceOperation" class="btn btn-outline btn-default" title="运行以来">
+            <i></i>运行以来
+        </button>
       <div id='warp'>
            <div id="box">
     

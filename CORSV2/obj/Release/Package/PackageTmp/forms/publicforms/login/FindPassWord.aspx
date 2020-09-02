@@ -27,21 +27,21 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">用户名：</label>
                     <div class="col-sm-8">
-                        <input id="UserName" name="UserName" placeholder="请输入用户名" class="form-control" />
+                        <input id="UserName" name="UserName" autocomplete="off" placeholder="请输入用户名" class="form-control" />
 
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">手机号码：</label>
                     <div class="col-sm-8">
-                        <input id="phone1" name="phone1" placeholder="请输入手机号码" class="form-control" />
+                        <input id="phone1" name="phone1" placeholder="请输入手机号码" autocomplete="off" class="form-control" />
 
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">手机验证码：</label>
                     <div class="col-sm-6">
-                        <input name="verifyCode" id="verifyCode" maxlength="6" placeholder="请输入验证码" class="form-control" value=" " />
+                        <input name="verifyCode" id="verifyCode" maxlength="6" placeholder="请输入验证码" autocomplete="off" class="form-control" value="" />
                     </div>
 
                     <div class="col-sm-2" style="text-align: center">
@@ -53,13 +53,13 @@
                                 <div class="form-group">
                     <label class="col-sm-3 control-label">密码：</label>
                     <div class="col-sm-8">
-                        <input id="password" name="password" class="form-control" type="password" runat="server" />
+                        <input id="password" name="password" class="form-control" autocomplete="off" type="password" runat="server" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">确认密码：</label>
                     <div class="col-sm-8">
-                        <input id="confirm_password" name="confirm_password" class="form-control" type="password" runat="server" />
+                        <input id="confirm_password" name="confirm_password" autocomplete="off"  class="form-control" type="password" runat="server" />
                         <span class="help-block m-b-none"><i class="fa fa-info-circle"></i>请再次输入您的密码</span>
                     </div>
                 </div>
@@ -103,9 +103,13 @@
    
         $("#getCode").click(function () {
             var phone1 = $("#phone1").val();
+            var name = $("#UserName").val();
             $.ajax({
                 url: "?action=getCode",
-                data: {"phone1":phone1},
+                data: {
+                    "phone1": phone1,
+                    "name":name
+                },
                 type: "get",
                 success: function (result) {
                     if (result == "1") {
@@ -139,7 +143,7 @@
             }
         }
         function edit_info() {
-
+            console.log($('#signupForm').serialize());
             $.ajax({
                 url: "?action=resetPassword",
                 data: $('#signupForm').serialize(),
