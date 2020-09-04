@@ -84,7 +84,7 @@
                                 <label class="label label-info" id="Allrate">总固定率:<%=rate %></label>
                             </div>
                         </div>
-                        <div class="bars pull-right form-horizontal">
+                        <%--<div class="bars pull-right form-horizontal">
                             <div class="form-group">
                                 <select class="form-control col-sm-1" id="type" style="width:30%" onchange="GetUR();">
                                     <option value="RTCM31">RTCM3</option>
@@ -96,7 +96,7 @@
                                 <label class="label label-info" id="usercount">用户数:0</label>
                                 <label class="label label-info" id="rate">固定率:0%</label>
                             </div>
-                        </div>
+                        </div>--%>
                         <table id="table"
                             data-search="false"
                             data-search-text=""

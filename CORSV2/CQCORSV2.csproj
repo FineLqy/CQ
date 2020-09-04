@@ -92,6 +92,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AIndex.aspx" />
     <Content Include="bin\CORSV2.dll" />
     <Content Include="bin\CORSV2.pdb" />
     <Content Include="bin\DAL.dll" />
@@ -176,6 +177,7 @@
     <Content Include="forms\cors_admin.aspx" />
     <Content Include="forms\cors_user.aspx" />
     <Content Include="forms\functions\GetOnlineUserDt.aspx" />
+    <Content Include="forms\HomePage.aspx" />
     <Content Include="forms\index\about.aspx" />
     <Content Include="forms\index\contact.aspx" />
     <Content Include="forms\index\css\animation.css" />
@@ -492,18 +494,27 @@
     <Content Include="themes\icon\质量检查.png" />
     <Content Include="themes\icon\高程转换.png" />
     <Content Include="themes\images\ajax-modal-loading.gif" />
+    <Content Include="themes\images\bg.c19ab323.png" />
+    <Content Include="themes\images\checkManage.e3a67c2a.png" />
     <Content Include="themes\images\coin.png" />
+    <Content Include="themes\images\dataTransform.c240b36c.png" />
     <Content Include="themes\images\login-background1.jpg" />
     <Content Include="themes\images\login-background111.jpg" />
     <Content Include="themes\images\menu-toggler.png" />
     <Content Include="themes\images\select2 %281%29.png" />
     <Content Include="themes\images\select2.png" />
+    <Content Include="themes\images\serviceDynamics.2845fdfd.png" />
     <Content Include="themes\images\sprite.png" />
+    <Content Include="themes\images\statisticalSystem.a77704fa.png" />
     <Content Include="themes\images\success1.png" />
     <Content Include="themes\images\syncfusion-icons.png" />
+    <Content Include="themes\images\userManage.7226da5b.png" />
+    <Content Include="themes\images\userMonitor.ea2df645.png" />
     <Content Include="themes\images\wechatpay.png" />
+    <Content Include="themes\images\workOrder.141886ad.png" />
     <Content Include="themes\images\ys_head2.jpg" />
     <Content Include="themes\images\zfbpay.png" />
+    <Content Include="themes\images\下载.png" />
     <Content Include="themes\index\animate.css" />
     <Content Include="themes\index\bootstrap.min.css" />
     <Content Include="themes\index\bootstrap.min.js" />
@@ -4363,6 +4374,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIndex.aspx.cs">
+      <DependentUpon>AIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AIndex.aspx.designer.cs">
+      <DependentUpon>AIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cs\AES_Key.cs" />
     <Compile Include="cs\CoorTran.cs" />
     <Compile Include="cs\Delaunay.cs" />
@@ -4867,6 +4885,13 @@
     </Compile>
     <Compile Include="forms\functions\GetWorkingArea.ashx.cs">
       <DependentUpon>GetWorkingArea.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\index\about.aspx.cs">
       <DependentUpon>about.aspx</DependentUpon>

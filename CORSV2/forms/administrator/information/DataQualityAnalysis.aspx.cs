@@ -110,10 +110,14 @@ namespace CORSV2.forms.administrator.information
                                             flag++;
 
                                         }
-                                        hashMap.Add(temp[index], res);
-
-                                    
-
+                                        if (temp[index] == "O/Slps") {
+                                            hashMap.Add("Slps", res);
+                                         }
+                                         else
+                                        {
+                                            hashMap.Add(temp[index], res);
+                                        }
+                                     
                                     }
                                 }
                             }
@@ -153,6 +157,266 @@ namespace CORSV2.forms.administrator.information
 
                     serializer.MaxJsonLength = Int32.MaxValue;
                     serializer.Serialize(strJson);
+                Response.Write(strJson);
+
+                //Model.SysLog syslog = new Model.SysLog();
+                //syslog.LogTime = DateTime.Now;
+                //syslog.LogType = 5;
+                //syslog.Remark = "申请的服务订单待处理";
+                //syslog.UserName = orderlist.UserName;
+                //DAL.SysLog.Add(syslog);
+                Response.End();
+
+
+
+
+            }
+            if (Request["action"] != null && Request["action"] =="GetData2")
+            {
+
+                DateTime st = Convert.ToDateTime(Request["data1"].ToString());
+                DateTime et = DateTime.Now;
+                int days = (et - st).Days;
+
+
+                Dictionary<DateTime, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> r = new Dictionary<DateTime, Dictionary<string, Dictionary<string, Dictionary<string, string>>>>();
+                HttpServerUtility server = System.Web.HttpContext.Current.Server;
+                string url = server.MapPath("/ObsQuality/");
+                System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(url);
+                FileInfo[] ff = di.GetFiles("*.result");//只取文本文du档
+                for (int i = 0; i < days; i++)
+                {
+                    Dictionary<string, Dictionary<string, Dictionary<string, string>>> d = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+                    DateTime dateTime = st.AddDays(i);
+
+                    string fileG = server.MapPath("/ObsQuality/" + dateTime.Year + "/" + dateTime.DayOfYear + "/");
+
+                    DirectoryInfo folder = new DirectoryInfo(fileG);
+                    if (!Directory.Exists(fileG))
+                    {
+                        break;
+                    }
+                    // List<object> s = new List<object>();
+                    foreach (FileInfo file in folder.GetFiles("*.result"))
+                    {
+                        string fullName = file.FullName;
+                        // Console.WriteLine(file.FullName);
+                        string abc = Path.GetFileNameWithoutExtension(fullName);
+
+                        string sname = abc.Substring(0, abc.Length - 4);
+                        Dictionary<string, Dictionary<string, string>> sn = new Dictionary<string, Dictionary<string, string>>();
+                        if (d.ContainsKey(sname))
+                        {
+                            d.TryGetValue(sname, out sn);
+                            d.Remove(sname);
+                        }
+
+                        string dayName = abc.Substring(sname.Length, 3);
+                        string cegrNmae = abc.Substring(abc.Length - 1, 1);
+
+
+                        // string dddddd  = file.ToString();
+
+                        StreamReader fillds = new StreamReader(fullName);
+                        string ddddddddd = fillds.ReadToEnd();
+                        string[] arr = ddddddddd.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] temp = new string[] { "First epoch", "Last epoch", "Interval", "Mp1", "Mp2", "O/Slps", "SN1", "SN2", "ObsCount", "DIR" };
+                        int[] temp2 = new int[] { 2, 2, 1, 1, 1, 1, 1, 1, 1, 1 };
+                        Dictionary<string, string> hashMap = new Dictionary<string, string>();
+                        for (int index = 0; index < arr.Length; index++)
+                        {
+                            for (int tempIndex = 0; tempIndex < temp.Length; tempIndex++)
+                            {
+                                if (arr[index].Contains(temp[tempIndex]))
+                                {
+                                    string[] arr222 = arr[index].Split(new string[] { temp[tempIndex] }, StringSplitOptions.RemoveEmptyEntries);
+                                    string[] arr223 = arr222[0].Split(new char[] { ' ', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                                    string res = "";
+                                    int flag = 0;
+                                    for (int xa = temp2[index]; xa > 0; xa--)
+                                    {
+
+                                        if (flag == 0)
+                                        {
+                                            res += arr223[arr223.Length - xa];
+                                        }
+                                        else
+                                        {
+                                            res += " " + arr223[arr223.Length - xa];
+                                        }
+                                        flag++;
+
+                                    }
+                                    if (temp[index] == "O/Slps")
+                                    {
+                                        hashMap.Add("Slps", res);
+                                    }
+                                    else
+                                    {
+                                        hashMap.Add(temp[index], res);
+                                    }
+
+                                }
+                            }
+                        }
+                        sn.Add(cegrNmae, hashMap);
+                        d.Add(sname, sn);
+                    }
+                    r.Add(dateTime, d);
+
+                    //string fileGz = di + "/"+ dateTime.Year + "/" + dateTime.DayOfYear + "/" + "*C.result";
+                    //string fileC = di + "/" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + "E.result";
+                    //string fileE = di + "/" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + "G.result";
+                    //string fileR = di + "/" + dateTime.Year + "/" + dateTime.DayOfYear + "/" + "R.result";
+                    //if(!File.Exists(fileG))
+                    //{
+                    //    continue;
+                    //}
+                    //StreamReader streamReaderG = new StreamReader(fileG);
+
+                    //data data = new data();
+                    //data.Mp1 = 1;
+                    //d.Add("G", data);
+
+
+                    //data dataC = new data();
+                    //dataC.Mp1 = 0;
+                    //d.Add("C", dataC);
+
+                    ////d.ContainsKey();
+
+                    //r.Add(dateTime, d);
+                }
+
+                string strJson = string.Empty;
+
+                strJson = JsonConvert.SerializeObject(new { dt2 = r });
+                var serializer = new JavaScriptSerializer();
+
+                serializer.MaxJsonLength = Int32.MaxValue;
+                serializer.Serialize(strJson);
+                Response.Write(strJson);
+
+                //Model.SysLog syslog = new Model.SysLog();
+                //syslog.LogTime = DateTime.Now;
+                //syslog.LogType = 5;
+                //syslog.Remark = "申请的服务订单待处理";
+                //syslog.UserName = orderlist.UserName;
+                //DAL.SysLog.Add(syslog);
+                Response.End();
+
+
+
+
+            }
+            if (Request["action"] != null && Request["action"] == "GetData3")
+            {
+
+                DateTime st = Convert.ToDateTime(Request["data1"].ToString());
+                DateTime et = DateTime.Now;
+                int days = (et - st).Days;
+
+
+                Dictionary<DateTime, Dictionary<string, Dictionary<string, Dictionary<string, string>>>> r = new Dictionary<DateTime, Dictionary<string, Dictionary<string, Dictionary<string, string>>>>();
+                HttpServerUtility server = System.Web.HttpContext.Current.Server;
+                string url = server.MapPath("/ObsQuality/");
+                System.IO.DirectoryInfo di = new System.IO.DirectoryInfo(url);
+                FileInfo[] ff = di.GetFiles("*.result");//只取文本文du档
+                for (int i = 0; i < days; i++)
+                {
+                    Dictionary<string, Dictionary<string, Dictionary<string, string>>> d = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+                    DateTime dateTime = st.AddDays(i);
+
+                    string fileG = server.MapPath("/ObsQuality/" + dateTime.Year + "/" + dateTime.DayOfYear + "/");
+
+                    DirectoryInfo folder = new DirectoryInfo(fileG);
+                    if (!Directory.Exists(fileG))
+                    {
+
+                    }
+                    else
+                    {
+
+                        // List<object> s = new List<object>();
+                        foreach (FileInfo file in folder.GetFiles("*.result"))
+                        {
+                            string fullName = file.FullName;
+                            // Console.WriteLine(file.FullName);
+                            string abc = Path.GetFileNameWithoutExtension(fullName);
+
+                            string sname = abc.Substring(0, abc.Length - 4);
+                            Dictionary<string, Dictionary<string, string>> sn = new Dictionary<string, Dictionary<string, string>>();
+                            if (d.ContainsKey(sname))
+                            {
+                                d.TryGetValue(sname, out sn);
+                                d.Remove(sname);
+                            }
+
+                            string dayName = abc.Substring(sname.Length, 3);
+                            string cegrNmae = abc.Substring(abc.Length - 1, 1);
+
+
+                            // string dddddd  = file.ToString();
+
+                            StreamReader fillds = new StreamReader(fullName);
+                            string ddddddddd = fillds.ReadToEnd();
+                            string[] arr = ddddddddd.Split(new char[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] temp = new string[] { "First epoch", "Last epoch", "Interval", "Mp1", "Mp2", "O/Slps", "SN1", "SN2", "ObsCount", "DIR" };
+                            int[] temp2 = new int[] { 2, 2, 1, 1, 1, 1, 1, 1, 1, 1 };
+                            Dictionary<string, string> hashMap = new Dictionary<string, string>();
+                            for (int index = 0; index < arr.Length; index++)
+                            {
+                                for (int tempIndex = 0; tempIndex < temp.Length; tempIndex++)
+                                {
+                                    if (arr[index].Contains(temp[tempIndex]))
+                                    {
+                                        string[] arr222 = arr[index].Split(new string[] { temp[tempIndex] }, StringSplitOptions.RemoveEmptyEntries);
+                                        string[] arr223 = arr222[0].Split(new char[] { ' ', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+                                        string res = "";
+                                        int flag = 0;
+                                        for (int xa = temp2[index]; xa > 0; xa--)
+                                        {
+
+                                            if (flag == 0)
+                                            {
+                                                res += arr223[arr223.Length - xa];
+                                            }
+                                            else
+                                            {
+                                                res += " " + arr223[arr223.Length - xa];
+                                            }
+                                            flag++;
+
+                                        }
+                                        if (temp[index] == "O/Slps")
+                                        {
+                                            hashMap.Add("Slps", res);
+                                        }
+                                        else
+                                        {
+                                            hashMap.Add(temp[index], res);
+                                        }
+
+                                    }
+                                }
+                            }
+                            sn.Add(cegrNmae, hashMap);
+                            d.Add(sname, sn);
+                        }
+                        r.Add(dateTime, d);
+                    }
+                    
+
+                
+                }
+
+                string strJson = string.Empty;
+
+                strJson = JsonConvert.SerializeObject(new { dt2 = r });
+                var serializer = new JavaScriptSerializer();
+
+                serializer.MaxJsonLength = Int32.MaxValue;
+                serializer.Serialize(strJson);
                 Response.Write(strJson);
 
                 //Model.SysLog syslog = new Model.SysLog();
