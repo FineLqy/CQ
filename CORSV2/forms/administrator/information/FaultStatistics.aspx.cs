@@ -36,6 +36,40 @@ namespace CORSV2.forms.administrator.information
 
                 }
             }
+            if (Request["action"] != null && Request["action"] =="GetData1")
+            {
+                DateTime st1 = Convert.ToDateTime(Request["data1"].ToString());
+                string st = Convert.ToDateTime(Request["data1"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
+                string et = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                DataSet ds1 = DAL.StationDownLog.GetDateNum(st,et);
+                DataSet ds2 = DAL.StationDownLog.GetCount();
+                string strJson = string.Empty;
+                strJson = JsonConvert.SerializeObject(new { dt1 = ds1.Tables[0] ,dt2=ds2.Tables[0] });
+                var serializer = new JavaScriptSerializer();
+
+                serializer.MaxJsonLength = Int32.MaxValue;
+                serializer.Serialize(strJson);
+                Response.Write(strJson);
+                Response.End();
+
+            }
+            if (Request["action"] != null && Request["action"] == "GetData2")
+            {
+                DateTime st1 = Convert.ToDateTime(Request["data1"].ToString());
+                string st = Convert.ToDateTime(Request["data1"].ToString()).ToString("yyyy-MM-dd HH:mm:ss");
+                string et = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                DataSet ds1 = DAL.StationDownLog.GetDateNum(st, et);
+                DataSet ds2 = DAL.StationDownLog.GetCount();
+                string strJson = string.Empty;
+                strJson = JsonConvert.SerializeObject(new { dt1 = ds1.Tables[0], dt2 = ds2.Tables[0] });
+                var serializer = new JavaScriptSerializer();
+
+                serializer.MaxJsonLength = Int32.MaxValue;
+                serializer.Serialize(strJson);
+                Response.Write(strJson);
+                Response.End();
+
+            }
 
         }
         private bool GetStas()

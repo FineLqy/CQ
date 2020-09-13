@@ -750,9 +750,12 @@
             if ($(".b-item1").val() == 1 || time1 == 1) {
                 alert("请选择购买时长！");
             }
-            else {
+           
                 apply_num1 = Number($('#apply_num1').val());
-                price1 = Number($('#price1').val());
+            price1 = Number($('#price1').val());
+            if (price1 == null||price1=="") {
+             alert("请选择购买时长！");
+            }
                 $('.shop-os-item1').each(function (key, value) {
                     if ($(this).css("border-color") == "rgb(0, 121, 219)") {
                         otherserver.push($(this).attr("data-value"));      //如果是其他标签 用 html();
@@ -765,9 +768,6 @@
                 for (var i = 1; i < apply_num1 + 1; i++) {
 
                     usernames[i - 1] = $('#inputText' + i).val();
-
-
-
 
 
                 }
@@ -792,7 +792,12 @@
                             }
                         }
                         else {
-                            $.ajax({
+                            if (time1 == null || time1 == "")
+                            {
+                                alert("请选择购买时长！");
+                            }
+                            else {
+                                $.ajax({
                                 type: 'POST',
                                 url: "?action=order1",
                                 data: {
@@ -813,6 +818,10 @@
                                     }
                                 },
                             });
+                            }
+                           
+                            
+                            
                         }
                     }
 
@@ -822,7 +831,6 @@
 
 
 
-            }
 
         });
     </script>

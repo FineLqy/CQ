@@ -13,19 +13,19 @@
       <publishTime>09/03/2020 15:37:11</publishTime>
     </File>
     <File Include="bin/CORSV2.dll">
-      <publishTime>09/04/2020 17:13:31</publishTime>
+      <publishTime>09/08/2020 21:25:58</publishTime>
     </File>
     <File Include="bin/CORSV2.dll.config">
       <publishTime>08/20/2020 09:19:04</publishTime>
     </File>
     <File Include="bin/CORSV2.pdb">
-      <publishTime>09/04/2020 17:13:31</publishTime>
+      <publishTime>09/08/2020 21:25:58</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>09/04/2020 17:13:30</publishTime>
+      <publishTime>09/08/2020 21:25:57</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>09/04/2020 17:13:30</publishTime>
+      <publishTime>09/08/2020 21:25:57</publishTime>
     </File>
     <File Include="bin/DBUtility.dll">
       <publishTime>08/24/2020 18:51:55</publishTime>
@@ -78,6 +78,54 @@
     <File Include="cs/geoid.mskE">
       <publishTime>08/20/2020 09:19:05</publishTime>
     </File>
+    <File Include="css/animate.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/custom-animation.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/magnific-popup.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/meanmenu.min.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/owl.carousel.min.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/responsive.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/fontawesome/css/all.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/fontawesome/webfonts/fa-brands-400.woff2">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/fontawesome/webfonts/fa-regular-400.woff2">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/fontawesome/webfonts/fa-solid-900.woff2">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/webexflaticon/flaticon.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/webexflaticon/Flaticon.woff2">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/webexicon/fonts/webexicon.woff">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="fonts/webexicon/style.css">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
     <File Include="forms/administrator/contract/contract_detail_info.aspx">
       <publishTime>08/20/2020 09:19:05</publishTime>
     </File>
@@ -94,13 +142,13 @@
       <publishTime>08/20/2020 09:19:05</publishTime>
     </File>
     <File Include="forms/administrator/information/DataQualityAnalysis.aspx">
-      <publishTime>09/04/2020 16:59:35</publishTime>
+      <publishTime>09/06/2020 16:00:37</publishTime>
     </File>
     <File Include="forms/administrator/information/EquipSetInfo.aspx">
       <publishTime>08/20/2020 09:19:05</publishTime>
     </File>
     <File Include="forms/administrator/information/FaultStatistics.aspx">
-      <publishTime>09/01/2020 21:28:51</publishTime>
+      <publishTime>09/06/2020 20:38:29</publishTime>
     </File>
     <File Include="forms/administrator/information/InternetEquipAdd.aspx">
       <publishTime>08/20/2020 09:19:05</publishTime>
@@ -157,7 +205,7 @@
       <publishTime>08/20/2020 09:19:05</publishTime>
     </File>
     <File Include="forms/administrator/information/StationManage.aspx">
-      <publishTime>08/20/2020 09:19:05</publishTime>
+      <publishTime>09/06/2020 18:26:55</publishTime>
     </File>
     <File Include="forms/administrator/information/StationNetManage.aspx">
       <publishTime>08/20/2020 09:19:05</publishTime>
@@ -277,7 +325,7 @@
       <publishTime>08/20/2020 09:19:06</publishTime>
     </File>
     <File Include="forms/cors_admin.aspx">
-      <publishTime>09/04/2020 17:11:22</publishTime>
+      <publishTime>09/06/2020 14:24:27</publishTime>
     </File>
     <File Include="forms/cors_user.aspx">
       <publishTime>08/20/2020 09:19:06</publishTime>
@@ -622,7 +670,7 @@
       <publishTime>08/20/2020 09:19:06</publishTime>
     </File>
     <File Include="forms/publicforms/map/Amap.aspx">
-      <publishTime>09/03/2020 15:42:38</publishTime>
+      <publishTime>09/06/2020 21:11:21</publishTime>
     </File>
     <File Include="forms/publicforms/map/QueryTDT.aspx">
       <publishTime>08/20/2020 09:19:06</publishTime>
@@ -835,7 +883,7 @@
       <publishTime>08/20/2020 09:19:06</publishTime>
     </File>
     <File Include="forms/user/order/add_order.aspx">
-      <publishTime>08/28/2020 15:26:55</publishTime>
+      <publishTime>09/08/2020 21:17:01</publishTime>
     </File>
     <File Include="forms/user/order/check_order.aspx">
       <publishTime>08/20/2020 09:19:06</publishTime>
@@ -888,8 +936,230 @@
     <File Include="forms/WebForm1.aspx">
       <publishTime>08/24/2020 18:45:08</publishTime>
     </File>
+    <File Include="images/about/2.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/about/ab3.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/about/ab4.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/about/signature.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/1.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/2.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/3.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/404.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/5.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/abs-bg1.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/abs-bg4.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/abs-bg5.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/abs-bg7.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/page-title-bg.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/bg/vid.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/case-study/case-study_01.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/case-study/case-study_02.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/case-study/case-study_03.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/case-study/case-study_04.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/case-study/case-study_05.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/case-study/case-study_06.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/chy.217855b7.jpg">
+      <publishTime>09/07/2020 11:23:58</publishTime>
+    </File>
+    <File Include="images/clients/client1.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/clients/client2.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/clients/client4.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/clients/client5.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/clients/client6.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/down-arrow.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/feature/f1.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/feature/f2.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/feature/f3.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/footer-bg.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/footer/recent-post_01.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/footer/recent-post_02.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/footer/recent-post_03.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/logo-footer.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/logo-sidebar-dark.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/logo.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/logo2.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/logoHalf.edbdaa02.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/01.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/02.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/03.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/comment-img1.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/comment-img2.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/comment-img3.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/news/single-news.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/objects/1.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/objects/3.png">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/preloader.svg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/project/single-project.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details-inner-img1.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details-inner-img2.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details1.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details2.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details3.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details4.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details5.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/service/service-details6.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/side-panel/1.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/side-panel/2.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/side-panel/3.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/side-panel/4.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/side-panel/5.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/side-panel/6.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/team/team01.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/team/team02.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/team/team03.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/team/team04.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/testimonials/testimonial-img1.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/testimonials/testimonial-img2.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/testimonials/testimonial-img3.jpg">
+      <publishTime>09/07/2020 11:22:30</publishTime>
+    </File>
+    <File Include="images/zlb.83a68efa.jpg">
+      <publishTime>09/07/2020 11:23:58</publishTime>
+    </File>
     <File Include="Index.aspx">
       <publishTime>08/20/2020 09:19:04</publishTime>
+    </File>
+    <File Include="Index2.aspx">
+      <publishTime>09/07/2020 13:51:28</publishTime>
     </File>
     <File Include="js/.DS_Store">
       <publishTime>08/20/2020 09:19:07</publishTime>
@@ -12137,6 +12407,18 @@
     </File>
     <File Include="js/地图json/黑龙江省/黑龙江省/齐齐哈尔市/龙沙区/datas.json">
       <publishTime>08/20/2020 09:19:22</publishTime>
+    </File>
+    <File Include="js1/bootstrap.min.js">
+      <publishTime>09/07/2020 11:23:04</publishTime>
+    </File>
+    <File Include="js1/jquery-core-plugins.js">
+      <publishTime>09/07/2020 11:23:04</publishTime>
+    </File>
+    <File Include="js1/jquery.v1.12.4.min.js">
+      <publishTime>09/07/2020 11:23:04</publishTime>
+    </File>
+    <File Include="js1/main.js">
+      <publishTime>09/07/2020 11:23:04</publishTime>
     </File>
     <File Include="Product/example.html">
       <publishTime>08/20/2020 09:19:04</publishTime>

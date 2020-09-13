@@ -7,7 +7,7 @@
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<style type="text/css">
 		body, html {width: 100%;height: 100%;margin:0;font-family:"华文行楷";}
-		#allmap{width:84%;height:100%; float:right}
+		#allmap{width:82%;height:100%; float:right}
 		p{margin-left:5px; font-size:14px;}
 	</style>
 
@@ -52,7 +52,7 @@
 
     <style type="text/css">
 			#warp{
-	height: 370px;
+	height: 280px;
 	width: 90%;
 	border: 2px solid #e0dede;
 	overflow: hidden;
@@ -104,7 +104,7 @@
     </style>
 </head>
 <body>
-    <div style="width:16%;height:100%;float:left" >
+    <div style="width:18%;height:100%;float:left" >
         <input type="text" style="width:150px;height:25px;margin: 10px 10px 0 10px;border:1px solid #d5d4d4"  /> 
         <button id="btnSelect" class="btn btn-success">查询</button>
       

@@ -140,9 +140,11 @@
                              <li>
                                 <a class="J_menuItem" href="administrator/information/DataQualityAnalysis.aspx">基站数据质量分析</a>
                             </li>
+                           
                             <li>
                                 <a class="J_menuItem" href="administrator/information/DataCenterManage.aspx">数据中心设备管理</a>
                             </li>
+                            
                             <li>
                                 <a class="J_menuItem" href="administrator/information/InternetInfo.aspx">网络信息管理</a>
                             </li>

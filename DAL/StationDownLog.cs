@@ -49,10 +49,16 @@ namespace DAL
             string sql = "Select top 5  StationOName ,Count(*) 'Num' From StationDownLog    Group By StationOName  Having Count(*) >= 1  ORDER BY Num asc";
             return DBHelperSQL.GetDataSet(sql);
         }
+        public static DataSet GetDateNum(string st,string et)
+        {
+
+            string sql = "Select top 5  StationOName ,Count(*) 'Num' From StationDownLog where DownTime>='"+st+"' and DownTime<='"+et+"'    Group By StationOName  Having Count(*) >= 1  ORDER BY Num asc";
+            return DBHelperSQL.GetDataSet(sql);
+        }
         public static DataSet GetCount()
         {
 
-            string sql = "Select top 5  year(DownTime) 'Datayear' ,Count(*) 'Num' From StationDownLog    Group By DownTime  Having Count(*) >= 1  ORDER BY Num asc";
+            string sql = "select year(DownTime)'Datayear' ,Count(*) 'Num' from StationDownLog   group by year(DownTime)";
             return DBHelperSQL.GetDataSet(sql);
         }
     }

@@ -73,7 +73,7 @@
     </script>
 </head>
 <body class="gray-bg">
-    <div class="wrapper wrapper-content  animated fadeInRight" style="padding-top: 0px; width: 75%; float: left">
+    <div class="wrapper wrapper-content  animated fadeInRight" style="padding-top: 0px; width: 70%; float: left">
         <div class="row" style="padding-left: 0px; padding-right: 0px;">
             <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px; width: 100%;">
                 <div class="ibox">
@@ -114,7 +114,7 @@
 
 
 
-    <div style="width: 24%; height: 980px; float: left; margin-top: 20px">
+    <div style="width: 30%; height: 980px; float: left; margin-top: 20px">
         <span>统计信息:</span>
         <button type="button" id="week" class="btn btn-outline btn-default" title="本周">
             <i></i>本周
@@ -131,12 +131,12 @@
         <div id='warp'>
             <div id="box">
 
-                <div id="d1" style="width: 100%; height: 25%; border-bottom: 1px solid #e0dede">多路径误差MP1</div>
-                <div id="d2" style="width: 100%; height: 25%; position: relative; border-bottom: 1px solid #e0dede">多路径误差MP2</div>
-                <div id="d3" style="width: 100%; height: 25%; border-bottom: 1px solid #e0dede">周跳比的倒数</div>
-                <div id="d4" style="width: 100%; height: 25%; border-bottom: 1px solid #e0dede">L1信噪比</div>
-                <div id="d5" style="width: 100%; height: 25%; border-bottom: 1px solid #e0dede">L2信噪比</div>
-                <div id="d6" style="width: 100%; height: 25%; border-bottom: 1px solid #e0dede">数据完整率</div>
+                <div id="d1" style="width: 100%; height: 30%; border-bottom: 1px solid #e0dede">多路径误差MP1</div>
+                <div id="d2" style="width: 100%; height: 30%; position: relative; border-bottom: 1px solid #e0dede">多路径误差MP2</div>
+                <div id="d3" style="width: 100%; height: 30%; border-bottom: 1px solid #e0dede">周跳比的倒数</div>
+                <div id="d4" style="width: 100%; height: 30%; border-bottom: 1px solid #e0dede">L1信噪比</div>
+                <div id="d5" style="width: 100%; height: 30%; border-bottom: 1px solid #e0dede">L2信噪比</div>
+                <div id="d6" style="width: 100%; height: 30%; border-bottom: 1px solid #e0dede">数据完整率</div>
             </div>
         </div>
     </div>
@@ -247,6 +247,7 @@
         var RDIR = new Array()
         //查询本周数据
         $("#week").click(function () {
+
             document.getElementById("week").style.background = "#F3BA0E";
             document.getElementById("month").style.background = "";
              document.getElementById("year").style.background = "";
@@ -267,6 +268,10 @@
                     console.log(data);
 
                     $('#table').on('click-row.bs.table', function (e, row, $element) {
+                       ;
+                        XData.splice(0);
+                       
+
                         console.log(row.StationOName);
                         for (var i in data) {
 
@@ -279,7 +284,7 @@
 
 
                                 var num = j.substring(0, 10);
-
+                             
                                 if (XData.length < dataLen) {
                                     XData.push(num);
                                 }
@@ -336,7 +341,7 @@
                                 }
                             }
 
-                            console.log(CSlps);
+                           ;
 
 
                         }
@@ -366,12 +371,12 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
-                                    left: 'center',
-                                    top: 'bottom',
+                                    
+                                  padding:[0,30,0,0],
                                     textStyle: {
                                         color: '#000000',
                                         fontSize: 10
@@ -607,7 +612,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -846,7 +851,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -1085,7 +1090,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -1324,7 +1329,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -1564,7 +1569,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -1809,6 +1814,9 @@
                     console.log(data);
 
                     $('#table').on('click-row.bs.table', function (e, row, $element) {
+                       ;
+                        XData.splice(0);
+                       ;
                         console.log(row.StationOName);
                         for (var i in data) {
 
@@ -1821,7 +1829,7 @@
 
 
                                 var num = j.substring(0, 10);
-
+                              
                                 if (XData.length < dataLen) {
                                     XData.push(num);
                                 }
@@ -1878,7 +1886,7 @@
                                 }
                             }
 
-                            console.log(CSlps);
+                           
 
 
                         }
@@ -1908,7 +1916,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -2149,7 +2157,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -2388,7 +2396,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -2627,7 +2635,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -2866,7 +2874,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -3106,7 +3114,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -3354,6 +3362,9 @@
                     console.log(data);
 
                     $('#table').on('click-row.bs.table', function (e, row, $element) {
+                          ;
+                         XData.splice(0);
+                        ;
                         console.log(row.StationOName);
                         for (var i in data) {
 
@@ -3366,7 +3377,7 @@
 
 
                                 var num = j.substring(0, 10);
-
+                               
                                 if (XData.length < dataLen) {
                                     XData.push(num);
                                 }
@@ -3423,7 +3434,7 @@
                                 }
                             }
 
-                            console.log(CSlps);
+                             ;
 
 
                         }
@@ -3453,7 +3464,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -3694,7 +3705,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -3933,7 +3944,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -4172,7 +4183,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -4411,7 +4422,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列
@@ -4651,7 +4662,7 @@
                                     top: "30",
                                     bottom: "15%",
                                     right: "10%",
-                                    left: "10%",
+                                    left: "12%",
                                 },
                                 legend: {
                                     show: true, // 是否显示图列

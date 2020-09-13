@@ -108,6 +108,17 @@
     <Content Include="bin\NPOI.OpenXml4Net.dll" />
     <Content Include="bin\NPOI.OpenXmlFormats.dll" />
     <Content Include="bin\qcloudsms_csharp.dll" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\custom-animation.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\meanmenu.min.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\style.css" />
+    <Content Include="fonts\fontawesome\css\all.css" />
+    <Content Include="fonts\webexflaticon\flaticon.css" />
+    <Content Include="fonts\webexicon\style.css" />
     <Content Include="forms\administrator\contract\contract_detail_info.aspx" />
     <Content Include="forms\administrator\contract\manage_contract.aspx" />
     <Content Include="forms\administrator\information\DataCenterEquip.aspx" />
@@ -374,7 +385,84 @@
     <Content Include="forms\user\order\update_order.aspx" />
     <Content Include="forms\user\person\qualification_certify.aspx" />
     <Content Include="forms\user\person\test_qualification_certify.aspx" />
-    <Content Include="forms\WebForm1.aspx" />
+    <Content Include="images\about\2.png" />
+    <Content Include="images\about\ab3.jpg" />
+    <Content Include="images\about\ab4.jpg" />
+    <Content Include="images\about\signature.png" />
+    <Content Include="images\bg\1.jpg" />
+    <Content Include="images\bg\2.jpg" />
+    <Content Include="images\bg\3.jpg" />
+    <Content Include="images\bg\404.jpg" />
+    <Content Include="images\bg\5.jpg" />
+    <Content Include="images\bg\abs-bg1.png" />
+    <Content Include="images\bg\abs-bg4.png" />
+    <Content Include="images\bg\abs-bg5.png" />
+    <Content Include="images\bg\abs-bg7.png" />
+    <Content Include="images\bg\page-title-bg.jpg" />
+    <Content Include="images\bg\vid.jpg" />
+    <Content Include="images\case-study\case-study_01.jpg" />
+    <Content Include="images\case-study\case-study_02.jpg" />
+    <Content Include="images\case-study\case-study_03.jpg" />
+    <Content Include="images\case-study\case-study_04.jpg" />
+    <Content Include="images\case-study\case-study_05.jpg" />
+    <Content Include="images\case-study\case-study_06.jpg" />
+    <Content Include="images\chy.217855b7.jpg" />
+    <Content Include="images\clients\client1.png" />
+    <Content Include="images\clients\client2.png" />
+    <Content Include="images\clients\client4.png" />
+    <Content Include="images\clients\client5.png" />
+    <Content Include="images\clients\client6.png" />
+    <Content Include="images\down-arrow.png" />
+    <Content Include="images\feature\f1.png" />
+    <Content Include="images\feature\f2.png" />
+    <Content Include="images\feature\f3.png" />
+    <Content Include="images\footer-bg.png" />
+    <Content Include="images\footer\recent-post_01.png" />
+    <Content Include="images\footer\recent-post_02.png" />
+    <Content Include="images\footer\recent-post_03.png" />
+    <Content Include="images\logo-footer.png" />
+    <Content Include="images\logo-sidebar-dark.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\logo2.png" />
+    <Content Include="images\logoHalf.edbdaa02.png" />
+    <Content Include="images\news\01.jpg" />
+    <Content Include="images\news\02.jpg" />
+    <Content Include="images\news\03.jpg" />
+    <Content Include="images\news\comment-img1.jpg" />
+    <Content Include="images\news\comment-img2.jpg" />
+    <Content Include="images\news\comment-img3.jpg" />
+    <Content Include="images\news\single-news.jpg" />
+    <Content Include="images\objects\1.png" />
+    <Content Include="images\objects\3.png" />
+    <Content Include="images\preloader.svg" />
+    <Content Include="images\project\single-project.jpg" />
+    <Content Include="images\service\service-details-inner-img1.jpg" />
+    <Content Include="images\service\service-details-inner-img2.jpg" />
+    <Content Include="images\service\service-details1.jpg" />
+    <Content Include="images\service\service-details2.jpg" />
+    <Content Include="images\service\service-details3.jpg" />
+    <Content Include="images\service\service-details4.jpg" />
+    <Content Include="images\service\service-details5.jpg" />
+    <Content Include="images\service\service-details6.jpg" />
+    <Content Include="images\side-panel\1.jpg" />
+    <Content Include="images\side-panel\2.jpg" />
+    <Content Include="images\side-panel\3.jpg" />
+    <Content Include="images\side-panel\4.jpg" />
+    <Content Include="images\side-panel\5.jpg" />
+    <Content Include="images\side-panel\6.jpg" />
+    <Content Include="images\team\team01.jpg" />
+    <Content Include="images\team\team02.jpg" />
+    <Content Include="images\team\team03.jpg" />
+    <Content Include="images\team\team04.jpg" />
+    <Content Include="images\testimonials\testimonial-img1.jpg" />
+    <Content Include="images\testimonials\testimonial-img2.jpg" />
+    <Content Include="images\testimonials\testimonial-img3.jpg" />
+    <Content Include="images\zlb.83a68efa.jpg" />
+    <Content Include="Index2.aspx" />
+    <Content Include="js1\bootstrap.min.js" />
+    <Content Include="js1\jquery-core-plugins.js" />
+    <Content Include="js1\jquery.v1.12.4.min.js" />
+    <Content Include="js1\main.js" />
     <Content Include="js\amazeui.min.js" />
     <Content Include="js\app-new.js" />
     <Content Include="js\app.js" />
@@ -3710,6 +3798,11 @@
     <Content Include="js\地图json\黑龙江省\黑龙江省\齐齐哈尔市\铁锋区\datas.json" />
     <Content Include="js\地图json\黑龙江省\黑龙江省\齐齐哈尔市\龙江县\datas.json" />
     <Content Include="js\地图json\黑龙江省\黑龙江省\齐齐哈尔市\龙沙区\datas.json" />
+    <Content Include="fonts\fontawesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fontawesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fontawesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="fonts\webexflaticon\Flaticon.woff2" />
+    <Content Include="fonts\webexicon\fonts\webexicon.woff" />
     <None Include="Properties\PublishProfiles\ab.pubxml" />
     <None Include="Properties\PublishProfiles\cqcors.pubxml" />
     <None Include="Properties\PublishProfiles\hncors.pubxml" />
@@ -5271,19 +5364,19 @@
     <Compile Include="forms\user\person\test_qualification_certify.aspx.designer.cs">
       <DependentUpon>test_qualification_certify.aspx</DependentUpon>
     </Compile>
-    <Compile Include="forms\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="forms\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index2.aspx.cs">
+      <DependentUpon>Index2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index2.aspx.designer.cs">
+      <DependentUpon>Index2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

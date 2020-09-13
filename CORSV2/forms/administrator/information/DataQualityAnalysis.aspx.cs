@@ -152,19 +152,12 @@ namespace CORSV2.forms.administrator.information
 
                     string strJson = string.Empty;
 
-                    strJson = JsonConvert.SerializeObject(new { dt2 = r });
+                    strJson = JsonConvert.SerializeObject(new { dt1 = r });
                     var serializer = new JavaScriptSerializer();
 
                     serializer.MaxJsonLength = Int32.MaxValue;
                     serializer.Serialize(strJson);
                 Response.Write(strJson);
-
-                //Model.SysLog syslog = new Model.SysLog();
-                //syslog.LogTime = DateTime.Now;
-                //syslog.LogType = 5;
-                //syslog.Remark = "申请的服务订单待处理";
-                //syslog.UserName = orderlist.UserName;
-                //DAL.SysLog.Add(syslog);
                 Response.End();
 
 
@@ -412,7 +405,7 @@ namespace CORSV2.forms.administrator.information
 
                 string strJson = string.Empty;
 
-                strJson = JsonConvert.SerializeObject(new { dt2 = r });
+                strJson = JsonConvert.SerializeObject(new { dt3 = r });
                 var serializer = new JavaScriptSerializer();
 
                 serializer.MaxJsonLength = Int32.MaxValue;

@@ -37,6 +37,9 @@
                                     <button type="button" id="deletesta" class="btn btn-outline btn-default" data-toggle="tooltip" data-placement="top" title="删除">
                                         <i class="fa fa-trash-o"></i>删除
                                     </button>
+                                    <button type="button" class="btn btn-outline btn-default" title="故障统计" onclick="showErrorData()">
+                                        <i class="fa fa-bar-chart"></i>故障统计
+                                    </button>
                                     <form method="post" id="Form">
                                         <div class="modal inmodal" id="myModal4" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog">
@@ -122,7 +125,7 @@
     <script src="../../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
     <script src="../../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
     <script>
-
+        
         var table = $("#table");
         function showmap() {
             parent.layer.open({
@@ -133,6 +136,21 @@
                 maxmin: false, //开启最大化最小化按钮
                 area: ['1000px', '700px'],
                 content: ['/forms/publicforms/map/QueryTDT.aspx', 'no']
+            });
+        }
+  
+
+
+              function showErrorData() {
+           layer.open({
+                type: 2,
+                title: '故障统计',
+                shadeClose: true,
+                shade: false,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['700px', '600px'],
+                content: ['FaultStatistics.aspx','no'] 
+
             });
         }
         //添加基站
@@ -384,7 +402,7 @@
                 shadeClose: true,
                 shade: false,
                 maxmin: true, //开启最大化最小化按钮
-                area: ['1150px', '650px'],
+                area: ['1150px', '600px'],
                 content: 'StationInfoSet.aspx?id=' + id
 
             });
@@ -453,6 +471,9 @@
             $(".search input").attr("placeholder", "搜索基站名或Rinex站名");
         });
     </script>
+
+
+
 </body>
 
 </html>
