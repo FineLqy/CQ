@@ -72,9 +72,7 @@
                             <li><a class="J_menuItem" href=""  onclick="checkQualification2()">资质变更</a></li>
                             <li style="display: none;"><a id="A3"  class="J_menuItem" href="" onclick="checkQualification2()">资质变更</a>
                                 </li>
-                            <li>
-                                <a class="J_menuItem" href="/forms/administrator/users/RtkUserManage.aspx">CORS账号管理</a>
-                            </li>
+                          
 
                         </ul>
                     </li>
@@ -85,6 +83,9 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
+                              <li>
+                                <a class="J_menuItem" href="/forms/administrator/users/RtkUserManage.aspx">终端账号管理</a>
+                            </li>
                              <li><a class="J_menuItem" href=""  onclick="checkQualification3()">在线充值</a></li>
                             <li style="display: none;"><a id="AddOrder1" class="J_menuItem" href="publicforms/login/Recharge.aspx">在线充值</a>
                             </li>
@@ -237,7 +238,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="publicforms/Login/Login.aspx">首页</a>
+                        <a  href="javascript:location.reload()" id="HomePage" class="active J_menuTab" data-id="">首页</a>
                     </div>
                 </nav>
                 <button class="roll-nav roll-right J_tabRight">
@@ -372,6 +373,17 @@
 <%--    <script src="../themes/index/jquery.slimscroll.min.js"></script>--%>
     <%--<script src="../themes/index/pace.min.js"></script>
     <script src="../themes/index/layer.min.js"></script>--%>--%>
+
+    <script>
+        //$(function () {
+
+        //    $("HomePage").click(function () {
+        //        alert(111);
+        //        window.location.href = "publicforms/login/userinfo.aspx";
+        //    })
+        //});
+
+    </script>
     <script>
         
         //var temp = $('.J_iframe').attr('src');
@@ -388,6 +400,10 @@
                 type: 'post',
                 url: "?action=username_judge",
                 success: function (data) {
+                    if (data == "checking") {
+                        layer.alert("资质认证审核中", { icon: 1 });
+                        return false;
+                                           }
                     if (data == "NO") {
                         $("#tempQualificationCompany").click();
                         layer.closeAll();
@@ -403,9 +419,7 @@
                         //    $("#tempQualificationCompany").click();
                         //});
                     }
-                    else if (data == "checking") {
-                        layer.alert("资质认证审核中", { icon: 1 });
-                    }
+               
 
                     else {
                         layer.alert("已经完成资质认证", { icon: 1 });
@@ -417,8 +431,12 @@
 
         }
 
+
         function checkQualification() {
             $.get('/forms/cors_user.aspx?action=checkQualification', function (result) {
+                if (result == "checking") {
+                    layer.alert("资质认证审核中", { icon: 1 });
+                }
                 if (result == "NO") {
                     layer.confirm('尚未进行资质认证，现在是否要认证？', {
                         btn: ['是', '否'] //按钮
@@ -432,8 +450,11 @@
                         layer.closeAll();
                     });
                 }
-                else if (result == "checking") {
-                    layer.alert("资质认证审核中", { icon: 1 });
+               
+                 if (result == "changeing")
+                {
+                    layer.alert("资质变更审核中", { icon: 1 });
+                    return false;
                 }
 
                 else {
@@ -449,6 +470,10 @@
         }
         function checkQualification1() {
             $.get('/forms/cors_user.aspx?action=checkQualification', function (result) {
+                if (result == "changeing") {
+                    layer.alert("资质变更审核中", { icon: 1 });
+                    return false;
+                }
                 if (result == "NO") {
                     layer.confirm('尚未进行资质认证，现在是否要认证？', {
                         btn: ['是', '否'] //按钮
@@ -462,9 +487,10 @@
                         layer.closeAll();
                     });
                 }
-                else if (result == "checking") {
+                 if (result == "checking") {
                     layer.alert("资质认证审核中", { icon: 1 });
                 }
+                
 
                 else {
 
@@ -479,6 +505,11 @@
         }
         function checkQualification2() {
             $.get('/forms/cors_user.aspx?action=checkQualification', function (result) {
+                if (result == "changeing") {
+                    layer.alert("资质变更审核中", { icon: 1 });
+                    return false;
+                }
+
                 if (result == "NO") {
                     layer.confirm('尚未进行资质认证，现在是否要认证？', {
                         btn: ['是', '否'] //按钮
@@ -503,7 +534,7 @@
                         content: 'user/company/qualification_Update.aspx'
                     });
                 }
-
+                
                 else {
 
 
@@ -525,6 +556,10 @@
         }
          function checkQualification3() {
             $.get('/forms/cors_user.aspx?action=checkQualification', function (result) {
+                if (result == "changeing") {
+                    layer.alert("资质变更审核中", { icon: 1 });
+                    return false;
+                }
                 if (result == "NO") {
                     layer.confirm('尚未进行资质认证，现在是否要认证？', {
                         btn: ['是', '否'] //按钮
@@ -541,6 +576,7 @@
                 else if (result == "checking") {
                     layer.alert("资质认证审核中", { icon: 1 });
                 }
+                 
 
                 else {
 
@@ -555,6 +591,10 @@
         }
          function checkQualification4() {
             $.get('/forms/cors_user.aspx?action=checkQualification', function (result) {
+                if (result == "changeing") {
+                    layer.alert("资质变更审核中", { icon: 1 });
+                    return false;
+                }
                 if (result == "NO") {
                     layer.confirm('尚未进行资质认证，现在是否要认证？', {
                         btn: ['是', '否'] //按钮
@@ -571,6 +611,7 @@
                 else if (result == "checking") {
                     layer.alert("资质认证审核中", { icon: 1 });
                 }
+                
 
                 else {
 

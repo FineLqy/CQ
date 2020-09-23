@@ -34,7 +34,7 @@ namespace CORSV2.forms.administrator.users
                 switch (companyinfo.Industry)
                 {
                     case "1":
-                        company_type_id.Value = "测绘资质单位";
+                        company_type_id.Value = "市内测绘资质单位";
                         break;
                     case "2":
                         company_type_id.Value = "政府机构";
@@ -45,9 +45,19 @@ namespace CORSV2.forms.administrator.users
                     case "4":
                         company_type_id.Value = "高校/科研院所";
                         break;
-                    default:
+                    case "5":
                         company_type_id.Value = "其他非测绘资质执证单位";
                         break;
+                    case "6":
+                        company_type_id.Value = "市外测绘资质单位";
+                        break;
+                    case "7":
+                        company_type_id.Value = "市外非测绘资质单位";
+                        break;
+                    case "8":
+                        company_type_id.Value = "市内非测绘资质单位";
+                        break;
+                 
                 }
                 map_level.Value = companyinfo.SurveyingQualification;
                 map_qualification_sn.Value = companyinfo.SurveyingNumber;
@@ -56,12 +66,10 @@ namespace CORSV2.forms.administrator.users
                 business_licence.Value = companyinfo.OrganizationCode;
                 address.Value = companyinfo.Address;
                 business_licence_path.Src = companyinfo.BusinessLicense;
-                corporate_id_card.Src = companyinfo.LegalIDCardFile;
-                operator_id_card_front.Src = companyinfo.ContactIDCardFile;
-              
-
-                secrecy_agreement_path.Src = companyinfo.ServiceAgreementFile;
-                client_authorization_path.Src = companyinfo.PowerOfAttorney;
+                //corporate_id_card.Src = companyinfo.LegalIDCardFile;
+                //operator_id_card_front.Src = companyinfo.ContactIDCardFile;
+                //secrecy_agreement_path.Src = companyinfo.ServiceAgreementFile;
+                //client_authorization_path.Src = companyinfo.PowerOfAttorney;
                 contact_name.Value = companyinfo.Contact;
                 //contact_phone.Value = companyinfo.CompanyTel;
                 contactPhone.Value = companyinfo.CompanyTel;

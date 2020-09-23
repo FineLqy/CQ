@@ -293,7 +293,7 @@
                 </button>
                 <nav class="page-tabs J_menuTabs">
                     <div class="page-tabs-content">
-                        <a href="javascript:;" class="active J_menuTab" data-id="publicforms/Login/Login.aspx">首页</a>
+                        <a href="javascript:location.reload()" class="active J_menuTab" data-id="publicforms/Login/Login.aspx">首页</a>
                     </div>
                        
                  

@@ -105,7 +105,7 @@
                                 <li class="clearfix">
                                     <label class="labelLeft"><span class="required">*</span>机构名称：</label>
                                     <div class="labelRight">
-                                        <input type="text" name="company_name" value="" id="company_name" class="form-control width-300 " placeholder="请确保跟公章信息一致" runat="server">
+                                        <input type="text" name="company_name" value="" id="company_name" npropertychange="check()" oninput="check()" class="form-control width-300 " placeholder="请确保跟公章信息一致" runat="server">
                                         <i class="errorTips errorCompany" hidden="true" >
                                             <span class="fa fa-warning"></span><em></em>
                                         </i>
@@ -120,12 +120,15 @@
                                      
                                        <select name="type_id" id="type_id" class="form-control width-300 "  onchange="change()" runat="server" >
                                               
-                                            <option value="1">测绘资质单位</option>
+                                            <option value="1">市内测绘资质单位</option>
+                                            <option value="8">市内非测绘资质单位</option>
+                                               <option value="6">市外测绘资质单位</option>
+                                            <option value="7">市外非测绘资质单位</option>
                                                 <option value="2">政府机构</option>
                                              <option value="3">仪器公司</option>
                                                 <option value="4">科研院所</option>
                                            <option value="5">其他非测绘资质执证单位</option>
-                                           <option value="6">市外测绘资质单位</option>
+                                       
                                            
                                                
                                             </select>
@@ -203,8 +206,27 @@
 
                                 <li class="vertifyLiTitle" style="margin: 10px 0;">资料上传</li>
 
+
+                                    <li class="clearfix" style="height: auto;">
+                                    <label class="labelLeft"><span class="required">*</span>主管部门出具的变更文件（盖章）：</label>
+                                    <div class="labelRight" style="width:500px">
+                                        <!--用来存放item-->
+                                        <div id="change_document_path_file" class="uploader-list">
+                                            <img class="certify-img" src="" id="change_document_path_file_" runat="server">
+                                        </div>
+                                        <div class="filePicker" id="change_document_path">选择图片</div>
+                                        <i class="errorTips errorZuzhi" hidden="true" style="display: none;">
+                                            <span class="fa fa-warning"></span><em></em>
+                                        </i>
+
+                                        <i class="tipsFile">上传市场监管部门或上级主管部门出具的变更文件（有其一即可，复印件，1份，<span class="text-error">加盖机构公章</span>）。<br>
+                                            图片大小不要超过5M，支持PNG，JPG格式</i>
+
+                                    </div>
+                                </li>
+
                                 <li id="map_qualification" class="clearfix cehui" style="height: auto;">
-                                    <label class="labelLeft"><span class="required">*</span>测绘资质复印件（盖章）：</label>
+                                    <label class="labelLeft"><span class="required">*</span>变更后测绘资质复印件（盖章）：</label>
                                     <div class="labelRight"  style="width:200px">
 
                                         <!--用来存放item-->
@@ -240,7 +262,7 @@
                                 </li>
 
 
-                                <li class="clearfix" style="height: auto;">
+                             <%--   <li class="clearfix" style="height: auto;">
                                     <label class="labelLeft"><span class="required">*</span>法定代表人身份证：</label>
                                     <div class="labelRight" style="width:500px">
                                         <!--用来存放item-->
@@ -332,7 +354,7 @@
                                         <i class="tipsFile">图片大小不要超过5M，支持PNG，JPG格式.</i>
 
                                     </div>
-                                </li>
+                                </li>--%>
                             <%-- <%--   服务协议（盖章）”--%>
                                 <%--  <li class="clearfix" style="height: auto;">
                                     <label class="labelLeft"><span class="required">*</span>服务协议（盖章）：</label>
@@ -432,6 +454,22 @@
 
                 document.getElementById("map_qualificationID").style.display = "none";
             }
+        }
+    </script>
+      <script>
+        function check() {
+            var user = document.getElementById("company_name");
+            var username = user.value.trim();
+            $.get("?action=check&&data=" + username.trim(), function (result) {
+                if (result == "0") {
+                   
+                }
+                else {
+                  $(":input[name='company_name']").siblings('i').show().find('em').html('该机构已认证,不能重复认证！');
+                  
+                    return false;
+                }
+            })
         }
     </script>
     <script>
@@ -682,6 +720,13 @@
                         });
 
                     }
+                    if (result == "-1") {
+                        layer.alert('该机构已认证,不能重复修改认证！', {
+                            time: 2000
+                        }, function () {
+
+                        });
+                    } 
                     else {
 
                         layer.alert('修改失败', {

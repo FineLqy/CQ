@@ -217,7 +217,7 @@
                                         </i>
                                     </div>
                                 </li>
-                                <li class="clearfix" style="height: auto;">
+                            <%--    <li class="clearfix" style="height: auto;">
                                     <label class="labelLeft"><span class="required">*</span>法定代表人身份证：</label>
                                     <div class="labelRight">
                                         <!--用来存放item-->
@@ -246,7 +246,7 @@
                                         <div id="secrecy_agreement_path_file" class="uploader-list">
                                            <img class="certify-img" src="" id="secrecy_agreement_path" runat="server">
                                           <%--  <input id="Text1" runat="server" style="border:none;width:300px" />          
-                                             <input id="secrecy_agreement"   runat="server" type="button" value="下载" />--%>
+                                             <input id="secrecy_agreement"   runat="server" type="button" value="下载" />
                                         </div>
                                     </div>
                                 </li>
@@ -257,11 +257,11 @@
                                             <img class="certify-img" src="" id="client_authorization_path" runat="server">
                                            <%--<input id="Text2" style="border:none;width:300px" runat="server"  />
                                             
-                                             <input id="client_authorization" runat="server" type="button" value="下载" />--%>
+                                             <input id="client_authorization" runat="server" type="button" value="下载" />
                                             
                                         </div>
                                     </div>
-                                </li>
+                                </li>--%>
                                  
 
 
@@ -305,7 +305,7 @@
         <script>
       
             $(function () {
-                if ($("#company_type_id").val() == "测绘资质单位" || $("#company_type_id").val() == "市外测绘资质单位") {
+                if ($("#company_type_id").val() == "市内测绘资质单位" || $("#company_type_id").val() == "市外测绘资质单位") {
                     document.getElementById("mapleve1i").style.display = "block";
                     document.getElementById("map_qualification").style.display = "block";
 

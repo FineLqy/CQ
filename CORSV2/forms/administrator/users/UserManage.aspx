@@ -155,6 +155,10 @@
                         title: '上次登录时间'
                         , sortable: true
                     }, {
+                        field: 'qualificationType',
+                        title: '资质认证类型'
+                    }
+                    , {
                         field: 'qualificationCertifyShow',
                         title: '资质认证信息'
                     }, {

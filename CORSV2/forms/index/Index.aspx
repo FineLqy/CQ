@@ -146,7 +146,7 @@
 			<li><a href="news.aspx"  >新闻公告</a></li>
 			<li><a href="contact.aspx" >联络我们</a></li> 
 		</ul>
-		<div class="hd-bar"  style="margin-top:25px; margin-right:150px">
+		<div class="hd-bar"  style="margin-top:25px; margin-right:60px">
             <a  href="../publicforms/login/login.aspx" style="font-size: 16px; color:#5f85d1">登录</a><span >|</span>
             <a href="../publicforms/register/register.aspx" style="font-size: 16px;color:#5f85d1">注册</a>
 			<div class="top-search" >

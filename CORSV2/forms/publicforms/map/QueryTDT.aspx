@@ -17,7 +17,7 @@
                 projection: 'EPSG:4326'
             });
         
-            map.centerAndZoom(new T.LngLat(113.65, 34.76), zoom);
+            map.centerAndZoom(new T.LngLat(106.55544, 29.553907), zoom);
             //允许鼠标滚轮缩放地图
             map.enableScrollWheelZoom();
             AddStations();

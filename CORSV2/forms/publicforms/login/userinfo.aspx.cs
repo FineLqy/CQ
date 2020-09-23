@@ -74,8 +74,15 @@ namespace CORSV2.forms.publicforms.login
                         qualificationStatus.Style.Add("color", "red");
                         RechargeBtn.Visible = false;
                         break;
+                    case 6:
+                        qualificationStatus.InnerText = "资质变更中";
+                        qualificationStatus.Style.Add("color", "blue");
+                        RechargeBtn.Visible = false;
+                        break;
                     default:
                         break;
+                
+                   
                 }
             }
             else

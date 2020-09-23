@@ -46,9 +46,29 @@ namespace CORSV2.forms.user.company
                     case "company_judge":
                         company_judge(Request["company_name"]);
                         break;
+
                     default:
                         break;
                 }
+                if (Request["action"].ToString() == "check")
+                {
+                    string username = Request["data"].ToString();
+                    DAL.CompanyInfo du = new DAL.CompanyInfo();
+                    if (DAL.CompanyInfo.Exists(username))
+                    {
+                        Response.Clear();
+                        Response.Write("0");
+                        Response.End();
+                    }
+                    else
+                    {
+                        Response.Clear();
+                        Response.Write("1");
+                        Response.End();
+
+                    }
+                }
+
             }
 
             if (DAL.RegisterUser.Exists(Session["UserName"].ToString()))
@@ -77,18 +97,18 @@ namespace CORSV2.forms.user.company
                         business_licence_path_file_.Src = companyInfo.BusinessLicense;
                         business_licence_path = companyInfo.BusinessLicense;
 
-                        corporate_id_card_front_file_.Src = companyInfo.LegalIDCardFile;
-                        corporate_id_card_front = companyInfo.LegalIDCardFile; 
+                       // corporate_id_card_front_file_.Src = companyInfo.LegalIDCardFile;
+                        //corporate_id_card_front = companyInfo.LegalIDCardFile; 
 
-                        operator_id_card_front_file_.Src = companyInfo.ContactIDCardFile;
-                        operator_id_card_front = companyInfo.ContactIDCardFile;
+                       // operator_id_card_front_file_.Src = companyInfo.ContactIDCardFile;
+                      //  operator_id_card_front = companyInfo.ContactIDCardFile;
 
 
-                        client_authorization_path_file_.Src = companyInfo.PowerOfAttorney;
-                        client_authorization_path = companyInfo.PowerOfAttorney;
+                       // client_authorization_path_file_.Src = companyInfo.PowerOfAttorney;
+                       // client_authorization_path = companyInfo.PowerOfAttorney;
                         contact_name.Value = companyInfo.Contact;
                         qcphone.Value = companyInfo.CompanyTel;
-                        secrecy_agreement_path_file_.Src = companyInfo.ServiceAgreementFile;
+                        //secrecy_agreement_path_file_.Src = companyInfo.ServiceAgreementFile;
                     }
 
                     catch
@@ -105,9 +125,22 @@ namespace CORSV2.forms.user.company
         }
         private void company_judge(string company_name)
         {
-            string json = "{\"code\":200}";
-            Response.Write(json);
-            Response.End();
+            //string username = Request["company_name"].ToString();
+            //DAL.CompanyInfo du = new DAL.CompanyInfo();
+            //if (DAL.CompanyInfo.Exists(username))
+            //{
+            //    string json = "{\"code\":100}";
+            //    Response.Write(json);
+            //    Response.End();
+            //}
+            //else
+            //{
+            //    string json = "{\"code\":200}";
+            //    Response.Write(json);
+            //    Response.End();
+
+            //}
+           
         }
         private int AddData()
         {
@@ -128,16 +161,16 @@ namespace CORSV2.forms.user.company
                     string savepath1 = Server.MapPath("~/upload/Qualification/") + Session["UserName"].ToString() + "_business" + temptime + "." + extname[extname.Length - 1];
                     Request.Files[0].SaveAs(savepath1);
                     break;
-                case "corporate_id_card_front":
-                    corporate_id_card_front = "/upload/Qualification/" + Session["UserName"].ToString() + "_corporate" + temptime + "." + extname[extname.Length - 1];
-                    string savepath2 = Server.MapPath("~/upload/Qualification/") + Session["UserName"].ToString() + "_corporate" + temptime + "." + extname[extname.Length - 1];
-                    Request.Files[0].SaveAs(savepath2);
-                    break;
-                case "corporate_id_card_reverse":
-                    corporate_id_card_reverse = "/upload/Qualification/" + Session["UserName"].ToString() + "_corporate_id" + temptime + "." + extname[extname.Length - 1];
-                    string savepath3 = Server.MapPath("~/upload/Qualification/") + Session["UserName"].ToString() + "_corporate_id" + temptime + "." + extname[extname.Length - 1];
-                    Request.Files[0].SaveAs(savepath3);
-                    break;
+                //case "corporate_id_card_front":
+                //    corporate_id_card_front = "/upload/Qualification/" + Session["UserName"].ToString() + "_corporate" + temptime + "." + extname[extname.Length - 1];
+                //    string savepath2 = Server.MapPath("~/upload/Qualification/") + Session["UserName"].ToString() + "_corporate" + temptime + "." + extname[extname.Length - 1];
+                //    Request.Files[0].SaveAs(savepath2);
+                //    break;
+                //case "corporate_id_card_reverse":
+                //    corporate_id_card_reverse = "/upload/Qualification/" + Session["UserName"].ToString() + "_corporate_id" + temptime + "." + extname[extname.Length - 1];
+                //    string savepath3 = Server.MapPath("~/upload/Qualification/") + Session["UserName"].ToString() + "_corporate_id" + temptime + "." + extname[extname.Length - 1];
+                //    Request.Files[0].SaveAs(savepath3);
+                //    break;
                 case "operator_id_card_front":
                     operator_id_card_front = "/upload/Qualification/" + Session["UserName"].ToString() + "_card_front" + temptime + "." + extname[extname.Length - 1];
                     string savepath4 = Server.MapPath("~/upload/Qualification/") + Session["UserName"].ToString() + "_card_front" + temptime + "." + extname[extname.Length - 1];
@@ -191,16 +224,16 @@ namespace CORSV2.forms.user.company
             {
                 companyinfo.Industry = "1";
             }
-            companyinfo.LegalIDCardFile = corporate_id_card_front;
+           // companyinfo.LegalIDCardFile = corporate_id_card_front;
             companyinfo.LegalIDCardNumber = "";
             companyinfo.LegalPerson = Request.Form["corporate"];
             companyinfo.OrganizationCode = Request.Form["business_licence"];
-            companyinfo.PowerOfAttorney = client_authorization_path;
+            //companyinfo.PowerOfAttorney = client_authorization_path;
             companyinfo.SurveyingFile = map_qualification_path;
             companyinfo.SurveyingNumber = Request.Form["map_qualification_sn"];
-            companyinfo.ServiceAgreementFile = secrecy_agreement_path;
+            //companyinfo.ServiceAgreementFile = secrecy_agreement_path;
             
-            cs.WebLogger.WriteErroLog(companyinfo.ServiceAgreementFile);
+            
             try
             {
                 companyinfo.SurveyingQualification = Request.Form["map_level"];
@@ -212,17 +245,20 @@ namespace CORSV2.forms.user.company
             }
             if (DAL.CompanyInfo.Exists(companyinfo.Company))
             {
-               
-                Model.CompanyInfo companyInfo1= DAL.CompanyInfo.GetModel(companyinfo.Company);
-                companyinfo.ID = companyInfo1.ID;
-                DAL.CompanyInfo.Update1(companyinfo);
+                //Response.Write(" <script>function window.onload() {alert( '该机构已认证,不能重复认证！' ); } </script> ");
+               // string json = "{\"code\":200}";
+                Response.Write("{\"code\":100}");
+                Response.End();
+                //Model.CompanyInfo companyInfo1= DAL.CompanyInfo.GetModel(companyinfo.Company);
+                //companyinfo.ID = companyInfo1.ID;
+                //DAL.CompanyInfo.Update1(companyinfo);
 
-                Model.CompanyInfo temp_companyinfo = DAL.CompanyInfo.GetModel(companyinfo.Company);
-                Model.RegisterUser registeruser = DAL.RegisterUser.GetModel(Session["UserName"].ToString());
-                registeruser.CertifiationIndex = temp_companyinfo.ID.ToString();
-                registeruser.CertifiationStatus = 1;
-                registeruser.BelongArea = companyinfo.BelongArea;
-                DAL.RegisterUser.Update(registeruser);
+                //Model.CompanyInfo temp_companyinfo = DAL.CompanyInfo.GetModel(companyinfo.Company);
+                //Model.RegisterUser registeruser = DAL.RegisterUser.GetModel(Session["UserName"].ToString());
+                //registeruser.CertifiationIndex = temp_companyinfo.ID.ToString();
+                //registeruser.CertifiationStatus = 1;
+                //registeruser.BelongArea = companyinfo.BelongArea;
+                //DAL.RegisterUser.Update(registeruser);
 
             }
             else

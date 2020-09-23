@@ -96,6 +96,11 @@
                 data: {"phone1":phone1},
                 type: "get",
                 success: function (result) {
+                    if (phone1 == "" || phone1==null) {
+                        layer.msg('手机号不能为空！', { icon: 1 });
+                        return false;
+                    }
+                            
                     if (result == "1") {
                         //window.location.href = "../login/login.aspx";
                         layer.msg('验证码已经发送', { icon: 1 });
@@ -127,8 +132,14 @@
                 type: "POST",
                 success: function (data) {
                     if (data.code == "200") {
-                     
-                        alert('手机号修改成功!');
+                        layer.msg('手机号修改成功', { icon: 1 });
+                        
+                    }
+                    if (data.code=="100") {
+                        layer.msg('请输入正确的手机号！', function () {
+                            //关闭后的操作
+                        });
+                        return false;
                     }
                     else {
                         layer.msg('手机号修改失败！', function () {

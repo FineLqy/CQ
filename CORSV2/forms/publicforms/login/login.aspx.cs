@@ -20,6 +20,7 @@ namespace CORSV2.forms.publicforms.login
         {
 
 
+
             if (Request["action"] == "getcode")
             {
                 //string code;
@@ -119,7 +120,7 @@ namespace CORSV2.forms.publicforms.login
                     }
                     else if (DAL.RegisterUser.ExistsPhone(username))
                     {
-                        
+
                         registeruser = DAL.RegisterUser.GetModelByPhone(username);
                         tempUserName = registeruser.Phone;
                         sessionUserName = registeruser.UserName;
@@ -143,7 +144,7 @@ namespace CORSV2.forms.publicforms.login
                                 {
 
                                     string SMS = "http://39.108.107.73:8090/sysmonitor/services/monitor/sendmessage.json?key=is8ji3&phone=@phone&message=@message";
-                                    string message = "用户您好：RTK账号"+dr["UserName"].ToString()+"即将到期，请及时登录CORS管理系统查看!";
+                                    string message = "用户您好：RTK账号" + dr["UserName"].ToString() + "即将到期，请及时登录CORS管理系统查看!";
 
                                     SMS = SMS.Replace("@message", message);
                                     SMS = SMS.Replace("@phone", DAL.RTKUserInfo.GetModel(dr["UserName"].ToString()).ContactPhone);
@@ -268,7 +269,7 @@ namespace CORSV2.forms.publicforms.login
 
                     switch (tempUserType)
                     {
-                        
+
                         case 0:
                             Response.Write("<script>location.href = \"/forms/cors_user.aspx\";</script>");
 
@@ -286,7 +287,7 @@ namespace CORSV2.forms.publicforms.login
                             DAL.RegisterUser.Update(registeruser);
                             Response.Write("<script>location.href = \"/forms/cors_user.aspx\";</script>");
 
-                            
+
                             mSysLog.LogTime = DateTime.Now;
                             mSysLog.LogType = 0;
                             mSysLog.UserName = sessionUserName;
@@ -313,7 +314,7 @@ namespace CORSV2.forms.publicforms.login
                             DAL.RegisterUser.Update(registeruser);
                             Response.Write("<script>location.href = \"/forms/cors_admin.aspx\";</script>");
 
-                           
+
                             mSysLog.LogTime = DateTime.Now;
                             mSysLog.LogType = 0;
                             mSysLog.UserName = sessionUserName;
@@ -327,14 +328,14 @@ namespace CORSV2.forms.publicforms.login
 
                     if (Session["UserType"].ToString() == "1")
                     {
-                      
+
 
                         Response.Write("1");
                         Response.End();
                     }
                     if (Session["UserType"].ToString() == "3")
                     {
-                     
+
 
                         Response.Write("3");
                         Response.End();

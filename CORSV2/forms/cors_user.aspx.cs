@@ -49,6 +49,11 @@ namespace CORSV2.forms
                     Response.Write("checking");
                     Response.End();
                 }
+                else if (registeruser.CertifiationStatus == 6)
+                {
+                    Response.Write("changeing");
+                    Response.End();
+                }
 
                 else
                 {
@@ -70,6 +75,11 @@ namespace CORSV2.forms
                 else if(registeruser.CertifiationStatus==1)
                 {
                     Response.Write("checking");
+                    Response.End();
+                }
+                else if (registeruser.CertifiationStatus == 6)
+                {
+                    Response.Write("changeing");
                     Response.End();
                 }
 

@@ -58,7 +58,7 @@ namespace Model
         /// </summary>
         public int TryLoginTimes { set; get; }
         /// <summary>
-        /// 认证状态 0-未认证 1-单位认证中 2-单位认证通过 3-个人认证中 4-个人认证通过 5-认证失败
+        /// 认证状态 0-未认证 1-单位认证中 2-单位认证通过 3-个人认证中 4-个人认证通过 5-认证失败 6-资质变更中
         /// </summary>
         public int CertifiationStatus { set; get; }
         /// <summary>

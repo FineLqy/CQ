@@ -5,6 +5,7 @@ using System.Text;
 using DBUtility;
 using System.Data.SqlClient;
 using System.Data;
+using Model;
 
 namespace DAL
 {
@@ -182,6 +183,39 @@ namespace DAL
                 return null;
             }
         }
+
+        public static Model.RTKUserInfo GetModel2(string UserName)
+        {
+            string strSql = "select * from RTKUserInfo where RegisterUserName = '" + UserName + "'";
+            Model.RTKUserInfo model = new Model.RTKUserInfo();
+            DataSet ds = DBHelperSQL.GetDataSet(strSql, connectionString);
+            model.UserName = UserName;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                model.ID = Convert.ToInt32(ds.Tables[0].Rows[0]["ID"]);
+                model.PassWord = Convert.ToString(ds.Tables[0].Rows[0]["PassWord"]);
+                model.Contact = Convert.ToString(ds.Tables[0].Rows[0]["Contact"]);
+                model.ContactPhone = Convert.ToString(ds.Tables[0].Rows[0]["ContactPhone"]);
+                model.ContactEmail = Convert.ToString(ds.Tables[0].Rows[0]["ContactEmail"]);
+                model.ContactQQ = Convert.ToString(ds.Tables[0].Rows[0]["ContactQQ"]);
+                model.CORSCardNum = Convert.ToString(ds.Tables[0].Rows[0]["CORSCardNum"]);
+                model.ReceiverNum = Convert.ToString(ds.Tables[0].Rows[0]["ReceiverNum"]);
+                model.Company = Convert.ToString(ds.Tables[0].Rows[0]["Company"]);
+                model.RegTime = Convert.ToDateTime(ds.Tables[0].Rows[0]["RegTime"]);
+                model.UserType = Convert.ToInt32(ds.Tables[0].Rows[0]["UserType"]);
+                model.OrderNumber = Convert.ToString(ds.Tables[0].Rows[0]["OrderNumber"]);
+                model.BelongArea = Convert.ToString(ds.Tables[0].Rows[0]["BelongArea"]);
+                model.RegisterUserName = Convert.ToString(ds.Tables[0].Rows[0]["RegisterUserName"]);
+
+                return model;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         /// <summary>
         /// 删除一条数据（根据UserName）
         /// </summary>

@@ -273,7 +273,7 @@ namespace DAL
         {
             string deorder = order.ToLower() == "desc" ? "asc" : "desc";
             int endRecord = offset + limit;
-            string sql = "SELECT * FROM OrderList w1,( SELECT TOP " + limit + " w.ID FROM( SELECT TOP  " + endRecord + "* FROM OrderList where OrderNumber like '%" + search + "%' and "+strwhere+" ORDER BY @sort @order) w ORDER BY w.@sort @deorder) w2 WHERE w1.ID = w2.ID ORDER BY w1.@sort @order";
+            string sql = "SELECT * FROM OrderList w1,( SELECT TOP " + limit + " w.ID FROM( SELECT TOP  " + endRecord + "* FROM OrderList where OrderNumber like '%" + search + "%' and "+strwhere+ " and OrderStatus!=0 ORDER BY @sort @order) w ORDER BY w.@sort @deorder) w2 WHERE w1.ID = w2.ID ORDER BY w1.@sort @order";
             sql = sql.Replace("@sort", sort);
             sql = sql.Replace("@order", order);
             sql = sql.Replace("@deorder", deorder);

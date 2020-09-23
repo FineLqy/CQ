@@ -144,7 +144,17 @@ namespace CORSV2.forms.administrator.users
             if (status == "OK")
             {
                 //1为单位认证中，加1就是2认证通过  3为个人认证中，加1就是4认证通过
-                registerUser.CertifiationStatus += 1;
+                if (registerUser.CertifiationStatus==1)
+                {
+                    registerUser.CertifiationStatus = 2;
+                }
+                if (registerUser.CertifiationStatus ==6)
+                {
+                    registerUser.CertifiationStatus = 2;
+               
+                }
+                
+              
                 //
                 string SMS = "http://39.108.107.73:8090/sysmonitor/services/monitor/sendmessage.json?key=is8ji3&phone=@phone&message=@message";
                 string message = "用户您好：您的CORS账号资质认证申请已通过，可以登录系统进行查看!";
@@ -300,6 +310,11 @@ namespace CORSV2.forms.administrator.users
                 {
                     dr["qualificationCertifyCheck"] = "<a style='color:limegreen;' id='" + dr["ID"] + "'  >认证通过</a>";
                 }
+                else if (DAL.RegisterUser.GetModel(Convert.ToInt32(dr["ID"])).CertifiationStatus == 6)
+                {
+                    dr["qualificationCertifyCheck"] = "<a style='color:red;' id='" + dr["ID"] + "' onclick=qualificationCertifyCheck(this.id) >待审核</a>";
+                }
+
                 else
                 {
                     dr["qualificationCertifyCheck"] = "<a style='color:black;' id='" + dr["ID"] + "'  >认证失败</a>";

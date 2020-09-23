@@ -381,8 +381,6 @@ D:\项目\重庆\CQ\DAL\bin\Debug\qcloudsms_csharp.dll
 D:\项目\重庆\CQ\DAL\bin\Debug\Model.pdb
 D:\项目\重庆\CQ\DAL\bin\Debug\DBUtility.pdb
 D:\项目\重庆\CQ\DAL\bin\Debug\Newtonsoft.Json.xml
-D:\项目\重庆\CQ\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
-D:\项目\重庆\CQ\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-D:\项目\重庆\CQ\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\项目\重庆\CQ\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\项目\重庆\CQ\DAL\obj\Debug\DAL.dll
 D:\项目\重庆\CQ\DAL\obj\Debug\DAL.pdb

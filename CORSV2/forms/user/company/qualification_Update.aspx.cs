@@ -29,14 +29,36 @@ namespace CORSV2.forms.user.company
                 Response.End();
             }
 
-            if (Request["action"] != "" && Request["action"] == "AddData")
+            if (Request["action"] != "" && Request["action"] != null)
             {
-                AddData();
+                if (Request["action"] == "AddData")
+                {
+                    AddData();
+                }
+                if (Request["action"] == "save")
+                {
+                    save();
+                }
+                if (Request["action"].ToString() == "check")
+                {
+                    string username = Request["data"].ToString();
+                    DAL.CompanyInfo du = new DAL.CompanyInfo();
+                    if (DAL.CompanyInfo.Exists(username))
+                    {
+                        Response.Clear();
+                        Response.Write("1");
+                        Response.End();
+                    }
+                    else
+                    {
+                        Response.Clear();
+                        Response.Write("0");
+                        Response.End();
+
+                    }
+                }
             }
-            if (Request["action"] != "" && Request["action"] == "save")
-            {
-                save();
-            }
+        
             if (!IsPostBack)
             {
 
@@ -49,7 +71,7 @@ namespace CORSV2.forms.user.company
                 switch (companyinfo.Industry)
                 {
                     case "1":
-                        type_id.Value = "测绘资质单位";
+                        type_id.Value = "市内测绘资质单位";
                         break;
                     case "2":
                         type_id.Value = "政府机构";
@@ -60,9 +82,19 @@ namespace CORSV2.forms.user.company
                     case "4":
                         type_id.Value = "高校/科研院所";
                         break;
-                    default:
+                    case "5":
                         type_id.Value = "其他非测绘资质执证单位";
                         break;
+                    case "6":
+                        type_id.Value = "市外测绘资质单位";
+                        break;
+                    case "7":
+                        type_id.Value = "市外非测绘资质单位";
+                        break;
+                    case "8":
+                        type_id.Value = "市内非测绘资质单位";
+                        break;
+                   
                 }
                 maplevel.Value = companyinfo.SurveyingQualification;
                 map_qualification_sn.Value = companyinfo.SurveyingNumber;
@@ -70,10 +102,10 @@ namespace CORSV2.forms.user.company
                 corporate_tel.Value = companyinfo.CompanyTel;
                 business_licence.Value = companyinfo.OrganizationCode;
                 address.Value = companyinfo.Address;
-                business_licence_path_file_.Src = companyinfo.BusinessLicense;
-                corporate_id_card_front_file_.Src = companyinfo.LegalIDCardFile;
-                secrecy_agreement_path_file_.Src = companyinfo.ServiceAgreementFile;
-                client_authorization_path_file_.Src = companyinfo.PowerOfAttorney;
+                //business_licence_path_file_.Src = companyinfo.BusinessLicense;
+                //corporate_id_card_front_file_.Src = companyinfo.LegalIDCardFile;
+                //secrecy_agreement_path_file_.Src = companyinfo.ServiceAgreementFile;
+                //client_authorization_path_file_.Src = companyinfo.PowerOfAttorney;
 
 
                 contact_name.Value = companyinfo.Contact;
@@ -139,9 +171,10 @@ namespace CORSV2.forms.user.company
 
             switch (type_id.Value)
             {
-                case "测绘资质单位":
+                case "市内测绘资质单位":
                     updateinfo.Industry = "1";
                     break;
+
                 case "政府机构":
                     updateinfo.Industry = "2";
                     break;
@@ -154,6 +187,15 @@ namespace CORSV2.forms.user.company
                 case "其他非测绘资质执证单位":
 
                     updateinfo.Industry = "5";
+                    break;
+                case "市外测绘资质单位":
+                    updateinfo.Industry = "6";
+                    break;
+                case "市外非测绘资质单位":
+                    updateinfo.Industry = "7";
+                    break;
+                case "市内非测绘资质单位":
+                    updateinfo.Industry = "8";
                     break;
             }
             updateinfo.SurveyingQualification = maplevel.Value;
@@ -179,18 +221,18 @@ namespace CORSV2.forms.user.company
                
             }
 
-            if (corporate_id_card_front == "")
-            {
-                updateinfo.LegalIDCardFile = corporate_id_card_front_file_.Src;
+            //if (corporate_id_card_front == "")
+            //{
+            //    updateinfo.LegalIDCardFile = corporate_id_card_front_file_.Src;
               
-            }
-            else
-            {
-                updateinfo.LegalIDCardFile = corporate_id_card_front;
+            //}
+            //else
+            //{
+            //    updateinfo.LegalIDCardFile = corporate_id_card_front;
               
 
 
-            }
+            //}
             if (map_qualification_path == "")
             {
                 updateinfo.SurveyingFile = map_qualification_path_file_.Src;
@@ -199,35 +241,46 @@ namespace CORSV2.forms.user.company
             {
                 updateinfo.SurveyingFile = map_qualification_path;
             }
-            if (secrecy_agreement_path=="")
+            //if (secrecy_agreement_path=="")
+            //{
+            //    updateinfo.ServiceAgreementFile = secrecy_agreement_path_file_.Src;
+            //}
+            //else
+            //{
+            //    updateinfo.ServiceAgreementFile = secrecy_agreement_path;
+            //}
+            //if (client_authorization_path=="")
+            //{
+            //    updateinfo.PowerOfAttorney = client_authorization_path_file_.Src;
+            //}
+            //else
+            //{
+            //    updateinfo.PowerOfAttorney = client_authorization_path;
+            //}
+            if (DAL.CompanyInfo.Exists(updateinfo.Company))
             {
-                updateinfo.ServiceAgreementFile = secrecy_agreement_path_file_.Src;
+                Response.Clear();
+                Response.Write("-1");
+                Response.End();
             }
             else
             {
-                updateinfo.ServiceAgreementFile = secrecy_agreement_path;
-            }
-            if (client_authorization_path=="")
-            {
-                updateinfo.PowerOfAttorney = client_authorization_path_file_.Src;
-            }
-            else
-            {
-                updateinfo.PowerOfAttorney = client_authorization_path;
-            }
+                DAL.CompanyInfo.Update(updateinfo);
 
+                Model.RegisterUser registeruser = DAL.RegisterUser.GetModel(Session["UserName"].ToString());
+                registeruser.CertifiationStatus = 6;
+                DAL.RegisterUser.Update(registeruser);
+
+
+
+                Response.Clear();
+                Response.Write("1");
+                Response.End();
+            }
+            
+                    
                   
-                    DAL.CompanyInfo.Update(updateinfo);
-
-                    Model.RegisterUser registeruser = DAL.RegisterUser.GetModel(Session["UserName"].ToString());
-                    registeruser.CertifiationStatus = 1;
-                    DAL.RegisterUser.Update(registeruser);
-         
-       
-
-            Response.Clear();
-                    Response.Write("1");
-                    Response.End();
+                
                 }
 
     }

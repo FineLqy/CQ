@@ -62,11 +62,11 @@
                                                             <h3 class="shop-checkblock-item-title">提供厘米级服务</h3>
                                                             <p class="shop-checkblock-item-desc">适用于平时作业</p>
                                                             <input id="cm_service" type="radio" name="demo-product" value="" class="shop-checkblock-item-radio" /></label></li>
-                                                    <li>
+                                                  <%--  <li>
                                                         <label id="mm_service-label" class="shop-checkblock-item" data-value="mm">
                                                             <h3 class="shop-checkblock-item-title">提供毫米级服务</h3>
                                                             <p class="shop-checkblock-item-desc">适用于精密定位</p>
-                                                            <input id="mm_service" type="radio" name="demo-product" value="" class="shop-checkblock-item-radio" /></label></li>
+                                                            <input id="mm_service" type="radio" name="demo-product" value="" class="shop-checkblock-item-radio" /></label></li>--%>
                                                 </ul>
                                             </div>
                                         </div>
@@ -77,7 +77,7 @@
                                         </label>
                                         <div class="shop-list-con" id="liteMarketImageList"></div>
                                     </li>
-                                    <li class="list" style="">
+                                 <%--   <li class="list" style="">
                                         <label class="shop-list-tit">
                                             <span>增值服务</span>
                                         </label>
@@ -126,7 +126,8 @@
                                             </ul>
                                         </div>
 
-                                    </li>
+                                    </li>--%>
+
                                 </ul>
                                 <div class="slice"></div>
                                 <ul class="shop-list">
@@ -305,7 +306,7 @@
                                         </label>
                                         <div class="shop-list-con" id="liteMarketImageList1"></div>
                                     </li>
-                                    <li class="list" style="">
+                                  <%--  <li class="list" style="">
                                         <label class="shop-list-tit">
                                             <span>增值服务</span>
                                         </label>
@@ -354,7 +355,9 @@
                                             </ul>
                                         </div>
 
-                                    </li>
+                                    </li>--%>
+
+
                                 </ul>
                                 <div class="slice"></div>
                                
@@ -565,15 +568,15 @@
             $(this).css({ "border-color": "rgb(0, 121, 219)" });
             servertype = $(this).attr("data-value");
         });
-        $(".shop-os-item").click(function () {
-            if ($(this).css("border-color") == "rgb(219, 219, 219)") {
-                $(this).css({ "border-color": "rgb(0, 121, 219)" });
+        //$(".shop-os-item").click(function () {
+        //    if ($(this).css("border-color") == "rgb(219, 219, 219)") {
+        //        $(this).css({ "border-color": "rgb(0, 121, 219)" });
 
-            }
-            else {
-                $(this).css({ "border-color": "rgb(219, 219, 219)" });
-            }
-        })
+        //    }
+        //    else {
+        //        $(this).css({ "border-color": "rgb(219, 219, 219)" });
+        //    }
+        //})
         
 
        

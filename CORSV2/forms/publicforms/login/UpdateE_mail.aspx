@@ -107,7 +107,7 @@
                     //window.parent.location.href = "/forms/publicforms/login/login.aspx";
                     //alert('修改成功,将会跳转到登录界面');
                     layer.msg('邮箱修改成功！');
-                   // window.setTimeout("window.parent.location='/forms/publicforms/login/login.aspx';", 500);
+                    window.setTimeout("window.parent.location='../../cors_user.aspx';", 500);
                 } else {
                     layer.msg("邮箱修改失败");
                     return false;

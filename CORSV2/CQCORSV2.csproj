@@ -188,6 +188,8 @@
     <Content Include="forms\cors_admin.aspx" />
     <Content Include="forms\cors_user.aspx" />
     <Content Include="forms\functions\GetOnlineUserDt.aspx" />
+    <Content Include="forms\functions\UserInfoAPI.aspx" />
+    <Content Include="forms\functions\WeChatApi.aspx" />
     <Content Include="forms\HomePage.aspx" />
     <Content Include="forms\index\about.aspx" />
     <Content Include="forms\index\contact.aspx" />
@@ -4978,6 +4980,20 @@
     </Compile>
     <Compile Include="forms\functions\GetWorkingArea.ashx.cs">
       <DependentUpon>GetWorkingArea.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\functions\UserInfoAPI.aspx.cs">
+      <DependentUpon>UserInfoAPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\functions\UserInfoAPI.aspx.designer.cs">
+      <DependentUpon>UserInfoAPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\functions\WeChatApi.aspx.cs">
+      <DependentUpon>WeChatApi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\functions\WeChatApi.aspx.designer.cs">
+      <DependentUpon>WeChatApi.aspx</DependentUpon>
     </Compile>
     <Compile Include="forms\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>

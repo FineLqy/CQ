@@ -94,6 +94,15 @@ namespace CORSV2.forms.user.company {
         protected global::System.Web.UI.HtmlControls.HtmlInputText address;
         
         /// <summary>
+        /// change_document_path_file_ 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage change_document_path_file_;
+        
+        /// <summary>
         /// map_qualification_path_file 控件。
         /// </summary>
         /// <remarks>
@@ -119,42 +128,6 @@ namespace CORSV2.forms.user.company {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage business_licence_path_file_;
-        
-        /// <summary>
-        /// corporate_id_card_front_file_ 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage corporate_id_card_front_file_;
-        
-        /// <summary>
-        /// operator_id_card_front_file_ 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage operator_id_card_front_file_;
-        
-        /// <summary>
-        /// secrecy_agreement_path_file_ 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage secrecy_agreement_path_file_;
-        
-        /// <summary>
-        /// client_authorization_path_file_ 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage client_authorization_path_file_;
         
         /// <summary>
         /// contact_name 控件。

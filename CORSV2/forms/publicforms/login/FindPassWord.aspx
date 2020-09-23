@@ -112,6 +112,10 @@
                 },
                 type: "get",
                 success: function (result) {
+                    if (phone1 == "" || phone1 == null) {
+                        layer.msg('手机号不能为空！', { icon: 1 });
+                        return false;
+                    }
                     if (result == "1") {
                         //window.location.href = "../login/login.aspx";
                         curCount1 = count;
@@ -150,9 +154,16 @@
                 dataType: "json",
                 type: "POST",
                 success: function (data) {
+                   
                     if (data.code == "200") {
                         window.location.href = "../login/login.aspx";
                         alert('重置密码成功,将会跳转到登录界面');
+                    }
+                    if (data.code == "100") {
+                        layer.msg('请输入手机号码！', function () {
+                            //关闭后的操作
+                        });
+                        return false;
                     }
                     else {
                         layer.msg('重置密码失败！', function () {

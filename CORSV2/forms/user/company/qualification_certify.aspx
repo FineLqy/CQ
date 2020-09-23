@@ -102,10 +102,34 @@
 
                             <ul class="centerFormUl" style="padding-top: 0;">
                                 <li class="vertifyLiTitle titleBottom">基本信息填写</li>
+                                    <li class="clearfix">
+
+                                    <label class="labelLeft"><span class="required">*</span>认证用户类型：</label>
+                                    <div class="labelRight" style="width:500px">
+                                        <div class="controls">
+                                            <label class="radio">
+                                                <input checked="checked" type="radio" name="type_id" class="type_id" value="1"  />
+                                                	企业用户											
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="type_id" class="type_id" value="2" disabled="disabled" />
+                                               个人用户											
+                                            </label>
+                                          
+                                        
+                                        </div>
+                                        <i class="errorTips errorCompany" hidden="true" style="display: none;">
+                                            <span class="fa fa-warning"></span><em></em>
+                                        </i>
+                                    </div>
+                                </li>
+
+
+
                                 <li class="clearfix">
                                     <label class="labelLeft"><span class="required">*</span>机构名称：</label>
                                     <div class="labelRight" style="width:500px">
-                                        <input type="text" name="company_name" value="" id="company_name" class="form-control width-300 " placeholder="请确保跟公章信息一致" runat="server">
+                                        <input type="text" name="company_name" value="" id="company_name" npropertychange="check()" oninput="check()" required="required" class="form-control width-300 " placeholder="请确保跟公章信息一致" runat="server">
                                         <i class="errorTips errorCompany" hidden="true" style="display: none;">
                                             <span class="fa fa-warning"></span><em></em>
                                         </i>
@@ -120,7 +144,20 @@
                                         <div class="controls">
                                             <label class="radio">
                                                 <input checked="checked" type="radio" name="company_type_id" class="company_type_id" value="1"  />
-                                                测绘资质单位												
+                                                市内测绘资质单位												
+                                            </label>
+                                             <div class="controls">
+                                            <label class="radio">
+                                                <input  type="radio" name="company_type_id" class="company_type_id" value="8"  />
+                                                市内非测绘资质单位												
+                                            </label>
+                                                 <label class="radio">
+                                                <input type="radio" name="company_type_id" class="company_type_id" value="6" />
+                                               市外测绘资质单位											
+                                            </label>
+                                             <label class="radio">
+                                                <input type="radio" name="company_type_id" class="company_type_id" value="7" />
+                                               市外非测绘资质单位											
                                             </label>
                                             <label class="radio">
                                                 <input type="radio" name="company_type_id" class="company_type_id" value="2"  />
@@ -138,10 +175,7 @@
                                                 <input type="radio" name="company_type_id" class="company_type_id" value="5" />
                                                 其他非测绘资质执证单位												
                                             </label>
-                                            <label class="radio">
-                                                <input type="radio" name="company_type_id" class="company_type_id" value="6" />
-                                               市外测绘资质单位											
-                                            </label>
+                                       
                                         </div>
                                         <i class="errorTips errorCompany" hidden="true" style="display: none;">
                                             <span class="fa fa-warning"></span><em></em>
@@ -155,7 +189,6 @@
                                     <select name="map_level" id="map_level" class="select2-select min-width-200" runat="server">
                                       
                                             <option value="">请选择...</option>
-
                                             <option value="甲级">甲级</option>
                                             <option value="乙级">乙级</option>
                                             <option value="丙级">丙级</option>
@@ -342,7 +375,7 @@
                                 </li>
 
 
-                                <li class="clearfix" style="height: auto;">
+                             <%--   <li class="clearfix" style="height: auto;">
                                     <label class="labelLeft"><span class="required">*</span>法定代表人身份证：</label>
                                     <div class="labelRight" style="width:500px">
                                         <!--用来存放item-->
@@ -434,7 +467,7 @@
                                         <i class="tipsFile">图片大小不要超过5M，支持PNG，JPG格式.<a target="_blank" href="">请点击下载模板</a>,并打印<span class="text-error">填写盖章</span>扫描后,上传扫描件.</i>
 
                                     </div>
-                                </li>
+                                </li>--%>
                              <%--   服务协议（盖章）”--%>
                                 <%--  <li class="clearfix " style="height: auto;">
                                     <label class="labelLeft"><span class="required">*</span>服务协议（盖章）：</label>
@@ -626,7 +659,7 @@
             }, thumbnailWidth, thumbnailHeight);
 
             $('img').zoomify();
-            $('.centerBtnCompany').removeAttr("disabled");
+         //   $('.centerBtnCompany').removeAttr("disabled");
         });
 
         // 文件上传失败，显示上传出错。
@@ -795,15 +828,26 @@
                 $('.errorTips').hide();
                 $(":input[name='company_name']").siblings('i').show().find('em').html('机构名称填写错误');
                 return false;
-            }
+            } 
+            $.get("?action=check&&data=" + company_name.trim(), function (result) {
+                if (result == "1") {
+                    return true;
+                }
+                else {
+                    $(":input[name='company_name']").siblings('i').show().find('em').html('该机构已认证,不能重复认证！');
+                   
+                    return false;
+                }
+            })
 
             //机构类型
             company_type_id = $(":input[name='company_type_id']:checked").val();
+            alert(company_type_id)
             //测绘资质企业, 需要多校验几个内容
-            if (company_type_id == 1) {
+            if (company_type_id == 1 || company_type_id == 6) {
                 //*测绘资质等级：
                 map_level = $('#map_level').val();
-                if (map_level == '') {
+                if (map_level == ''||map_level ==null) {
                     $(":input[name='map_level']").focus();
                     $('.errorTips').hide();
                     $(":input[name='map_level']").siblings('i').show().find('em').html('请选择测绘资质等级');
@@ -967,80 +1011,80 @@
                 return false;
             }
 
+            //法定代表人身份证
+            //if ($("#corporate_id_card_front_file").find("img")[0].src != "") {
+            //    var tt = $("#corporate_id_card_front_file").find("img")[0].src;
+            //}
+            //else {
+            //    var odiv = document.getElementById("corporate_id_card_front_file");
+            //    done(odiv, function (e) {
 
-            if ($("#corporate_id_card_front_file").find("img")[0].src != "") {
-                var tt = $("#corporate_id_card_front_file").find("img")[0].src;
-            }
-            else {
-                var odiv = document.getElementById("corporate_id_card_front_file");
-                done(odiv, function (e) {
+            //    });
+            //    //odiv.onfocus = function () { alert('获取焦点'); }
+            //    odiv.focus();
+            //    //$("#map_qualification_path_file").attr("tabindex","0");
+            //    $('.errorTips').hide();
 
-                });
-                //odiv.onfocus = function () { alert('获取焦点'); }
-                odiv.focus();
-                //$("#map_qualification_path_file").attr("tabindex","0");
-                $('.errorTips').hide();
-
-                $("#corporate_id_card_front_file").siblings('i').show().find('em').html('请上传');
-                return false;
-            }
+            //    $("#corporate_id_card_front_file").siblings('i').show().find('em').html('请上传');
+            //    return false;
+            //}
 
             if (certify_type==2) {
+                //经办人身份证
+                //if ($("#operator_id_card_front_file").find("img")[0].src != "") {
+                //    var tt = $("#operator_id_card_front_file").find("img")[0].src;
+                //}
+                //else {
+                //    var odiv = document.getElementById("operator_id_card_front_file");
+                //    done(odiv, function (e) {
 
-                if ($("#operator_id_card_front_file").find("img")[0].src != "") {
-                    var tt = $("#operator_id_card_front_file").find("img")[0].src;
-                }
-                else {
-                    var odiv = document.getElementById("operator_id_card_front_file");
-                    done(odiv, function (e) {
+                //    });
+                //    //odiv.onfocus = function () { alert('获取焦点'); }
+                //    odiv.focus();
+                //    //$("#map_qualification_path_file").attr("tabindex","0");
+                //    $('.errorTips').hide();
 
-                    });
-                    //odiv.onfocus = function () { alert('获取焦点'); }
-                    odiv.focus();
-                    //$("#map_qualification_path_file").attr("tabindex","0");
-                    $('.errorTips').hide();
-
-                    $("#operator_id_card_front_file").siblings('i').show().find('em').html('请上传');
-                    return false;
-                }
+                //    $("#operator_id_card_front_file").siblings('i').show().find('em').html('请上传');
+                //    return false;
+                //}
             }
 
 
+            //授权委托书扫描件
+            //if ($("#client_authorization_path_file").find("img")[0].src != "") {
+            //    var tt = $("#client_authorization_path_file").find("img")[0].src;
+            //}
+            //else {
+            //    var odiv = document.getElementById("client_authorization_path_file");
+            //    done(odiv, function (e) {
 
-            if ($("#client_authorization_path_file").find("img")[0].src != "") {
-                var tt = $("#client_authorization_path_file").find("img")[0].src;
-            }
-            else {
-                var odiv = document.getElementById("client_authorization_path_file");
-                done(odiv, function (e) {
+            //    });
+            //    //odiv.onfocus = function () { alert('获取焦点'); }
+            //    odiv.focus();
+            //    //$("#map_qualification_path_file").attr("tabindex","0");
+            //    $('.errorTips').hide();
 
-                });
-                //odiv.onfocus = function () { alert('获取焦点'); }
-                odiv.focus();
-                //$("#map_qualification_path_file").attr("tabindex","0");
-                $('.errorTips').hide();
-
-                $("#client_authorization_path_file").siblings('i').show().find('em').html('请上传');
-                return false;
-            }
+            //    $("#client_authorization_path_file").siblings('i').show().find('em').html('请上传');
+            //    return false;
+            //}
 
             //服务协议
-            if ($("#secrecy_agreement_path_file").find("img")[0].src != "") {
-                var tt = $("#secrecy_agreement_path_file").find("img")[0].src;
-            }
-            else {
-                var odiv = document.getElementById("secrecy_agreement_path_file");
-                done(odiv, function (e) {
+            //if ($("#secrecy_agreement_path_file").find("img")[0].src != "") {
+            //    var tt = $("#secrecy_agreement_path_file").find("img")[0].src;
+            //}
+            //else {
+            //    var odiv = document.getElementById("secrecy_agreement_path_file");
+            //    done(odiv, function (e) {
 
-                });
-                //odiv.onfocus = function () { alert('获取焦点'); }
-                odiv.focus();
-                //$("#map_qualification_path_file").attr("tabindex","0");
-                $('.errorTips').hide();
+            //    });
+            //    //odiv.onfocus = function () { alert('获取焦点'); }
+            //    odiv.focus();
+            //    //$("#map_qualification_path_file").attr("tabindex","0");
+            //    $('.errorTips').hide();
 
-                $("#secrecy_agreement_path_file").siblings('i').show().find('em').html('请上传');
-                return false;
-            }
+            //    $("#secrecy_agreement_path_file").siblings('i').show().find('em').html('请上传');
+            //    return false;
+            //}
 
             if ($.trim(contact_name) == '') {
                 $(":input[name='contact_name']").focus();
@@ -1090,7 +1134,7 @@
                 return false;
             }
 
-            $(".centerBtnCompany").attr("disabled", "disabled").val('提交中...');
+            //$(".centerBtnCompany").attr("disabled", "disabled").val('提交中...');
 
 
             $('#verifyCompanyForm').ajaxSubmit({
@@ -1099,29 +1143,56 @@
                 url: '?action=verifycompanyform', //请求url
                 success: function (obj) { //提交成功的回调函数
                     var code = obj.code;
+                    //alert(code);
                     if (code == 200) {
                         layer.alert('资质认证完成，等待审核', {
                             time: 2000
                         }, function () {
                             window.location.href = "/forms/publicforms/login/userinfo.aspx";
                         });
-                    } else {
-                        layer.alert(obj.msg);
-                        $('.centerBtnCompany').removeAttr("disabled");
+                    } if (code == 100) {
+                      
+                        layer.alert("该机构已认证,不能重复认证！");
+                    }
+
+                    else {
+                      
+                       // layer.alert("该机构已认证,不能重复认证！");
+                      //  $('.centerBtnCompany').removeAttr("disabled");
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus)
+                    console.log(errorThrown)
                     if ('413' == XMLHttpRequest.status) {
                         layer.alert('上传的图片文件过大，请控制在5MB内');
-                        $("#verifyPersonForm .centerBtn").removeAttr("disabled").html('提交认证');
+                      //  $("#verifyPersonForm .centerBtn").removeAttr("disabled").html('提交认证');
                     } else {
                         layer.alert('上传出错，请重试');
-                        $("#verifyPersonForm .centerBtn").removeAttr("disabled").html('提交认证');
+                        //$("#verifyPersonForm .centerBtn").removeAttr("disabled").html('提交认证');
                     }
                 }
             });
         })
     </script>
+    <script>
+        function check() {
+            var user = document.getElementById("company_name");
+            var username = user.value.trim();
+            $.get("?action=check&&data=" + username.trim(), function (result) {
+                if (result == "1") {
+                   
+                }
+                else {
+                  $(":input[name='company_name']").siblings('i').show().find('em').html('该机构已认证,不能重复认证！');
+                  
+                    return false;
+                }
+            })
+        }
+    </script>
+
     <script>
         $('img').zoomify();
         function showBig() {

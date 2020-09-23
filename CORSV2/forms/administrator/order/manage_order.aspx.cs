@@ -561,11 +561,11 @@ namespace CORSV2.forms.administrator.order
                     dr["dealStatus"] = "已审核拒绝";
                     dr["verify"] = "<a id='" + dr["ID"] + "'>已审核</a>";
                 }
-                else
-                {
-                    dr["dealStatus"] = "提交未支付";
-                    dr["button"] = "<a id='" + dr["ID"] + "'  style='color:red;' >未支付</a>";
-                }
+                //else
+                //{
+                //    dr["dealStatus"] = "提交未支付";
+                //    dr["button"] = "<a id='" + dr["ID"] + "'  style='color:red;' >未支付</a>";
+                //}
                 //if (dr["IsChecked"].ToString() == "0")
                 //{
                 //    dr["Status"] = "<a style=" + "color:red" + ">注册申请</a>";

@@ -71,27 +71,35 @@ namespace CORSV2.forms.publicforms.login
             if (Request["action"] != null && Request["action"].ToString() == "resetPassword")
             {
                 Model.RegisterUser registerUser = DAL.RegisterUser.GetModel(userName);
-                registerUser.Phone = Request["phone"].ToString();
-               
-                DAL.RegisterUser.Update(registerUser);
-
-                string SMS = "http://39.108.107.73:8090/sysmonitor/services/monitor/sendmessage.json?key=is8ji3&phone=@phone&message=@message";
-                string message = "尊敬的用户您好：平台手机已经成功修改!";
-                SMS = SMS.Replace("@message", message);
-                SMS = SMS.Replace("@phone", Request["phone"]);
-
-                if (cs.HttpHelper.SendSMS(SMS))
+                if (Request["phone"].ToString()!=null)
                 {
+                    registerUser.Phone = Request["phone"].ToString();
 
+                    string SMS = "http://39.108.107.73:8090/sysmonitor/services/monitor/sendmessage.json?key=is8ji3&phone=@phone&message=@message";
+                    string message = "尊敬的用户您好：平台手机已经成功修改!";
+                    SMS = SMS.Replace("@message", message);
+                    SMS = SMS.Replace("@phone", Request["phone"]);
+
+                    if (cs.HttpHelper.SendSMS(SMS))
+                    {
+                        DAL.RegisterUser.Update(registerUser);
+                    }
+                    else
+                    {
+                        cs.WebLogger.WriteErroLog("短信发送错误");    //输出到文件中
+                    }
+
+
+                    Response.Write("{\"code\":200}");
+                    Response.End();
                 }
                 else
                 {
-                    cs.WebLogger.WriteErroLog("短信发送错误");    //输出到文件中
+                    Response.Write("{\"code\":100}");
+                    Response.End();
+
                 }
-
-
-                Response.Write("{\"code\":200}");
-                Response.End();
+               
             }
 
 
